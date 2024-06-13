@@ -31,7 +31,7 @@ export default function Home() {
                     src="https://www.xborg.com/_next/image?url=%2Fimages%2Flanding%2Favatar.png&w=3840&q=75"
                     alt="charachter"
                     fill
-                    className=" object-cover bg-center scale-[2.6]"
+                    className=" object-contain bg-center scale-[3.4]"
                   />
                 </div>
                 <div className="col-span-8 grid-cols-subgrid-4 grid gap-4 relative z-10 ">
