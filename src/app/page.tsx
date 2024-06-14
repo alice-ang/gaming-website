@@ -1,4 +1,10 @@
-import { Constraints, Roadmap, SnapSection, ZoomHero } from "@/components";
+import {
+  Constraints,
+  ImageGrid,
+  Roadmap,
+  SnapSection,
+  ZoomHero,
+} from "@/components";
 import {
   Card,
   CardHeader,
@@ -7,6 +13,7 @@ import {
   CardDescription,
   CardFooter,
 } from "@/components/ui/card";
+import { bentoItems } from "@/lib/mock";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
@@ -14,17 +21,12 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <div className="">
-        <section className="py-24">
-          <Constraints>
-            <Roadmap />
-          </Constraints>
-        </section>
-        {Array.from({ length: 2 }).map((_, index) => (
-          <section key={index} className="min-h-screen py-24">
+        {Array.from({ length: 1 }).map((_, index) => (
+          <section key={index} className="h-screen py-24">
             <Constraints>
               <div className="flex flex-col justify-between items-stretch h-full">
                 <div className="flex items-center justify-center flex-col space-y-4 max-w-2xl mx-auto text-center">
-                  <h1>Welcome to Clubhouse on Haunted Hill</h1>
+                  <h1>Accept the invitation</h1>
                   <p>
                     Dare to accept the invitation from enigmatic millionaire
                     Nicolas Craven and embark on a spine-chilling golf adventure
@@ -41,31 +43,26 @@ export default function Home() {
                     />
                   </div>
                   <div className="col-span-12 md:col-span-8 grid-cols-subgrid-4 grid gap-4 relative z-10 ">
-                    {Array.from({ length: 3 }).map((_, index) => (
+                    {bentoItems.map((item, index) => (
                       <div
                         className={cn(
                           index === 0 ? "col-span-4" : "col-span-2"
                         )}
                         key={index}
                       >
-                        <Card>
+                        <Card className="h-full">
                           <CardHeader>
-                            <CardTitle>Gaming Launchpad</CardTitle>
+                            <CardTitle>{item.title}</CardTitle>
                             <CardDescription>
-                              Funding the most-promising gaming projects.
+                              {item.description}
                             </CardDescription>
                           </CardHeader>
                           <CardContent>
-                            <span>
-                              Dare to accept the invitation from enigmatic
-                              millionaire Nicolas Craven and embark on a
-                              spine-chilling golf adventure at the Club House on
-                              Haunted Hill.
-                            </span>
+                            <span>{item.content}</span>
                           </CardContent>
-                          <CardFooter>
+                          {/* <CardFooter>
                             <p>Visit Launchpad</p>
-                          </CardFooter>
+                          </CardFooter> */}
                         </Card>
                       </div>
                     ))}
@@ -76,6 +73,14 @@ export default function Home() {
           </section>
         ))}
       </div>
+      <section className="py-24">
+        <Constraints>
+          <Roadmap />
+        </Constraints>
+      </section>
+      <section>
+        <ImageGrid />
+      </section>
     </main>
   );
 }

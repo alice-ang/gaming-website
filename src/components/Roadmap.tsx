@@ -37,7 +37,7 @@ export const Roadmap = () => {
             key={index}
             className="md:basis-1/2 xl:basis-1/3 space-y-4"
           >
-            <h2>Q{index + 1} 2024</h2>
+            <h2 className="text-palette-yellow">Q{index + 1} 2024</h2>
             <div className="border-l-2 p-4 ">
               <p>
                 Create your gaming identity and unlock a new world of

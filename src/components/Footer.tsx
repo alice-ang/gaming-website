@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "./ui/button";
 import { footerLinks } from "@/lib/mock";
+import { Separator } from "./ui/separator";
 
 export const Footer = () => {
   const ref = useRef(null);
@@ -16,12 +17,18 @@ export const Footer = () => {
   const saluteY = useTransform(scrollYProgress, [0, 1], ["70%", "100%"]);
 
   return (
-    <div className="relative overflow-hidden">
+    <section className="relative overflow-hidden">
       <Constraints>
         <div
           className="grid grid-cols-12 items-center relative py-56"
           ref={ref}
         >
+          <Image
+            src={"/victims.png"}
+            fill
+            alt="Characters"
+            className="object-contain bg-right object-center	absolute opacity-10 aspect-video -rotate-6 scale-90 translate-x-56"
+          />
           <div className="col-span-12 md:col-span-6 ">
             <button className="text-2xl text-palette-yellow border border-palette-yellow px-6 py-2 -rotate-12 mb-4">
               Community
@@ -32,15 +39,8 @@ export const Footer = () => {
               Swing
             </h2>
           </div>
-          <div className="col-span-12 md:col-span-6 relative ">
-            <Image
-              src={"/victims.png"}
-              width={680}
-              height={680}
-              alt="Characters"
-              className="object-contain bg-center object-center absolute opacity-10"
-            />
-            <div className="space-y-8 items-start justify-start flex flex-col ">
+          <div className="col-span-12 md:col-span-6 h-full relative items-center justify-center flex flex-col">
+            <div className="space-y-8 items-start justify-start flex flex-col relative">
               <div className="space-y-4">
                 <h4>Official forums</h4>
                 <p>
@@ -54,6 +54,7 @@ export const Footer = () => {
               socials
             </div>
           </div>
+
           <motion.img
             style={{
               y: saluteY,
@@ -73,7 +74,7 @@ export const Footer = () => {
       <footer className="relative ">
         <div className=" w-full bg-[url('/footer.png')] h-16 -top-16  bg-no-repeat object-cover bg-center bg-cover absolute z-100" />
 
-        <div className="bg-[#00141D] p-4 ">
+        <div className="bg-[#000B10] p-4 ">
           <Constraints>
             <div className="space-y-16">
               <Image
@@ -131,9 +132,22 @@ export const Footer = () => {
                   </div>
                 </div>
               </div>
+              <Separator />
+              <div className="flex flex-row justify-between flex-wrap items-center gap-4 lg:gap-x-32 lg:gap-y-4 ">
+                {Array.from({ length: 4 }).map((_, index) => (
+                  <Image
+                    src={"/gibbet.png"}
+                    alt="logo-full"
+                    width={120}
+                    height={30}
+                    key={index}
+                  />
+                ))}
+              </div>
+
               <div className="flex flex-row justify-between items-center">
                 <p className="text-palette-darkGrey text-sm">
-                  © 2024 Arrowhead Game Studios | All Rights Reserved.
+                  © 2024 Arrowhead Game Studios | All Rights Reserved
                 </p>
                 <p className="text-palette-darkGrey text-sm">
                   Website crafted by Alice A
@@ -143,6 +157,6 @@ export const Footer = () => {
           </Constraints>
         </div>
       </footer>
-    </div>
+    </section>
   );
 };
