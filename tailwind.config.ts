@@ -26,6 +26,7 @@ const config = {
           purple: "#B286FE",
           red: "#E55733",
           body: "#898889",
+          yellow: "#FCEA46",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

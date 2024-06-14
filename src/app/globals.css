@@ -102,3 +102,30 @@
     @apply mt-6 border-l-2 pl-6 italic;
   }
 }
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .title {
+    font-size: 8rem;
+    line-height: 7.5rem;
+  }
+  .hero-title {
+    font-size: 6rem;
+    line-height: 7rem;
+    letter-spacing: 0.025em;
+    text-align: center;
+  }
+
+  .overline-title {
+    @apply text-palette-yellow;
+    @apply uppercase;
+    @apply text-base;
+  }
+  .text-stroke {
+    -webkit-text-stroke: 1px #fced31;
+    text-stroke: 1px #fced31;
+  }
+}

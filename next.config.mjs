@@ -17,6 +17,11 @@ const nextConfig = {
         hostname: "www.xborg.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "uploads-ssl.webflow.com",
+        port: "",
+      },
     ],
   },
 };
