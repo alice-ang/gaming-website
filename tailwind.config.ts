@@ -18,6 +18,10 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        baskerville: "var(--font-baskerville)",
+      },
+
       colors: {
         palette: {
           green: "#B2F042",

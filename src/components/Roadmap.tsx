@@ -22,15 +22,11 @@ export const Roadmap = () => {
       opts={{
         align: "start",
       }}
+      layout="slider"
       className="w-full space-y-4"
     >
-      <div className="flex justify-between">
-        <h1 className="pb-12">Our roadmap</h1>
-        <div className="flex gap-4">
-          <CarouselPrevious />
-          <CarouselNext />
-        </div>
-      </div>
+      <h1 className="pb-12">Our roadmap</h1>
+
       <CarouselContent className="">
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem
@@ -50,6 +46,8 @@ export const Roadmap = () => {
           </CarouselItem>
         ))}
       </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
     </Carousel>
   );
 };

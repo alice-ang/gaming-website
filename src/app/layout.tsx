@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ModeToggle } from "@/components/ThemeToggle";
 import { Footer } from "@/components";
-
-const inter = Inter({ subsets: ["latin"] });
+import { baskerville, oswald } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Clubhouse on Haunted Hill",
@@ -19,16 +17,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${oswald.variable} ${baskerville.variable}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <nav>
+          {/* <nav>
             <ModeToggle />
-          </nav>
+          </nav> */}
           {children}
           <Footer />
         </ThemeProvider>

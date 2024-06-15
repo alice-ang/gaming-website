@@ -27,7 +27,7 @@ export const Footer = () => {
             src={"/victims.png"}
             fill
             alt="Characters"
-            className="object-contain bg-right object-center	absolute opacity-10 aspect-video -rotate-6 scale-90 translate-x-56"
+            className="object-contain bg-right object-center absolute opacity-10 aspect-video -rotate-6 scale-90 lg:translate-x-56 "
           />
           <div className="col-span-12 md:col-span-6 ">
             <button className="text-2xl text-palette-yellow border border-palette-yellow px-6 py-2 -rotate-12 mb-4">
@@ -74,7 +74,7 @@ export const Footer = () => {
       <footer className="relative ">
         <div className=" w-full bg-[url('/footer.png')] h-16 -top-16  bg-no-repeat object-cover bg-center bg-cover absolute z-100" />
 
-        <div className="bg-[#000B10] p-4 ">
+        <div className="bg-[#000d13] p-4 ">
           <Constraints>
             <div className="space-y-16">
               <Image

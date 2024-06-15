@@ -71,11 +71,11 @@
     @apply border-border;
   }
   body {
-    @apply bg-[#06141d] text-white;
+    @apply bg-[#06141d] text-white overscroll-none;
   }
 
   html {
-    @apply scroll-smooth;
+    @apply overscroll-none;
   }
 
   h1 {
@@ -91,11 +91,15 @@
   }
 
   h4 {
-    @apply text-xl font-semibold tracking-tight;
+    @apply text-2xl font-semibold tracking-tight;
   }
 
   p {
-    @apply leading-7 text-palette-lightGrey;
+    @apply leading-7 text-palette-lightGrey text-lg;
+  }
+
+  span {
+    @apply leading-7 text-lg;
   }
 
   blockquote {
@@ -128,4 +132,23 @@
     -webkit-text-stroke: 1px #fced31;
     text-stroke: 1px #fced31;
   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+button a {
+  font-family: var(--font-oswald);
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+p,
+a,
+span {
+  font-family: var(--font-baskerville);
 }

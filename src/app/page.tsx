@@ -2,8 +2,8 @@ import {
   Constraints,
   ImageGrid,
   Roadmap,
-  SnapSection,
-  ZoomHero,
+  StatsCard,
+  ZoomHeader,
 } from "@/components";
 import {
   Card,
@@ -11,7 +11,6 @@ import {
   CardTitle,
   CardContent,
   CardDescription,
-  CardFooter,
 } from "@/components/ui/card";
 import { bentoItems } from "@/lib/mock";
 import { cn } from "@/lib/utils";
@@ -20,9 +19,20 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <div className="">
+      <ZoomHeader />
+
+      <div className="py-24">
+        <Constraints>
+          <div className="grid grid-cols-12 gap-4 ">
+            <div className="col-span-8 ">hej</div>
+
+            <div className="col-span-4  justify-self-center">
+              <StatsCard />
+            </div>
+          </div>
+        </Constraints>
         {Array.from({ length: 1 }).map((_, index) => (
-          <section key={index} className="h-screen py-24">
+          <section key={index} className="h-screen py-24 max-h-[1280px] ">
             <Constraints>
               <div className="flex flex-col justify-between items-stretch h-full">
                 <div className="flex items-center justify-center flex-col space-y-4 max-w-2xl mx-auto text-center">
@@ -34,15 +44,15 @@ export default function Home() {
                   </p>
                 </div>
                 <div className=" grid grid-cols-12 gap-4 h-full items-center ">
-                  <div className="col-span-12 md:col-span-4 relative aspect-video">
+                  <div className="col-span-12 lg:col-span-4 relative aspect-video">
                     <Image
                       src="https://www.xborg.com/_next/image?url=%2Fimages%2Flanding%2Favatar.png&w=3840&q=75"
                       alt="charachter"
                       fill
-                      className=" object-contain bg-center scale-[1.3] md:scale-[3.2]"
+                      className=" object-contain bg-center scale-[1.3] lg:scale-[3.2]"
                     />
                   </div>
-                  <div className="col-span-12 md:col-span-8 grid-cols-subgrid-4 grid gap-4 relative z-10 ">
+                  <div className="col-span-12 lg:col-span-8 grid-cols-subgrid-4 grid gap-4 relative z-10 ">
                     {bentoItems.map((item, index) => (
                       <div
                         className={cn(
