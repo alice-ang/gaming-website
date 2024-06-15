@@ -22,15 +22,6 @@ export default function Home() {
       <ZoomHeader />
 
       <div className="py-24">
-        <Constraints>
-          <div className="grid grid-cols-12 gap-4 ">
-            <div className="col-span-8 ">hej</div>
-
-            <div className="col-span-4  justify-self-center">
-              <StatsCard />
-            </div>
-          </div>
-        </Constraints>
         {Array.from({ length: 1 }).map((_, index) => (
           <section key={index} className="h-screen py-24 max-h-[1280px] ">
             <Constraints>
@@ -82,6 +73,15 @@ export default function Home() {
             </Constraints>
           </section>
         ))}
+        <Constraints>
+          <div className="grid grid-cols-12 gap-4 ">
+            <div className="col-span-8 ">hej</div>
+
+            <div className="col-span-4  justify-self-center">
+              <StatsCard />
+            </div>
+          </div>
+        </Constraints>
       </div>
       <section className="py-24">
         <Constraints>
