@@ -24,7 +24,16 @@ export const ZoomHeader = () => {
         }}
         className=" overflow-hidden top-0 h-screen sticky bg-[url('/blurry.png')] bg-cover bg-bottom object-contain "
       >
-        <div className="flex flex-col justify-center items-center h-full">
+        <div className="flex flex-col justify-center items-center h-full ">
+          <div className=" h-full w-full absolute">
+            <video
+              src="https://a.storyblok.com/f/204235/x/752ad30c94/fog.webm"
+              autoPlay
+              loop
+              muted
+              className="mix-blend-screen saturate-0 h-full w-full object-cover aspect-video"
+            ></video>
+          </div>
           <div className="text-center flex justify-center items-end text-white space-x-4">
             <h2 className="text-2xl md:text-4xl font-semibold uppercase font-baskerville">
               Gibbet games
@@ -42,6 +51,7 @@ export const ZoomHeader = () => {
             className="object-fit"
           />
         </div>
+
         <motion.div
           style={{ scale: bushScale }}
           className="w-full h-full top-0 absolute flex items-center justify-center"

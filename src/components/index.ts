@@ -6,3 +6,4 @@ export * from "./Footer";
 export * from "./ImageGrid";
 export * from "./ZoomHeader";
 export * from "./StatsCard";
+export * from "./VideoContainer";

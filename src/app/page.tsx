@@ -3,6 +3,7 @@ import {
   ImageGrid,
   Roadmap,
   StatsCard,
+  VideoContainer,
   ZoomHeader,
 } from "@/components";
 import {
@@ -18,10 +19,13 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen ">
       <ZoomHeader />
 
       <div className="py-24">
+        <Constraints>
+          <VideoContainer />
+        </Constraints>
         {Array.from({ length: 1 }).map((_, index) => (
           <section key={index} className="h-screen py-24 max-h-[1280px] ">
             <Constraints>
