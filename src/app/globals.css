@@ -71,11 +71,11 @@
     @apply border-border;
   }
   body {
-    @apply bg-palette-background text-white;
+    @apply bg-[#06141d] text-white overscroll-none;
   }
 
   html {
-    @apply scroll-smooth;
+    @apply overscroll-none;
   }
 
   h1 {
@@ -91,14 +91,64 @@
   }
 
   h4 {
-    @apply text-xl font-semibold tracking-tight;
+    @apply text-2xl font-semibold tracking-tight;
   }
 
   p {
-    @apply leading-7 text-palette-lightGrey;
+    @apply leading-7 text-palette-lightGrey text-lg;
+  }
+
+  span {
+    @apply leading-7 text-lg;
   }
 
   blockquote {
     @apply mt-6 border-l-2 pl-6 italic;
   }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .title {
+    font-size: 8rem;
+    line-height: 7.5rem;
+  }
+  .hero-title {
+    font-size: 6rem;
+    line-height: 7rem;
+    letter-spacing: 0.025em;
+    text-align: center;
+  }
+
+  .overline-title {
+    @apply text-palette-yellow;
+    @apply uppercase;
+    @apply text-base;
+  }
+  .text-stroke {
+    -webkit-text-stroke: 1px #fced31;
+    text-stroke: 1px #fced31;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+button a {
+  font-family: var(--font-oswald);
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+p,
+a,
+span {
+  font-family: var(--font-baskerville);
 }
