@@ -1,4 +1,4 @@
-import { Oswald, Baskervville } from "next/font/google";
+import { Oswald, Baskervville, Josefin_Sans } from "next/font/google";
 
 export const oswald = Oswald({
   subsets: ["latin"],
@@ -11,4 +11,10 @@ export const baskerville = Baskervville({
   display: "swap",
   variable: "--font-baskerville",
   weight: "400",
+});
+
+export const josefin_sans = Josefin_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-josefin-sans",
 });

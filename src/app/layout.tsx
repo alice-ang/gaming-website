@@ -3,7 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ModeToggle } from "@/components/ThemeToggle";
 import { Footer } from "@/components";
-import { baskerville, oswald } from "./fonts";
+import { baskerville, josefin_sans, oswald } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Clubhouse on Haunted Hill",
@@ -17,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${oswald.variable} ${baskerville.variable}`}>
+      <body
+        className={`${oswald.variable} ${baskerville.variable} ${josefin_sans.variable}`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

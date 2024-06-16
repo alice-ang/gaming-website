@@ -21,8 +21,10 @@ export default function Home() {
   return (
     <main className="min-h-screen ">
       <ZoomHeader />
-
-      <div className="py-24">
+      {/* <div className="vingette">
+        <img src="https://clubhouseonhauntedhill.com/images/image-_1_-_1_-1.webp" />
+      </div> */}
+      <div className="py-24 ">
         <Constraints>
           <VideoContainer />
         </Constraints>
@@ -77,21 +79,60 @@ export default function Home() {
             </Constraints>
           </section>
         ))}
-        <Constraints>
-          <div className="grid grid-cols-12 gap-4 ">
-            <div className="col-span-8 ">hej</div>
+        <section>
+          <Constraints>
+            <div className="grid grid-cols-12 gap-4 ">
+              <div className="col-span-8 ">hej</div>
 
-            <div className="col-span-4  justify-self-center">
-              <StatsCard />
+              <div className="col-span-4  justify-self-center">
+                <StatsCard />
+              </div>
             </div>
-          </div>
-        </Constraints>
+          </Constraints>
+        </section>
+        {Array.from({ length: 4 }).map((_, index) => (
+          <section key={index} className="py-24">
+            <Constraints>
+              <div className="grid grid-cols-12 gap-4 lg:gap-[130px]">
+                <div
+                  className={cn(
+                    index % 2 ? "order-last " : "text-right",
+                    "col-span-7 space-y-4"
+                  )}
+                >
+                  <h5 className="font-josefin_sans">Overline</h5>
+                  <h2>Welcome to clubhouse on haunted hoöö </h2>
+                  <p>
+                    Dare to accept the invitation from enigmatic millionaire
+                    Nicolas Craven and embark on a spine-chilling golf adventure
+                    at the Club House on Haunted Hill. Immerse yourself in this
+                    semi-horror, story-driven, action-packed, multiplayer golf
+                    game that brings heart-pounding twists and supernatural
+                    thrills to the classic game of golf. Engage in a cinematic
+                    campaign mode, where youll unravel the games story in the
+                    style of a classic horror film, or challenge your friends,
+                    local or online, in a casual yet deadly game of golf.
+                  </p>
+                </div>
+
+                <div className="col-span-5 h-full w-full mask aspect-video relative shadow">
+                  <Image
+                    src="/tree.png"
+                    alt="trees"
+                    className="aspect-video object-cover h-full w-full bg-center"
+                    fill
+                  />
+                </div>
+              </div>
+            </Constraints>
+          </section>
+        ))}
       </div>
-      <section className="py-24">
+      {/* <section className="py-24">
         <Constraints>
           <Roadmap />
         </Constraints>
-      </section>
+      </section> */}
       <section>
         <ImageGrid />
       </section>

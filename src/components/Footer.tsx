@@ -72,9 +72,10 @@ export const Footer = () => {
       </Constraints>
 
       <footer className="relative ">
-        <div className=" w-full bg-[url('/footer.png')] h-16 -top-16  bg-no-repeat object-cover bg-center bg-cover absolute z-100" />
+        {/* <div className=" w-full bg-[url('/splatter-mask.svg')] h-16 -top-16  bg-no-repeat object-contain bg-top bg-cover absolute z-100" /> */}
+        <div className="h-44 footer-mask w-full bg-palette-footer bg-top object-top bg-cover" />
 
-        <div className="bg-[#000d13] p-4 ">
+        <div className="bg-palette-footer p-4 ">
           <Constraints>
             <div className="space-y-16">
               <Image
@@ -146,10 +147,10 @@ export const Footer = () => {
               </div>
 
               <div className="flex flex-row justify-between items-center">
-                <p className="text-palette-darkGrey text-sm">
+                <p className="text-palette-lightGrey text-sm">
                   © 2024 Arrowhead Game Studios | All Rights Reserved
                 </p>
-                <p className="text-palette-darkGrey text-sm">
+                <p className="text-palette-lightGrey text-sm">
                   Website crafted by Alice A
                 </p>
               </div>

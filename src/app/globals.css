@@ -124,7 +124,7 @@
   }
 
   .overline-title {
-    @apply text-palette-yellow;
+    @apply text-palette-red;
     @apply uppercase;
     @apply text-base;
   }
@@ -151,4 +151,30 @@ p,
 a,
 span {
   font-family: var(--font-baskerville);
+}
+
+.vingette {
+  height: 100%;
+  webkit-mask-image: radial-gradient(
+    circle at center,
+    #000 30%,
+    transparent 70%
+  );
+  width: 100%;
+  mask-image: radial-gradient(circle at center, #000 30%, transparent 70%);
+}
+
+.mask {
+  mask-image: url("../../public/img-mask.svg");
+  mask-repeat: no-repeat;
+  mask-size: 100%;
+  mask-position: center;
+}
+
+.footer-mask {
+  -webkit-mask-image: var("../../public/splatter-mask.svg");
+  mask-image: url("../../public/splatter-mask.svg");
+  mask-repeat: no-repeat;
+  mask-size: 100%;
+  mask-position: center;
 }

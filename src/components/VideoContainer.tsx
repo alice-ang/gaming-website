@@ -9,7 +9,7 @@ export const VideoContainer = () => {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
-        className="absolute h-full w-full"
+        className="absolute h-full w-full mask"
       ></iframe>
       <Image
         src={"/woman.png"}
