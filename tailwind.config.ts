@@ -20,12 +20,14 @@ const config = {
     extend: {
       fontFamily: {
         baskerville: "var(--font-baskerville)",
+        josefin_sans: "var(--font-josefin-sans)",
       },
-
       colors: {
         palette: {
+          footer: "#000d13",
+          paper: "#F0EDE3",
           green: "#B2F042",
-          background: "#131214",
+          background: "#06141d",
           lightGrey: "#D1D1D5",
           purple: "#B286FE",
           red: "#E55733",
@@ -87,7 +89,7 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;
 
 export default config;
