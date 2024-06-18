@@ -1,6 +1,7 @@
 export * from "./Constraints";
 export * from "./Footer";
 export * from "./ImageGrid";
+export * from "./Navigation";
 export * from "./Roadmap";
 export * from "./SnapSection";
 export * from "./SplatterContainer";

@@ -12,7 +12,7 @@ export const ZoomHeader = () => {
   });
 
   const bushScale = useTransform(scrollYProgress, [0, 1], [1.6, 3.6]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  // const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
   const opacity = useTransform(scrollYProgress, [0, 1], [0.7, 0.9]);
 
   return (
@@ -20,7 +20,6 @@ export const ZoomHeader = () => {
       <motion.div
         style={{
           opacity,
-          scale,
         }}
         className=" overflow-hidden top-0 h-screen sticky bg-[url('/blurry.png')] bg-cover bg-bottom object-contain "
       >

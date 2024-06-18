@@ -1,6 +1,5 @@
-import { Constraints, Footer } from "@/components";
+import { Footer, Navigation } from "@/components";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { ModeToggle } from "@/components/ThemeToggle";
 import type { Metadata } from "next";
 import { baskerville, josefin_sans, oswald } from "./fonts";
 import "./globals.css";
@@ -22,17 +21,11 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-          <nav className="bg-transparent py-4 fixed top-0 z-40">
-            <Constraints>
-              <div>
-                <ModeToggle />
-              </div>
-            </Constraints>
-          </nav>
+          <Navigation />
           {children}
           <Footer />
         </ThemeProvider>

@@ -12,7 +12,7 @@ export const SnapSection = ({
     <section
       className={cn(
         fullscreen ? " h-screen " : "h-auto",
-        "snap-center snap-always py-24 max-h-[1920px]"
+        "snap-center snap-always section-padding max-h-[1920px]"
       )}
     >
       {children}

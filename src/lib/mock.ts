@@ -34,9 +34,21 @@ export const bentoItems = [
 
 export const features = [
   {
-    overline: "Ket features",
+    overline: "Key features",
+    title: "Explore",
+    description:
+      "Explore a variety of unique golf courses, each boasting different environments and eerie aesthetics, ensuring a fresh challenge with every round.",
+  },
+  {
+    overline: "Key features",
     title: "Cinematic campaign mode",
     description:
-      "Unravel the game's story in the style of a classic horror film.",
+      "Be vigilant and on the lookout for opportunities that can give you an advantage over your opponents. For example, hitting a weak spot in an old church tower can cause it to crumble and crush your rivals under a pile of rubble.",
+  },
+  {
+    overline: "Key features",
+    title: "Remain alert",
+    description:
+      "It's crucial to remain alert at all times, as the course is riddled with other hazards that could jeopardize your game. Ball-hurling ghouls can be found lurking in the bunkers, while specters hide in the woods, eager to sabotage your swing.",
   },
 ];

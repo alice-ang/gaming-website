@@ -29,7 +29,7 @@ export const Footer = () => {
             alt="Characters"
             className="object-contain bg-right object-center absolute opacity-10 aspect-video -rotate-6 scale-90 lg:translate-x-56 "
           />
-          <div className="col-span-12 md:col-span-6 ">
+          <div className="col-span-12 lg:col-span-6 ">
             <button className="text-2xl text-palette-yellow border border-palette-yellow px-6 py-2 -rotate-12 mb-4">
               Community
             </button>
@@ -39,7 +39,7 @@ export const Footer = () => {
               Swing
             </h2>
           </div>
-          <div className="col-span-12 md:col-span-6 h-full relative items-center justify-center flex flex-col">
+          <div className="col-span-12 lg:col-span-6 h-full relative items-center justify-center flex flex-col">
             <div className="space-y-8 items-start justify-start flex flex-col relative">
               <div className="space-y-4">
                 <h4>Official forums</h4>
@@ -51,7 +51,7 @@ export const Footer = () => {
                 </p>
               </div>
               <Button>Go to discord</Button>
-              socials
+              {/* socials here      */}
             </div>
           </div>
 
@@ -66,13 +66,13 @@ export const Footer = () => {
             width={340}
             height={290}
             alt="Priest"
-            className="object-contain bg-center object-center bottom-0 absolute -left-24 rotate-6 hidden md:block"
+            className="object-contain bg-center object-center bottom-0 absolute -left-24 rotate-6 hidden lg:block"
           />
         </div>
       </Constraints>
 
       <footer className="relative ">
-        <div className="h-44 footer-mask w-full bg-palette-footer bg-top object-top bg-cover" />
+        <div className="h-10 xl:h-44 footer-mask w-full bg-palette-footer bg-top object-top bg-cover" />
 
         <div className="bg-palette-footer p-4 ">
           <Constraints>
@@ -84,7 +84,7 @@ export const Footer = () => {
                 height={60}
               />
 
-              <div className="space-x-16 flex flex-row items-start flex-wrap">
+              <div className="flex flex-row items-start flex-wrap gap-4 justify-between">
                 <div className="flex-1 space-x-16 flex flex-row ">
                   <div className="space-y-4 ">
                     <h6 className="overline-title">Follow us</h6>
@@ -97,13 +97,13 @@ export const Footer = () => {
                   <div className="space-y-4 ">
                     <h6 className="overline-title"> Office location</h6>
                     <p>
-                      Hammarby Kaj 10d,
+                      Kaplansgatan 16B,
                       <br />
-                      Stockholm 120 32, Sweden
+                      541 34 Skövde, Sweden
                     </p>
                   </div>
                 </div>
-                <div className="space-y-4 ">
+                <div className="space-y-4 w-full lg:w-1/3">
                   <h6 className="overline-title"> Newsletter</h6>
                   <form>
                     <div className="flex-1">
@@ -123,13 +123,13 @@ export const Footer = () => {
                       </div>
                     </div>
                   </form>
-                  <div className="flex space-x-8 items-center">
+                  {/* <div className="flex space-x-8 items-center">
                     {footerLinks.map((link, index) => (
                       <p className="underline" key={link}>
                         {link}
                       </p>
                     ))}
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <Separator />
@@ -147,7 +147,7 @@ export const Footer = () => {
 
               <div className="flex flex-row justify-between items-center">
                 <p className="text-palette-lightGrey text-sm">
-                  © 2024 Arrowhead Game Studios | All Rights Reserved
+                  © 2024 Gibbet Games | All Rights Reserved
                 </p>
                 <p className="text-palette-lightGrey text-sm">
                   Website crafted by Alice A

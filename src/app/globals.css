@@ -132,6 +132,10 @@
     -webkit-text-stroke: 1px #fced31;
     text-stroke: 1px #fced31;
   }
+
+  .section-padding {
+    @apply py-12 lg:py-24;
+  }
 }
 
 h1,
