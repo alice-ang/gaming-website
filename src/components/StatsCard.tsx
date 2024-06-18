@@ -1,6 +1,5 @@
-import React from "react";
-import { CardContainer, CardBody, CardItem } from "./ui/3d-card";
 import Image from "next/image";
+import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
 
 export const StatsCard = () => {
   return (

@@ -1,10 +1,10 @@
 "use client";
-import React, { useRef } from "react";
-import { Constraints } from "./Constraints";
-import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Button } from "./ui/button";
 import { footerLinks } from "@/lib/mock";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import { useRef } from "react";
+import { Constraints } from "./Constraints";
+import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 
 export const Footer = () => {
@@ -72,7 +72,6 @@ export const Footer = () => {
       </Constraints>
 
       <footer className="relative ">
-        {/* <div className=" w-full bg-[url('/splatter-mask.svg')] h-16 -top-16  bg-no-repeat object-contain bg-top bg-cover absolute z-100" /> */}
         <div className="h-44 footer-mask w-full bg-palette-footer bg-top object-top bg-cover" />
 
         <div className="bg-palette-footer p-4 ">

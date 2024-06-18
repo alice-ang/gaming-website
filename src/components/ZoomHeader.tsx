@@ -1,7 +1,7 @@
 "use client";
 
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { useScroll, useTransform, motion } from "framer-motion";
 import { useRef } from "react";
 
 export const ZoomHeader = () => {
@@ -11,15 +11,16 @@ export const ZoomHeader = () => {
     offset: ["start start", "end end"],
   });
 
-  const bushScale = useTransform(scrollYProgress, [0, 1], [1.6, 3]);
+  const bushScale = useTransform(scrollYProgress, [0, 1], [1.6, 3.6]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
   const opacity = useTransform(scrollYProgress, [0, 1], [0.7, 0.9]);
 
   return (
-    <div ref={container} className="h-[300vh] relative ">
+    <div ref={container} className="h-[300vh] relative">
       <motion.div
         style={{
           opacity,
+          scale,
         }}
         className=" overflow-hidden top-0 h-screen sticky bg-[url('/blurry.png')] bg-cover bg-bottom object-contain "
       >

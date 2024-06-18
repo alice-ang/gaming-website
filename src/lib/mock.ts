@@ -31,3 +31,12 @@ export const bentoItems = [
       "Ball-hurling ghouls can be found lurking in the bunkers, while specters hide in the woods, eager to sabotage your swing.",
   },
 ];
+
+export const features = [
+  {
+    overline: "Ket features",
+    title: "Cinematic campaign mode",
+    description:
+      "Unravel the game's story in the style of a classic horror film.",
+  },
+];

@@ -71,7 +71,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-[#06141d] text-white overscroll-none;
+    @apply bg-palette-background text-white overscroll-none;
   }
 
   html {
@@ -156,19 +156,36 @@ span {
 .vingette {
   height: 100%;
   webkit-mask-image: radial-gradient(
-    circle at center,
+    ellipse at center,
     #000 30%,
     transparent 70%
   );
   width: 100%;
-  mask-image: radial-gradient(circle at center, #000 30%, transparent 70%);
+  mask-image: radial-gradient(ellipse at center, #000 10%, transparent 90%);
 }
 
 .mask {
   mask-image: url("../../public/img-mask.svg");
   mask-repeat: no-repeat;
   mask-size: 100%;
-  mask-position: center;
+  mask-position: top;
+}
+
+.container-mask {
+  -webkit-mask-image: var("../../public/footer.png");
+  mask-image: url("../../public/footer.png");
+  mask-repeat: no-repeat;
+  mask-size: 100%;
+  mask-position: bottom;
+}
+
+.mask2 {
+  mask-image: url("../../public/img-mask2.svg");
+  mask-repeat: no-repeat;
+  mask-size: 100%;
+  mask-position: bottom;
+  width: 200%;
+  height: 100%;
 }
 
 .footer-mask {

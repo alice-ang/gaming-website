@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import { Constraints, Footer } from "@/components";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ModeToggle } from "@/components/ThemeToggle";
-import { Footer } from "@/components";
+import type { Metadata } from "next";
 import { baskerville, josefin_sans, oswald } from "./fonts";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Clubhouse on Haunted Hill",
@@ -26,9 +26,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* <nav>
-            <ModeToggle />
-          </nav> */}
+          <nav className="bg-transparent py-4 fixed top-0 z-40">
+            <Constraints>
+              <div>
+                <ModeToggle />
+              </div>
+            </Constraints>
+          </nav>
           {children}
           <Footer />
         </ThemeProvider>
