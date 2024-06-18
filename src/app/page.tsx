@@ -51,34 +51,6 @@ export default function Home() {
       </section>
 
       <div className="section-padding">
-        <SplatterContainer>
-          <Constraints>
-            <div className="grid grid-cols-12 gap-4 ">
-              <div className="col-span-12 lg:col-span-8 space-y-4">
-                <h5 className="font-josefin_sans normal-case">Welcome to</h5>
-                <h1>Clubhouse on haunted hill </h1>
-                <p>
-                  The character customization tool allows players to choose from
-                  a wide range of cosmetic options, including hairstyles, facial
-                  features, and clothing. Want to create a golfer that looks
-                  like a classic horror movie villain? Or perhaps you prefer a
-                  more traditional golfer look? The choice is yours!
-                  <br />
-                  <br />
-                  Players can select from a variety of different stats to
-                  enhance their golfing skills. Stats such as Muscle, Control,
-                  Cunning, Mercy, and Sanity can be customized to fit each
-                  players unique playstyle, offering a level of personalization
-                  that is rarely found in other golf games.
-                </p>
-              </div>
-
-              <div className="col-span-12 lg:col-span-4 justify-self-center">
-                <StatsCard />
-              </div>
-            </div>
-          </Constraints>
-        </SplatterContainer>
         {features.map((feature, index) => (
           <section key={index} className="section-padding">
             <Constraints>
@@ -113,13 +85,60 @@ export default function Home() {
             </Constraints>
           </section>
         ))}
+        <SplatterContainer>
+          <Constraints>
+            <div className="grid grid-cols-12 gap-4 ">
+              <div className="col-span-12 lg:col-span-8 space-y-4">
+                <h5 className="font-josefin_sans normal-case">Welcome to</h5>
+                <h1>Clubhouse on haunted hill </h1>
+                <p>
+                  The character customization tool allows players to choose from
+                  a wide range of cosmetic options, including hairstyles, facial
+                  features, and clothing. Want to create a golfer that looks
+                  like a classic horror movie villain? Or perhaps you prefer a
+                  more traditional golfer look? The choice is yours!
+                  <br />
+                  <br />
+                  Players can select from a variety of different stats to
+                  enhance their golfing skills. Stats such as Muscle, Control,
+                  Cunning, Mercy, and Sanity can be customized to fit each
+                  players unique playstyle, offering a level of personalization
+                  that is rarely found in other golf games.
+                </p>
+              </div>
+
+              <div className="col-span-12 lg:col-span-4 justify-self-center">
+                <StatsCard />
+              </div>
+            </div>
+          </Constraints>
+        </SplatterContainer>
       </div>
       {/* <section className="section-padding">
         <Constraints>
           <Roadmap />
         </Constraints>
       </section> */}
-
+      <section className="">
+        <Constraints>
+          <div className="flex flex-col justify-center items-center space-y-8">
+            <div className="text-center space-y-4">
+              <h5 className="font-josefin_sans normal-case">Check out</h5>
+              <h1>Latest news </h1>
+            </div>
+            <div className="grid grid-cols-3 gap-4  w-full">
+              {Array.from({ length: 3 }).map((_, index) => (
+                <div
+                  key={index}
+                  className="col-span-3 md:col-span-1 bg-red-100 h-full w-full aspect-square"
+                >
+                  post
+                </div>
+              ))}
+            </div>
+          </div>
+        </Constraints>
+      </section>
       <ImageGrid />
     </main>
   );
