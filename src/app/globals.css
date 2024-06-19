@@ -135,6 +135,9 @@
   .section-padding {
     @apply py-12 lg:py-24;
   }
+  .animation-transition {
+    @apply transition duration-300 ease-in-out;
+  }
 }
 
 h1,
@@ -182,13 +185,19 @@ span {
   mask-position: bottom;
 }
 
-.mask2 {
+/* .mask2 {
   mask-image: url("../../public/img-mask2.svg");
   mask-repeat: no-repeat;
   mask-size: 100%;
-  mask-position: bottom;
-  width: 200%;
-  height: 100%;
+  mask-position: center;
+} */
+
+.brush-mask {
+  -webkit-mask-image: var("../../public/brush-stroke.svg");
+  mask-image: url("../../public/brush-stroke.svg");
+  mask-repeat: no-repeat;
+  mask-size: 100%;
+  mask-position: center;
 }
 
 .footer-mask {

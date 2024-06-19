@@ -123,19 +123,50 @@ export default function Home() {
         <Constraints>
           <div className="flex flex-col justify-center items-center space-y-8">
             <div className="text-center space-y-4">
-              <h5 className="font-josefin_sans normal-case">Check out</h5>
+              <h5 className="font-josefin_sans normal-case">Check out the</h5>
               <h1>Latest news </h1>
             </div>
-            <div className="grid grid-cols-3 gap-4  w-full">
+            <div className="grid grid-cols-3 gap-6 w-full">
               {Array.from({ length: 3 }).map((_, index) => (
                 <div
                   key={index}
-                  className="col-span-3 md:col-span-1 bg-red-100 h-full w-full aspect-square"
+                  className={cn(
+                    index % 2 ? " hover:rotate-2" : "hover:-rotate-2",
+                    "rotate-0 col-span-3 md:col-span-1 bg-white w-full p-2: lg:p-4 relative space-y-4 shadow-md border border-white animation-transition"
+                  )}
                 >
-                  post
+                  <div
+                    className={cn(
+                      index % 2 ? "rotate-12" : "-rotate-6",
+                      "absolute bg-palette-background brush-mask right-0 z-10"
+                    )}
+                  >
+                    <h3 className="font-josefin_sans px-12 py-4">UPDATE #1</h3>
+                  </div>
+
+                  <div className="aspect-video relative">
+                    <Image
+                      fill
+                      alt="post"
+                      src={"/blurry.png"}
+                      className="aspect-video"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <h5 className="text-palette-red">Fri, November 26, 2021</h5>
+                    <p className="line-clamp-2 text-black">
+                      The character customization tool allows players to choose
+                      from a wide range of cosmetic options, including
+                      hairstyles, facial features, and clothing. Want to create
+                      a golfer that looks like a classic horror movie villain?
+                      Or perhaps you prefer a more traditional golfer look? The
+                      choice is yours!
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
+            <h4 className="font-josefin_sans normal-case">See all</h4>
           </div>
         </Constraints>
       </section>

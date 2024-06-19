@@ -9,3 +9,4 @@ export * from "./StatsCard";
 export * from "./StickyScroll";
 export * from "./VideoContainer";
 export * from "./ZoomHeader";
+export * from "./PreLoader";

@@ -2,6 +2,7 @@ import React from "react";
 import { Constraints } from "./Constraints";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "./ui/button";
 
 export const Navigation = () => {
   return (
@@ -14,15 +15,17 @@ export const Navigation = () => {
               alt="golf ball logo"
               height={60}
               width={60}
+              className="animation-transition hover:scale-110"
             />
           </Link>
 
-          <ul className="flex gap-8">
+          <ul className="flex gap-8 items-center">
             {Array.from({ length: 3 }).map((_, index) => (
               <Link href={"/"} key={index}>
                 Link
               </Link>
             ))}
+            <Button>Play demo</Button>
           </ul>
         </div>
       </Constraints>

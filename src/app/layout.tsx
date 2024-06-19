@@ -1,4 +1,4 @@
-import { Footer, Navigation } from "@/components";
+import { Footer, Navigation, PreLoader } from "@/components";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import type { Metadata } from "next";
 import { baskerville, josefin_sans, oswald } from "./fonts";
@@ -25,6 +25,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          {/* <PreLoader /> */}
           <Navigation />
           {children}
           <Footer />
