@@ -31,14 +31,14 @@ export const ImageGrid = () => {
       <div className="grid grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 bg-palette-footer ">
         {Array.from({ length: 20 }).map((image, index) => (
           <div
-            className="relative h-full w-full aspect-video col-span-1 bg-black"
+            className="relative h-full w-full aspect-video col-span-1 bg-black overflow-hidden"
             key={index}
           >
             <Image
               src={"/blurry.png"}
               fill
               alt="image"
-              className="aspect-video  object-cover hover:grayscale-0 grayscale transition duration-300 ease-in-out"
+              className="aspect-video object-cover hover:grayscale-0 hover:scale-105 grayscale transition duration-300 ease-in-out"
             />
           </div>
         ))}
