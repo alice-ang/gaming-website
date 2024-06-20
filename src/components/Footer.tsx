@@ -13,7 +13,7 @@ export const Footer = () => {
     target: ref,
   });
 
-  const saluteY = useTransform(scrollYProgress, [0, 1], ["90%", "100%"]);
+  const saluteY = useTransform(scrollYProgress, [0, 1], ["80%", "100%"]);
 
   return (
     <section className="relative overflow-hidden">

@@ -135,6 +135,9 @@
   .section-padding {
     @apply py-12 lg:py-24;
   }
+  .animation-transition {
+    @apply transition duration-300 ease-in-out;
+  }
 }
 
 h1,
@@ -186,9 +189,15 @@ span {
   mask-image: url("../../public/img-mask2.svg");
   mask-repeat: no-repeat;
   mask-size: 100%;
-  mask-position: bottom;
-  width: 200%;
-  height: 100%;
+  mask-position: center;
+}
+
+.brush-mask {
+  -webkit-mask-image: var("../../public/brush-stroke.svg");
+  mask-image: url("../../public/brush-stroke.svg");
+  mask-repeat: no-repeat;
+  mask-size: 100%;
+  mask-position: center;
 }
 
 .footer-mask {
@@ -197,4 +206,19 @@ span {
   mask-repeat: no-repeat;
   mask-size: 100%;
   mask-position: center;
+}
+
+.linear-mask {
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  --tw-bg-opacity: 1;
+  opacity: 0.6;
+  --tw-blur: blur(4px);
+  -webkit-mask-image: linear-gradient(180deg, #000, transparent);
+  mask-image: linear-gradient(180deg, #000, transparent);
+  height: 100%;
+  -webkit-mask-image: linear-gradient(180deg, #000, transparent);
+  mask-image: linear-gradient(180deg, #000, transparent);
 }

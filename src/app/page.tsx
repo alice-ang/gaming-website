@@ -1,11 +1,14 @@
 import {
   Constraints,
   ImageGrid,
+  PostItem,
+  SectionItem,
   SplatterContainer,
   StatsCard,
   ZoomHeader,
 } from "@/components";
-import { features } from "@/lib/mock";
+import { Separator } from "@/components/ui/separator";
+import { features, posts } from "@/lib/mock";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
@@ -15,8 +18,6 @@ export default function Home() {
       <ZoomHeader />
 
       <section className="h-screen max-h-[1280px] ">
-        <div className="h-24 container-mask w-full bg-black bg-top object-top bg-cover scale-y-[-1]" />
-
         <Constraints>
           <div className="flex flex-col justify-between items-stretch h-full section-padding">
             <div className="flex items-center justify-center flex-col space-y-4 max-w-2xl mx-auto text-center">
@@ -51,39 +52,16 @@ export default function Home() {
       </section>
 
       <div className="section-padding">
+        <Constraints>
+          <div className="flex flex-row items-center justify-center space-y-4">
+            <div className=" text-center ">
+              <h5 className="font-josefin_sans normal-case">Welcome to</h5>
+              <h1>Clubhouse on haunted hill </h1>
+            </div>
+          </div>
+        </Constraints>
         {features.map((feature, index) => (
-          <section key={index} className="section-padding">
-            <Constraints>
-              <div className="grid grid-cols-12 gap-4 xl:gap-[130px] items-center">
-                <div
-                  className={cn(
-                    index % 2 ? "lg:order-last " : "lg:text-right",
-                    "col-span-12 lg:col-span-6 space-y-4"
-                  )}
-                >
-                  <h5 className="font-josefin_sans normal-case">
-                    {feature.overline}
-                  </h5>
-                  <h1>{feature.title} </h1>
-                  <p>{feature.description}</p>
-                </div>
-
-                <div
-                  className={cn(
-                    index % 2 ? "mask" : "mask",
-                    "col-span-12 lg:col-span-6 h-full w-full  aspect-video relative shadow"
-                  )}
-                >
-                  <Image
-                    src="/tree.png"
-                    alt="trees"
-                    className="aspect-video object-cover h-full w-full bg-center"
-                    fill
-                  />
-                </div>
-              </div>
-            </Constraints>
-          </section>
+          <SectionItem {...feature} key={index} />
         ))}
         <SplatterContainer>
           <Constraints>
@@ -123,19 +101,15 @@ export default function Home() {
         <Constraints>
           <div className="flex flex-col justify-center items-center space-y-8">
             <div className="text-center space-y-4">
-              <h5 className="font-josefin_sans normal-case">Check out</h5>
+              <h5 className="font-josefin_sans normal-case">Check out the</h5>
               <h1>Latest news </h1>
             </div>
-            <div className="grid grid-cols-3 gap-4  w-full">
-              {Array.from({ length: 3 }).map((_, index) => (
-                <div
-                  key={index}
-                  className="col-span-3 md:col-span-1 bg-red-100 h-full w-full aspect-square"
-                >
-                  post
-                </div>
+            <div className="grid grid-cols-3 gap-6 w-full">
+              {posts.map((post, index) => (
+                <PostItem key={index} {...post} />
               ))}
             </div>
+            <h4 className="font-josefin_sans normal-case">See all</h4>
           </div>
         </Constraints>
       </section>
