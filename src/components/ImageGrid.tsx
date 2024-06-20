@@ -9,10 +9,10 @@ export const ImageGrid = () => {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "start start"],
+    offset: ["center end", "end end"],
   });
 
-  const saluteY = useTransform(scrollYProgress, [0, 1], ["-40%", "20%"]);
+  const saluteY = useTransform(scrollYProgress, [0, 1], ["-50%", "-10%"]);
 
   return (
     <div className="relative section-padding" ref={ref}>

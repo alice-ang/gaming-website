@@ -52,7 +52,14 @@ export default function Home() {
       </section>
 
       <div className="section-padding">
-        <Separator />
+        <Constraints>
+          <div className="flex flex-row items-center justify-center space-y-4">
+            <div className=" text-center ">
+              <h5 className="font-josefin_sans normal-case">Welcome to</h5>
+              <h1>Clubhouse on haunted hill </h1>
+            </div>
+          </div>
+        </Constraints>
         {features.map((feature, index) => (
           <SectionItem {...feature} key={index} />
         ))}
