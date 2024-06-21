@@ -22,10 +22,12 @@ export const PostItem: FC<{ blok: BlogPostStoryblok; idx: number }> = ({
           "absolute bg-palette-background brush-mask right-0 z-10  animation-transition"
         )}
       >
-        <h5 className="font-josefin_sans px-12 py-4">{blok.content.title}</h5>
+        {blok.content.label && (
+          <h5 className="font-josefin_sans px-12 py-4">{blok.content.label}</h5>
+        )}
       </div>
 
-      {blok.content.cover_image && (
+      {blok?.content.cover_image && (
         <div className="aspect-video relative overflow-hidden">
           <Image
             src={blok.content.cover_image.filename}
@@ -40,8 +42,10 @@ export const PostItem: FC<{ blok: BlogPostStoryblok; idx: number }> = ({
         <h5 className="text-palette-red">
           {getLocaleDateString(blok.created_at).full}
         </h5>
-
-        <p className="line-clamp-2 text-black">{blok.content.excerpt}</p>
+        <h3 className="text-palette-footer line-clamp-1">
+          {blok.content?.title}
+        </h3>
+        <p className="line-clamp-2 text-black">{blok.content?.excerpt}</p>
       </div>
     </article>
   );

@@ -22,6 +22,7 @@ export interface RichtextStoryblok {
 }
 
 export interface BlogPostStoryblok {
+  label: string;
   title: string;
   excerpt: string;
   cover_image: AssetStoryblok;
@@ -67,6 +68,7 @@ export interface KeyFeaturesStoryblok {
     | LatestPostsStoryblok
     | PageStoryblok
     | SectionItemStoryblok
+    | SplatterContainerStoryblok
   )[];
   component: "key_features";
   _uid: string;
@@ -74,6 +76,8 @@ export interface KeyFeaturesStoryblok {
 }
 
 export interface LatestPostsStoryblok {
+  overline?: string;
+  title?: string;
   posts: (ISbStoryData<BlogPostStoryblok> | string)[];
   component: "latest_posts";
   _uid: string;
@@ -89,6 +93,7 @@ export interface PageStoryblok {
     | LatestPostsStoryblok
     | PageStoryblok
     | SectionItemStoryblok
+    | SplatterContainerStoryblok
   )[];
   component: "page";
   _uid: string;
@@ -101,6 +106,22 @@ export interface SectionItemStoryblok {
   title: string;
   description: RichtextStoryblok;
   component: "section_item";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface SplatterContainerStoryblok {
+  body?: (
+    | BlogPostStoryblok
+    | FooterStoryblok
+    | ImageGridStoryblok
+    | KeyFeaturesStoryblok
+    | LatestPostsStoryblok
+    | PageStoryblok
+    | SectionItemStoryblok
+    | SplatterContainerStoryblok
+  )[];
+  component: "splatter_container";
   _uid: string;
   [k: string]: any;
 }
