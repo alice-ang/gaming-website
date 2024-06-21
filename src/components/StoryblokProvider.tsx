@@ -9,7 +9,7 @@ import { ImageGrid } from "./ImageGrid";
 /** 2. Import your components */
 
 storyblokInit({
-  accessToken: "rrhhnwOXRli6XasvUcSklQtt",
+  accessToken: process.env.NEXT_PUBLIC_STORYBLOK_PREVIEW,
   use: [apiPlugin],
   components: {
     section_item: SectionItem,
