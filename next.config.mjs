@@ -22,6 +22,11 @@ const nextConfig = {
         hostname: "uploads-ssl.webflow.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "a.storyblok.com",
+        port: "",
+      },
     ],
   },
 };

@@ -1,23 +1,20 @@
 "use client";
+import { storyblokEditable } from "@storyblok/react/rsc";
+
 import { cn } from "@/lib/utils";
 import { Variants, motion } from "framer-motion";
 import Image from "next/image";
-import { FC, ReactNode, useLayoutEffect, useRef, useState } from "react";
+import { FC, useLayoutEffect, useRef, useState } from "react";
 import { Constraints } from "./Constraints";
+import { SectionItemStoryblok } from "../../component-types-sb";
+import { render } from "storyblok-rich-text-react-renderer";
 
 type SectionItemProps = {
   idx: number;
-  overline?: string;
-  title: string;
-  description: string;
+  blok: SectionItemStoryblok;
 };
 
-export const SectionItem: FC<SectionItemProps> = ({
-  idx,
-  overline,
-  title,
-  description,
-}) => {
+export const SectionItem: FC<SectionItemProps> = ({ idx, blok }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState<number>(0);
 
@@ -44,7 +41,7 @@ export const SectionItem: FC<SectionItemProps> = ({
   }, [ref]);
 
   return (
-    <section key={idx} className="section-padding">
+    <section key={idx} className="section-padding" {...storyblokEditable(blok)}>
       <Constraints>
         <motion.div
           ref={ref}
@@ -60,9 +57,10 @@ export const SectionItem: FC<SectionItemProps> = ({
             )}
             variants={sectionVariants}
           >
-            <h5 className="font-josefin_sans normal-case">{overline}</h5>
-            <h1>{title} </h1>
-            <p>{description}</p>
+            <h5 className="font-josefin_sans normal-case">{blok.overline}</h5>
+            <h1>{blok.title} </h1>
+
+            <div>{render(blok.description)}</div>
           </motion.div>
 
           <motion.div
