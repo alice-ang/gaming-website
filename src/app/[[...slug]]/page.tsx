@@ -9,7 +9,7 @@ export default async function Page({ params }: any) {
     `cdn/stories/${slug}`,
     {
       version: "draft",
-      // resolve_relations: ["featured_restaurants.restaurants"],
+      resolve_relations: ["latest_posts.posts"],
     },
     { cache: "no-store" }
   );
@@ -18,11 +18,9 @@ export default async function Page({ params }: any) {
     <main>
       <StoryblokStory
         story={data.story}
-        bridgeOptions={
-          {
-            // resolveRelations: ["featured_restaurants.restaurants"],
-          }
-        }
+        bridgeOptions={{
+          resolveRelations: ["latest_posts.posts"],
+        }}
       />
     </main>
   );

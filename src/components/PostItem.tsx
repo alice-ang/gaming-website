@@ -1,15 +1,20 @@
-import { Post } from "@/lib/types";
-import { cn } from "@/lib/utils";
+import { cn, getLocaleDateString } from "@/lib/utils";
+import { storyblokEditable } from "@storyblok/react/rsc";
 import Image from "next/image";
 import { FC } from "react";
+import type { BlogPostStoryblok } from "../../component-types-sb";
 
-export const PostItem: FC<Post> = ({ title, idx, createdAt, body }) => {
+export const PostItem: FC<{ blok: BlogPostStoryblok; idx: number }> = ({
+  blok,
+  idx,
+}) => {
   return (
     <article
       className={cn(
-        // index % 2 ? " hover:rotate-2" : "hover:-rotate-2",
+        idx % 2 ? " hover:rotate-2" : "hover:-rotate-2",
         "rotate-0 col-span-3 md:col-span-1 bg-white w-full p-2: lg:p-4 relative space-y-4 shadow-md border border-white animation-transition group"
       )}
+      {...storyblokEditable(blok)}
     >
       <div
         className={cn(
@@ -17,20 +22,26 @@ export const PostItem: FC<Post> = ({ title, idx, createdAt, body }) => {
           "absolute bg-palette-background brush-mask right-0 z-10  animation-transition"
         )}
       >
-        <h5 className="font-josefin_sans px-12 py-4">{title}</h5>
+        <h5 className="font-josefin_sans px-12 py-4">{blok.content.title}</h5>
       </div>
 
-      <div className="aspect-video relative overflow-hidden">
-        <Image
-          fill
-          alt="post"
-          src={"/blurry.png"}
-          className="aspect-video group-hover:scale-110 animation-transition"
-        />
-      </div>
+      {blok.content.cover_image && (
+        <div className="aspect-video relative overflow-hidden">
+          <Image
+            src={blok.content.cover_image.filename}
+            alt={blok.content.cover_image?.alt ?? "blog image"}
+            className="aspect-video group-hover:scale-110 animation-transition"
+            fill
+          />
+        </div>
+      )}
+
       <div className="space-y-2">
-        <h5 className="text-palette-red">{createdAt}</h5>
-        <p className="line-clamp-2 text-black">{body.markdown}</p>
+        <h5 className="text-palette-red">
+          {getLocaleDateString(blok.created_at).full}
+        </h5>
+
+        <p className="line-clamp-2 text-black">{blok.content.excerpt}</p>
       </div>
     </article>
   );

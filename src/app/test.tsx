@@ -2,14 +2,11 @@ import {
   Constraints,
   ImageGrid,
   PostItem,
-  SectionItem,
   SplatterContainer,
   StatsCard,
   ZoomHeader,
 } from "@/components";
-import { Separator } from "@/components/ui/separator";
-import { features, posts } from "@/lib/mock";
-import { cn } from "@/lib/utils";
+import { posts } from "@/lib/mock";
 import Image from "next/image";
 
 export default function Home() {

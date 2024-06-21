@@ -5,6 +5,8 @@ import { SectionItem } from "./SectionItem";
 import { KeyFeatures } from "./KeyFeatures";
 import { Page } from "./Page";
 import { ImageGrid } from "./ImageGrid";
+import { PostItem } from "./PostItem";
+import { LatestPosts } from "./LatestPosts";
 
 /** 2. Import your components */
 
@@ -16,6 +18,8 @@ storyblokInit({
     key_features: KeyFeatures,
     page: Page,
     image_grid: ImageGrid,
+    blog_post: PostItem,
+    latest_posts: LatestPosts,
   },
 });
 
