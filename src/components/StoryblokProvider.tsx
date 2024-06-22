@@ -8,6 +8,7 @@ import { ImageGrid } from "./ImageGrid";
 import { PostItem } from "./PostItem";
 import { LatestPosts } from "./LatestPosts";
 import { SplatterContainer } from "./SplatterContainer";
+import { Footer } from "./Footer";
 
 /** 2. Import your components */
 
@@ -22,6 +23,7 @@ storyblokInit({
     blog_post: PostItem,
     latest_posts: LatestPosts,
     splatter_container: SplatterContainer,
+    footer: Footer,
   },
 });
 

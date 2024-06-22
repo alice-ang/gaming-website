@@ -32,12 +32,6 @@ export interface BlogPostStoryblok {
   [k: string]: any;
 }
 
-export interface FooterStoryblok {
-  component: "footer";
-  _uid: string;
-  [k: string]: any;
-}
-
 export type MultiassetStoryblok = {
   alt?: string;
   copyright?: string;
@@ -47,6 +41,19 @@ export type MultiassetStoryblok = {
   title?: string;
   [k: string]: any;
 }[];
+
+export interface FooterStoryblok {
+  overline?: string;
+  title: string;
+  character: AssetStoryblok;
+  logo: AssetStoryblok;
+  logos?: MultiassetStoryblok;
+  background_image: AssetStoryblok;
+  text_block?: RichtextStoryblok;
+  component: "footer";
+  _uid: string;
+  [k: string]: any;
+}
 
 export interface ImageGridStoryblok {
   title?: string;

@@ -56,9 +56,55 @@
       "name": "footer",
       "display_name": null,
       "created_at": "2024-06-21T09:33:09.080Z",
-      "updated_at": "2024-06-21T09:38:44.324Z",
+      "updated_at": "2024-06-22T09:16:08.902Z",
       "id": 5959424,
-      "schema": {},
+      "schema": {
+        "overline": {
+          "type": "text",
+          "pos": 0
+        },
+        "title": {
+          "type": "text",
+          "pos": 1,
+          "required": true
+        },
+        "character": {
+          "type": "asset",
+          "pos": 2,
+          "filetypes": [
+            "images"
+          ],
+          "required": true
+        },
+        "logo": {
+          "type": "asset",
+          "pos": 4,
+          "required": true,
+          "filetypes": [
+            "images"
+          ]
+        },
+        "logos": {
+          "type": "multiasset",
+          "pos": 5,
+          "required": false,
+          "filetypes": [
+            "images"
+          ]
+        },
+        "background_image": {
+          "type": "asset",
+          "pos": 6,
+          "required": true,
+          "filetypes": [
+            "images"
+          ]
+        },
+        "text_block": {
+          "type": "richtext",
+          "pos": 6
+        }
+      },
       "image": null,
       "preview_field": null,
       "is_root": true,

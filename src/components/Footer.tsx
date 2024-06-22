@@ -1,12 +1,15 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
+import { FC, useRef } from "react";
 import { Constraints } from "./Constraints";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
+import { storyblokEditable } from "@storyblok/react/rsc";
+import type { FooterStoryblok } from "../../component-types-sb";
+import { render } from "storyblok-rich-text-react-renderer";
 
-export const Footer = () => {
+export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
   const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -16,42 +19,30 @@ export const Footer = () => {
   const saluteY = useTransform(scrollYProgress, [0, 1], ["80%", "100%"]);
 
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden" {...storyblokEditable(blok)}>
       <Constraints>
         <div
           className="grid grid-cols-12 items-center gap-6  relative py-24 "
           ref={ref}
         >
           <Image
-            src={"/victims.png"}
+            src={blok.background_image.filename}
             fill
-            alt="Characters"
+            alt={blok.background_image.alt ?? "Characters"}
             className="object-contain bg-right object-center absolute opacity-10 aspect-video -rotate-6 scale-125 lg:scale-90 lg:translate-x-56 "
           />
           <div className="col-span-12 lg:col-span-6 ">
-            <button className="text-2xl text-palette-yellow border border-palette-yellow px-6 py-2 -rotate-12 mb-4">
-              Community
-            </button>
-            <h2 className="title uppercase">
-              Take <br />
-              the <br />
-              Swing
-            </h2>
+            {blok.overline && (
+              <button className="w-fit text-2xl text-palette-yellow border border-palette-yellow px-6 py-2 -rotate-12 mb-4">
+                {blok.overline}
+              </button>
+            )}
+
+            <h2 className="title uppercase max-w-[90px]">{blok.title}</h2>
           </div>
           <div className="col-span-12 lg:col-span-6 h-full relative items-center justify-center flex flex-col">
             <div className="space-y-8 items-start justify-start flex flex-col relative">
-              <div className="space-y-4">
-                <h4>Official forums</h4>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                  eleifend porta sem, sit amet ultricies nunc vehicula at.
-                  Vestibulum urna arcu, suscipit semper nisl ut, imperdiet
-                  imperdiet purus. Maecenas accumsan ullamcorper arcu ac
-                  finibus. Aenean porttitor, libero quis tempus venenatis, nibh
-                  urna tincidunt felis, non condimentum augue lacus vel ligula.
-                  Morbi id orci tristique.
-                </p>
-              </div>
+              <div className="space-y-4">{render(blok.text_block)}</div>
               <Button>Go to discord</Button>
               {/* socials here      */}
             </div>
@@ -64,10 +55,10 @@ export const Footer = () => {
               backgroundSize: "cover",
               scale: 1.3,
             }}
-            src={"/priest.png"}
+            src={blok.character.filename}
             width={340}
             height={290}
-            alt="Priest"
+            alt={blok.character.alt ?? "character"}
             className="object-contain bg-center object-center bottom-0 absolute -left-24 rotate-6 hidden lg:block"
           />
         </div>
@@ -80,8 +71,8 @@ export const Footer = () => {
           <Constraints>
             <div className="space-y-16">
               <Image
-                src={"/gibbet.png"}
-                alt="logo-full"
+                src={blok.logo.filename}
+                alt={blok.logo.alt ?? "logo"}
                 width={190}
                 height={60}
               />
@@ -136,10 +127,10 @@ export const Footer = () => {
               </div>
               <Separator />
               <div className="flex flex-row justify-between flex-wrap items-center gap-4 lg:gap-x-32 lg:gap-y-4 ">
-                {Array.from({ length: 4 }).map((_, index) => (
+                {blok.logos?.map((logo, index) => (
                   <Image
-                    src={"/gibbet.png"}
-                    alt="logo-full"
+                    src={logo.filename}
+                    alt={logo.alt ?? "logo "}
                     width={120}
                     height={30}
                     key={index}

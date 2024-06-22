@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "update-sb": "storyblok pull-components --space 293784 && storyblok generate-typescript-typedefs --sourceFilePaths ./components.293784.json --destinationFilePath ./component-types-sb.d.ts",
     "pull-sb-components": "storyblok pull-components --space 293784",
     "generate-sb-types": "storyblok generate-typescript-typedefs --sourceFilePaths ./components.293784.json --destinationFilePath ./component-types-sb.d.ts"
   },

@@ -71,8 +71,8 @@ export const SectionItem: FC<SectionItemProps> = ({ idx, blok }) => {
             )}
           >
             <Image
-              src="/tree.png"
-              alt="trees"
+              src={blok.image.filename}
+              alt={blok.image.alt ?? ""}
               className="aspect-video object-cover h-full w-full bg-center"
               fill
             />
