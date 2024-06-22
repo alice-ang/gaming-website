@@ -1,18 +1,15 @@
 import { StoryblokComponent, storyblokEditable } from "@storyblok/react/rsc";
-import { FC } from "react";
-import type { SplatterContainerStoryblok } from "../../component-types-sb";
+import { FC, ReactNode } from "react";
+import { Constraints } from "./Constraints";
 
-export const SplatterContainer: FC<{ blok: SplatterContainerStoryblok }> = ({
-  blok,
+export const SplatterContainer: FC<{ children: ReactNode }> = ({
+  children,
 }) => {
   return (
-    <section className="relative" {...storyblokEditable(blok)}>
+    <section className="relative">
       <div className="h-16 container-mask w-full bg-palette-footer bg-top object-top bg-cover" />
       <div className="py-16 bg-palette-footer">
-        {blok.body &&
-          blok.body.map((nestedBlok) => (
-            <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
-          ))}
+        <Constraints>{children}</Constraints>
       </div>
       <div className="h-16 container-mask w-full bg-palette-footer bg-top object-top bg-cover scale-y-[-1]" />
     </section>

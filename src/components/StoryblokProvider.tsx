@@ -10,6 +10,8 @@ import { LatestPosts } from "./LatestPosts";
 import { SplatterContainer } from "./SplatterContainer";
 import { Footer } from "./Footer";
 import { ZoomHeader } from "./ZoomHeader";
+import { StatsCard } from "./StatsCard";
+import { CustomizationSection } from "./CustomizationSection";
 
 /** 2. Import your components */
 
@@ -26,6 +28,8 @@ storyblokInit({
     splatter_container: SplatterContainer,
     footer: Footer,
     zoom_hero: ZoomHeader,
+    moving_card: StatsCard,
+    character_customization: CustomizationSection,
   },
 });
 

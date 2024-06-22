@@ -53,6 +53,54 @@
       "content_type_asset_preview": null
     },
     {
+      "name": "character_customization",
+      "display_name": null,
+      "created_at": "2024-06-22T13:53:05.224Z",
+      "updated_at": "2024-06-22T14:08:52.982Z",
+      "id": 5963297,
+      "schema": {
+        "overline": {
+          "type": "text",
+          "pos": 0,
+          "required": false
+        },
+        "title": {
+          "type": "text",
+          "pos": 1,
+          "required": true
+        },
+        "text_block": {
+          "type": "richtext",
+          "pos": 2,
+          "required": true
+        },
+        "stats_card": {
+          "type": "bloks",
+          "pos": 3,
+          "required": true,
+          "filter_content_type": [
+            "moving_card"
+          ],
+          "minimum": 1,
+          "maximum": 1
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "character_customization",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null
+    },
+    {
       "name": "footer",
       "display_name": null,
       "created_at": "2024-06-21T09:33:09.080Z",
@@ -240,6 +288,53 @@
       "content_type_asset_preview": null
     },
     {
+      "name": "moving_card",
+      "display_name": null,
+      "created_at": "2024-06-22T13:29:04.481Z",
+      "updated_at": "2024-06-22T13:58:40.175Z",
+      "id": 5963247,
+      "schema": {
+        "top_image": {
+          "type": "asset",
+          "pos": 0,
+          "filetypes": [
+            "images"
+          ],
+          "required": true
+        },
+        "bottom_image": {
+          "type": "asset",
+          "pos": 1,
+          "required": true,
+          "filetypes": [
+            "images"
+          ]
+        },
+        "background_image": {
+          "type": "asset",
+          "pos": 2,
+          "filetypes": [
+            "images"
+          ],
+          "required": true
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "moving_card",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null
+    },
+    {
       "name": "Navbar",
       "display_name": null,
       "created_at": "2024-06-22T09:31:37.314Z",
@@ -334,6 +429,33 @@
       "content_type_asset_preview": null
     },
     {
+      "name": "richtext_block",
+      "display_name": null,
+      "created_at": "2024-06-22T13:45:26.437Z",
+      "updated_at": "2024-06-22T13:45:35.712Z",
+      "id": 5963262,
+      "schema": {
+        "body": {
+          "type": "richtext",
+          "pos": 0
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "richtext_block",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null
+    },
+    {
       "name": "section_item",
       "display_name": null,
       "created_at": "2024-06-20T15:52:36.767Z",
@@ -390,33 +512,6 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "socials",
-      "component_group_uuid": null,
-      "color": null,
-      "icon": null,
-      "internal_tags_list": [],
-      "internal_tag_ids": [],
-      "content_type_asset_preview": null
-    },
-    {
-      "name": "splatter_container",
-      "display_name": null,
-      "created_at": "2024-06-21T12:56:22.385Z",
-      "updated_at": "2024-06-21T12:56:30.096Z",
-      "id": 5960385,
-      "schema": {
-        "body": {
-          "type": "bloks",
-          "pos": 0
-        }
-      },
-      "image": null,
-      "preview_field": null,
-      "is_root": false,
-      "preview_tmpl": null,
-      "is_nestable": true,
-      "all_presets": [],
-      "preset_id": null,
-      "real_name": "splatter_container",
       "component_group_uuid": null,
       "color": null,
       "icon": null,

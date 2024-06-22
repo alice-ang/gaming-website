@@ -32,6 +32,31 @@ export interface BlogPostStoryblok {
   [k: string]: any;
 }
 
+export interface CharacterCustomizationStoryblok {
+  overline?: string;
+  title: string;
+  text_block: RichtextStoryblok;
+  stats_card: (
+    | BlogPostStoryblok
+    | CharacterCustomizationStoryblok
+    | FooterStoryblok
+    | ImageGridStoryblok
+    | KeyFeaturesStoryblok
+    | LatestPostsStoryblok
+    | MovingCardStoryblok
+    | NavbarStoryblok
+    | NavigationLinkStoryblok
+    | PageStoryblok
+    | RichtextBlockStoryblok
+    | SectionItemStoryblok
+    | SocialsStoryblok
+    | ZoomHeroStoryblok
+  )[];
+  component: "character_customization";
+  _uid: string;
+  [k: string]: any;
+}
+
 export type MultiassetStoryblok = {
   alt?: string;
   copyright?: string;
@@ -69,16 +94,18 @@ export interface KeyFeaturesStoryblok {
   title?: string;
   features: (
     | BlogPostStoryblok
+    | CharacterCustomizationStoryblok
     | FooterStoryblok
     | ImageGridStoryblok
     | KeyFeaturesStoryblok
     | LatestPostsStoryblok
+    | MovingCardStoryblok
     | NavbarStoryblok
     | NavigationLinkStoryblok
     | PageStoryblok
+    | RichtextBlockStoryblok
     | SectionItemStoryblok
     | SocialsStoryblok
-    | SplatterContainerStoryblok
     | ZoomHeroStoryblok
   )[];
   component: "key_features";
@@ -95,20 +122,31 @@ export interface LatestPostsStoryblok {
   [k: string]: any;
 }
 
+export interface MovingCardStoryblok {
+  top_image: AssetStoryblok;
+  bottom_image: AssetStoryblok;
+  background_image: AssetStoryblok;
+  component: "moving_card";
+  _uid: string;
+  [k: string]: any;
+}
+
 export interface NavbarStoryblok {
   logo: AssetStoryblok;
   nav_links?: (
     | BlogPostStoryblok
+    | CharacterCustomizationStoryblok
     | FooterStoryblok
     | ImageGridStoryblok
     | KeyFeaturesStoryblok
     | LatestPostsStoryblok
+    | MovingCardStoryblok
     | NavbarStoryblok
     | NavigationLinkStoryblok
     | PageStoryblok
+    | RichtextBlockStoryblok
     | SectionItemStoryblok
     | SocialsStoryblok
-    | SplatterContainerStoryblok
     | ZoomHeroStoryblok
   )[];
   component: "Navbar";
@@ -179,19 +217,28 @@ export interface NavigationLinkStoryblok {
 export interface PageStoryblok {
   body?: (
     | BlogPostStoryblok
+    | CharacterCustomizationStoryblok
     | FooterStoryblok
     | ImageGridStoryblok
     | KeyFeaturesStoryblok
     | LatestPostsStoryblok
+    | MovingCardStoryblok
     | NavbarStoryblok
     | NavigationLinkStoryblok
     | PageStoryblok
+    | RichtextBlockStoryblok
     | SectionItemStoryblok
     | SocialsStoryblok
-    | SplatterContainerStoryblok
     | ZoomHeroStoryblok
   )[];
   component: "page";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface RichtextBlockStoryblok {
+  body?: RichtextStoryblok;
+  component: "richtext_block";
   _uid: string;
   [k: string]: any;
 }
@@ -208,26 +255,6 @@ export interface SectionItemStoryblok {
 
 export interface SocialsStoryblok {
   component: "socials";
-  _uid: string;
-  [k: string]: any;
-}
-
-export interface SplatterContainerStoryblok {
-  body?: (
-    | BlogPostStoryblok
-    | FooterStoryblok
-    | ImageGridStoryblok
-    | KeyFeaturesStoryblok
-    | LatestPostsStoryblok
-    | NavbarStoryblok
-    | NavigationLinkStoryblok
-    | PageStoryblok
-    | SectionItemStoryblok
-    | SocialsStoryblok
-    | SplatterContainerStoryblok
-    | ZoomHeroStoryblok
-  )[];
-  component: "splatter_container";
   _uid: string;
   [k: string]: any;
 }

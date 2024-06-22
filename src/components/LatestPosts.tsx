@@ -10,7 +10,7 @@ import { Constraints } from "./Constraints";
 
 export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
   return (
-    <section className="">
+    <section className="section-padding">
       <Constraints>
         <div className="flex flex-col justify-center items-center space-y-8">
           <div className="text-center space-y-2">

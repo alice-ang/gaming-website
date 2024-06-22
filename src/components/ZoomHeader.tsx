@@ -15,7 +15,7 @@ export const ZoomHeader: FC<{ blok: ZoomHeroStoryblok }> = ({ blok }) => {
 
   const bushScale = useTransform(scrollYProgress, [0, 1], [1.6, 3.6]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [0.7, 0.9]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0.6, 0.9]);
 
   return (
     <div
