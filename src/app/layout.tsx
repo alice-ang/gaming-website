@@ -3,6 +3,7 @@ import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
 import type { Metadata } from "next";
 import { baskerville, josefin_sans, oswald } from "./fonts";
 import "./globals.css";
+import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
   title: "Clubhouse on Haunted Hill",
@@ -25,16 +26,16 @@ export default function RootLayout({
         <body
           className={`${oswald.variable} ${baskerville.variable} ${josefin_sans.variable}`}
         >
-          {/* <ThemeProvider
+          <ThemeProvider
             attribute="class"
             defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
-          > */}
-          {/* <Navigation /> */}
-          {children}
-          {/* <Footer /> */}
-          {/* </ThemeProvider> */}
+          >
+            {/* <Navigation /> */}
+            {children}
+            {/* <Footer /> */}
+          </ThemeProvider>
         </body>
       </html>
     </StoryblokProvider>

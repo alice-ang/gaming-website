@@ -9,6 +9,7 @@ import { PostItem } from "./PostItem";
 import { LatestPosts } from "./LatestPosts";
 import { SplatterContainer } from "./SplatterContainer";
 import { Footer } from "./Footer";
+import { ZoomHeader } from "./ZoomHeader";
 
 /** 2. Import your components */
 
@@ -24,6 +25,7 @@ storyblokInit({
     latest_posts: LatestPosts,
     splatter_container: SplatterContainer,
     footer: Footer,
+    zoom_hero: ZoomHeader,
   },
 });
 
