@@ -126,7 +126,7 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
                 </div>
               </div>
               <Separator />
-              <div className="flex flex-row justify-between flex-wrap items-center gap-4 lg:gap-x-32 lg:gap-y-4 ">
+              <div className="flex flex-row justify-start flex-wrap items-center gap-4 lg:gap-x-32 lg:gap-y-4 ">
                 {blok.logos?.map((logo, index) => (
                   <Image
                     src={logo.filename}
