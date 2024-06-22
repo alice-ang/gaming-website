@@ -1,4 +1,3 @@
-import { StoryblokComponent, storyblokEditable } from "@storyblok/react/rsc";
 import { FC, ReactNode } from "react";
 import { Constraints } from "./Constraints";
 
@@ -7,7 +6,7 @@ export const SplatterContainer: FC<{ children: ReactNode }> = ({
 }) => {
   return (
     <section className="relative">
-      <div className="h-16 container-mask w-full bg-palette-footer bg-top object-top bg-cover" />
+      <div className="h-16 container-mask w-full bg-palette-footer bg-top object-top bg-contain object-contain" />
       <div className="py-16 bg-palette-footer">
         <Constraints>{children}</Constraints>
       </div>

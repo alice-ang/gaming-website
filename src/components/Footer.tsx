@@ -8,6 +8,7 @@ import { Separator } from "./ui/separator";
 import { storyblokEditable } from "@storyblok/react/rsc";
 import type { FooterStoryblok } from "../../component-types-sb";
 import { render } from "storyblok-rich-text-react-renderer";
+import { cn } from "@/lib/utils";
 
 export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
   const ref = useRef(null);
@@ -126,7 +127,14 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
                 </div>
               </div>
               <Separator />
-              <div className="flex flex-row justify-start flex-wrap items-center gap-4 lg:gap-x-32 lg:gap-y-4 ">
+              <div
+                className={cn(
+                  blok.logos?.length && blok.logos.length > 2
+                    ? "justify-between"
+                    : "justify-start",
+                  "flex flex-row  flex-wrap items-center gap-4 lg:gap-x-32 lg:gap-y-4 "
+                )}
+              >
                 {blok.logos?.map((logo, index) => (
                   <Image
                     src={logo.filename}

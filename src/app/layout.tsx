@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { baskerville, josefin_sans, oswald } from "./fonts";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
+import { Dialog } from "@/components/ui/dialog";
 
 export const metadata: Metadata = {
   title: "Clubhouse on Haunted Hill",
@@ -32,9 +33,11 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {/* <Navigation /> */}
-            {children}
-            {/* <Footer /> */}
+            <Dialog>
+              {/* <Navigation /> */}
+              {children}
+              {/* <Footer /> */}
+            </Dialog>
           </ThemeProvider>
         </body>
       </html>

@@ -1,13 +1,13 @@
 "use client";
 
+import * as React from "react";
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import * as React from "react";
 
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
@@ -18,7 +18,6 @@ type CarouselProps = {
   opts?: CarouselOptions;
   plugins?: CarouselPlugin;
   orientation?: "horizontal" | "vertical";
-  layout?: "carousel" | "slider";
   setApi?: (api: CarouselApi) => void;
 };
 
@@ -50,7 +49,6 @@ const Carousel = React.forwardRef<
   (
     {
       orientation = "horizontal",
-      layout = "carousel",
       opts,
       setApi,
       plugins,
@@ -130,7 +128,6 @@ const Carousel = React.forwardRef<
           opts,
           orientation:
             orientation || (opts?.axis === "y" ? "vertical" : "horizontal"),
-          layout,
           scrollPrev,
           scrollNext,
           canScrollPrev,
@@ -201,8 +198,7 @@ const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
 >(({ className, variant = "outline", size = "icon", ...props }, ref) => {
-  const { orientation, scrollPrev, canScrollPrev, layout } = useCarousel();
-  console.log("layout", layout);
+  const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
   return (
     <Button
@@ -211,7 +207,6 @@ const CarouselPrevious = React.forwardRef<
       size={size}
       className={cn(
         "absolute  h-8 w-8 rounded-full",
-        layout === "slider" ? "hidden" : "",
         orientation === "horizontal"
           ? "-left-12 top-1/2 -translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -258,10 +253,10 @@ const CarouselNext = React.forwardRef<
 CarouselNext.displayName = "CarouselNext";
 
 export {
+  type CarouselApi,
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
   CarouselPrevious,
-  type CarouselApi,
+  CarouselNext,
 };
