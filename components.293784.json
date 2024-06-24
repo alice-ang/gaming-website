@@ -53,6 +53,39 @@
       "content_type_asset_preview": null
     },
     {
+      "name": "button",
+      "display_name": null,
+      "created_at": "2024-06-23T14:24:28.588Z",
+      "updated_at": "2024-06-23T14:24:55.055Z",
+      "id": 5964944,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 0
+        },
+        "link": {
+          "type": "multilink",
+          "pos": 1,
+          "required": true
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "button",
+      "component_group_uuid": "c34b7d5c-4310-45cf-bdec-1fbdf96cb9b1",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "Global"
+    },
+    {
       "name": "character_customization",
       "display_name": null,
       "created_at": "2024-06-22T13:53:05.224Z",
@@ -104,7 +137,7 @@
       "name": "footer",
       "display_name": null,
       "created_at": "2024-06-21T09:33:09.080Z",
-      "updated_at": "2024-06-22T09:16:08.902Z",
+      "updated_at": "2024-06-23T15:36:44.008Z",
       "id": 5959424,
       "schema": {
         "overline": {
@@ -116,9 +149,13 @@
           "pos": 1,
           "required": true
         },
+        "text_block": {
+          "type": "richtext",
+          "pos": 2
+        },
         "character": {
           "type": "asset",
-          "pos": 2,
+          "pos": 3,
           "filetypes": [
             "images"
           ],
@@ -132,25 +169,30 @@
             "images"
           ]
         },
-        "logos": {
-          "type": "multiasset",
-          "pos": 5,
-          "required": false,
-          "filetypes": [
-            "images"
-          ]
-        },
         "background_image": {
           "type": "asset",
-          "pos": 6,
+          "pos": 5,
           "required": true,
           "filetypes": [
             "images"
           ]
         },
-        "text_block": {
-          "type": "richtext",
-          "pos": 6
+        "logos": {
+          "type": "multiasset",
+          "pos": 6,
+          "required": false,
+          "filetypes": [
+            "images"
+          ]
+        },
+        "button": {
+          "type": "option",
+          "pos": 7,
+          "use_uuid": true,
+          "source": "internal_stories",
+          "filter_content_type": [
+            "button"
+          ]
         }
       },
       "image": null,
@@ -288,6 +330,48 @@
       "content_type_asset_preview": null
     },
     {
+      "name": "link",
+      "display_name": null,
+      "created_at": "2024-06-23T13:32:27.445Z",
+      "updated_at": "2024-06-24T13:27:45.166Z",
+      "id": 5964901,
+      "schema": {
+        "label": {
+          "type": "text",
+          "pos": 0,
+          "required": true
+        },
+        "url": {
+          "type": "multilink",
+          "pos": 1,
+          "required": true,
+          "asset_link_type": true,
+          "email_link_type": true,
+          "show_anchor": true,
+          "allow_target_blank": true,
+          "allow_custom_attributes": true,
+          "restrict_content_types": true,
+          "component_whitelist": [
+            "link"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "link",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null
+    },
+    {
       "name": "moving_card",
       "display_name": null,
       "created_at": "2024-06-22T13:29:04.481Z",
@@ -335,20 +419,31 @@
       "content_type_asset_preview": null
     },
     {
-      "name": "Navbar",
+      "name": "navigation",
       "display_name": null,
-      "created_at": "2024-06-22T09:31:37.314Z",
-      "updated_at": "2024-06-22T09:45:16.134Z",
-      "id": 5963069,
+      "created_at": "2024-06-23T07:52:54.724Z",
+      "updated_at": "2024-06-24T13:23:26.671Z",
+      "id": 5964332,
       "schema": {
         "logo": {
           "type": "asset",
           "pos": 0,
-          "required": true
+          "required": true,
+          "filetypes": [
+            "images"
+          ]
         },
         "nav_links": {
+          "type": "options",
+          "pos": 1,
+          "source": "internal_stories",
+          "filter_content_type": [
+            "link"
+          ]
+        },
+        "blocks": {
           "type": "bloks",
-          "pos": 1
+          "pos": 2
         }
       },
       "image": null,
@@ -358,7 +453,7 @@
       "is_nestable": true,
       "all_presets": [],
       "preset_id": null,
-      "real_name": "Navbar",
+      "real_name": "navigation",
       "component_group_uuid": "c34b7d5c-4310-45cf-bdec-1fbdf96cb9b1",
       "color": null,
       "icon": null,
@@ -366,41 +461,6 @@
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
       "component_group_name": "Global"
-    },
-    {
-      "name": "navigation_link",
-      "display_name": null,
-      "created_at": "2024-06-22T09:44:18.724Z",
-      "updated_at": "2024-06-22T09:44:54.580Z",
-      "id": 5963074,
-      "schema": {
-        "link": {
-          "type": "multilink",
-          "pos": 0,
-          "required": true,
-          "email_link_type": true,
-          "asset_link_type": true,
-          "show_anchor": true,
-          "allow_target_blank": true,
-          "allow_custom_attributes": true,
-          "restrict_content_types": false,
-          "component_whitelist": []
-        }
-      },
-      "image": null,
-      "preview_field": null,
-      "is_root": true,
-      "preview_tmpl": null,
-      "is_nestable": true,
-      "all_presets": [],
-      "preset_id": null,
-      "real_name": "navigation_link",
-      "component_group_uuid": null,
-      "color": null,
-      "icon": null,
-      "internal_tags_list": [],
-      "internal_tag_ids": [],
-      "content_type_asset_preview": null
     },
     {
       "name": "page",
@@ -421,6 +481,38 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "page",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null
+    },
+    {
+      "name": "reference",
+      "display_name": null,
+      "created_at": "2024-06-23T15:52:36.566Z",
+      "updated_at": "2024-06-23T15:52:51.009Z",
+      "id": 5965053,
+      "schema": {
+        "ref": {
+          "type": "options",
+          "pos": 0,
+          "is_reference_type": true,
+          "source": "internal_stories",
+          "entry_appearance": "card",
+          "allow_advanced_search": true,
+          "required": true
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "reference",
       "component_group_uuid": null,
       "color": null,
       "icon": null,
@@ -498,12 +590,103 @@
       "content_type_asset_preview": null
     },
     {
-      "name": "socials",
+      "name": "trailer",
       "display_name": null,
-      "created_at": "2024-06-22T10:49:24.614Z",
-      "updated_at": "2024-06-22T10:49:24.614Z",
-      "id": 5963144,
-      "schema": {},
+      "created_at": "2024-06-23T09:09:59.721Z",
+      "updated_at": "2024-06-23T10:56:15.652Z",
+      "id": 5964520,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 0,
+          "required": true
+        },
+        "description": {
+          "type": "text",
+          "pos": 1,
+          "required": true
+        },
+        "url": {
+          "type": "text",
+          "pos": 2
+        },
+        "image": {
+          "type": "asset",
+          "pos": 3,
+          "required": true,
+          "filetypes": [
+            "images"
+          ]
+        },
+        "video": {
+          "type": "asset",
+          "pos": 4,
+          "filetypes": [
+            "videos"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "trailer",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null
+    },
+    {
+      "name": "video_section",
+      "display_name": null,
+      "created_at": "2024-06-24T09:52:49.015Z",
+      "updated_at": "2024-06-24T10:02:36.557Z",
+      "id": 5967730,
+      "schema": {
+        "overline": {
+          "type": "text",
+          "pos": 0
+        },
+        "title": {
+          "type": "text",
+          "pos": 1
+        },
+        "description": {
+          "type": "text",
+          "pos": 2
+        },
+        "right_image": {
+          "type": "asset",
+          "pos": 3,
+          "filetypes": [
+            "images"
+          ]
+        },
+        "left_image": {
+          "type": "asset",
+          "pos": 4,
+          "filetypes": [
+            "images"
+          ]
+        },
+        "video": {
+          "type": "asset",
+          "pos": 5,
+          "filetypes": [
+            "videos"
+          ],
+          "required": false
+        },
+        "video_url": {
+          "type": "multilink",
+          "pos": 6
+        }
+      },
       "image": null,
       "preview_field": null,
       "is_root": true,
@@ -511,7 +694,7 @@
       "is_nestable": true,
       "all_presets": [],
       "preset_id": null,
-      "real_name": "socials",
+      "real_name": "video_section",
       "component_group_uuid": null,
       "color": null,
       "icon": null,

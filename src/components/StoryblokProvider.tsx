@@ -1,4 +1,5 @@
 "use client";
+
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import { PropsWithChildren } from "react";
 import { SectionItem } from "./SectionItem";
@@ -12,6 +13,10 @@ import { Footer } from "./Footer";
 import { ZoomHeader } from "./ZoomHeader";
 import { StatsCard } from "./StatsCard";
 import { CustomizationSection } from "./CustomizationSection";
+import { Navigation } from "./Navigation";
+import { Trailer } from "./Trailer";
+import { CTA } from "./CTA";
+import { VideoSection } from "./VideoSection";
 
 /** 2. Import your components */
 
@@ -30,6 +35,10 @@ storyblokInit({
     zoom_hero: ZoomHeader,
     moving_card: StatsCard,
     character_customization: CustomizationSection,
+    navigation: Navigation,
+    trailer: Trailer,
+    button: CTA,
+    video_section: VideoSection,
   },
 });
 

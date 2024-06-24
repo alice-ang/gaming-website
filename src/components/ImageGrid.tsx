@@ -36,10 +36,8 @@ export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
       return;
     }
 
-    setImageIdx(api.selectedScrollSnap());
-
     api.on("select", () => {
-      console.log(blok.images.length, api.scrollSnapList().length);
+      console.log(api.selectedScrollSnap(), imageIdx);
       setImageIdx(api.selectedScrollSnap());
     });
   }, [api, blok.images.length, imageIdx]);
@@ -72,11 +70,15 @@ export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
               className="relative h-full w-full aspect-video col-span-1 bg-black overflow-hidden"
               key={index}
             >
-              <DialogTrigger>
+              <DialogTrigger onClick={() => setImageIdx(index)}>
                 <Image
                   src={image.filename}
                   fill
                   alt={image.alt ?? "game image"}
+                  blurDataURL={image.filename}
+                  loading="lazy"
+                  placeholder={"blur"}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="aspect-video object-cover hover:grayscale-0 hover:scale-105 grayscale transition duration-300 ease-in-out"
                 />
               </DialogTrigger>
@@ -102,12 +104,6 @@ export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
                   fill
                   className="absolute bottom-0 object-cover rounded-lg"
                 />
-                {/* <Image
-                    src={data.images[currentIdx].url}
-                    fill
-                    alt="image"
-                    className="absolute bottom-0 object-cover rounded-lg "
-                  /> */}
               </CarouselItem>
             ))}
           </CarouselContent>

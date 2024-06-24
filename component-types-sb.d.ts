@@ -32,128 +32,6 @@ export interface BlogPostStoryblok {
   [k: string]: any;
 }
 
-export interface CharacterCustomizationStoryblok {
-  overline?: string;
-  title: string;
-  text_block: RichtextStoryblok;
-  stats_card: (
-    | BlogPostStoryblok
-    | CharacterCustomizationStoryblok
-    | FooterStoryblok
-    | ImageGridStoryblok
-    | KeyFeaturesStoryblok
-    | LatestPostsStoryblok
-    | MovingCardStoryblok
-    | NavbarStoryblok
-    | NavigationLinkStoryblok
-    | PageStoryblok
-    | RichtextBlockStoryblok
-    | SectionItemStoryblok
-    | SocialsStoryblok
-    | ZoomHeroStoryblok
-  )[];
-  component: "character_customization";
-  _uid: string;
-  [k: string]: any;
-}
-
-export type MultiassetStoryblok = {
-  alt?: string;
-  copyright?: string;
-  id: number;
-  filename: string;
-  name: string;
-  title?: string;
-  [k: string]: any;
-}[];
-
-export interface FooterStoryblok {
-  overline?: string;
-  title: string;
-  character: AssetStoryblok;
-  logo: AssetStoryblok;
-  logos?: MultiassetStoryblok;
-  background_image: AssetStoryblok;
-  text_block?: RichtextStoryblok;
-  component: "footer";
-  _uid: string;
-  [k: string]: any;
-}
-
-export interface ImageGridStoryblok {
-  title?: string;
-  character?: AssetStoryblok;
-  images: MultiassetStoryblok;
-  component: "image_grid";
-  _uid: string;
-  [k: string]: any;
-}
-
-export interface KeyFeaturesStoryblok {
-  overline?: string;
-  title?: string;
-  features: (
-    | BlogPostStoryblok
-    | CharacterCustomizationStoryblok
-    | FooterStoryblok
-    | ImageGridStoryblok
-    | KeyFeaturesStoryblok
-    | LatestPostsStoryblok
-    | MovingCardStoryblok
-    | NavbarStoryblok
-    | NavigationLinkStoryblok
-    | PageStoryblok
-    | RichtextBlockStoryblok
-    | SectionItemStoryblok
-    | SocialsStoryblok
-    | ZoomHeroStoryblok
-  )[];
-  component: "key_features";
-  _uid: string;
-  [k: string]: any;
-}
-
-export interface LatestPostsStoryblok {
-  overline?: string;
-  title?: string;
-  posts: (ISbStoryData<BlogPostStoryblok> | string)[];
-  component: "latest_posts";
-  _uid: string;
-  [k: string]: any;
-}
-
-export interface MovingCardStoryblok {
-  top_image: AssetStoryblok;
-  bottom_image: AssetStoryblok;
-  background_image: AssetStoryblok;
-  component: "moving_card";
-  _uid: string;
-  [k: string]: any;
-}
-
-export interface NavbarStoryblok {
-  logo: AssetStoryblok;
-  nav_links?: (
-    | BlogPostStoryblok
-    | CharacterCustomizationStoryblok
-    | FooterStoryblok
-    | ImageGridStoryblok
-    | KeyFeaturesStoryblok
-    | LatestPostsStoryblok
-    | MovingCardStoryblok
-    | NavbarStoryblok
-    | NavigationLinkStoryblok
-    | PageStoryblok
-    | RichtextBlockStoryblok
-    | SectionItemStoryblok
-    | SocialsStoryblok
-    | ZoomHeroStoryblok
-  )[];
-  component: "Navbar";
-  _uid: string;
-  [k: string]: any;
-}
-
 export type MultilinkStoryblok =
   | {
       id?: string;
@@ -207,9 +85,151 @@ export type MultilinkStoryblok =
       [k: string]: any;
     };
 
-export interface NavigationLinkStoryblok {
-  link: MultilinkStoryblok;
-  component: "navigation_link";
+export interface ButtonStoryblok {
+  title?: string;
+  link: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
+  component: "button";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface CharacterCustomizationStoryblok {
+  overline?: string;
+  title: string;
+  text_block: RichtextStoryblok;
+  stats_card: (
+    | BlogPostStoryblok
+    | ButtonStoryblok
+    | CharacterCustomizationStoryblok
+    | FooterStoryblok
+    | ImageGridStoryblok
+    | KeyFeaturesStoryblok
+    | LatestPostsStoryblok
+    | LinkStoryblok
+    | MovingCardStoryblok
+    | NavigationStoryblok
+    | PageStoryblok
+    | ReferenceStoryblok
+    | RichtextBlockStoryblok
+    | SectionItemStoryblok
+    | TrailerStoryblok
+    | VideoSectionStoryblok
+    | ZoomHeroStoryblok
+  )[];
+  component: "character_customization";
+  _uid: string;
+  [k: string]: any;
+}
+
+export type MultiassetStoryblok = {
+  alt?: string;
+  copyright?: string;
+  id: number;
+  filename: string;
+  name: string;
+  title?: string;
+  [k: string]: any;
+}[];
+
+export interface FooterStoryblok {
+  overline?: string;
+  title: string;
+  text_block?: RichtextStoryblok;
+  character: AssetStoryblok;
+  logo: AssetStoryblok;
+  background_image: AssetStoryblok;
+  logos?: MultiassetStoryblok;
+  button?: ISbStoryData<ButtonStoryblok> | string;
+  component: "footer";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface ImageGridStoryblok {
+  title?: string;
+  character?: AssetStoryblok;
+  images: MultiassetStoryblok;
+  component: "image_grid";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface KeyFeaturesStoryblok {
+  overline?: string;
+  title?: string;
+  features: (
+    | BlogPostStoryblok
+    | ButtonStoryblok
+    | CharacterCustomizationStoryblok
+    | FooterStoryblok
+    | ImageGridStoryblok
+    | KeyFeaturesStoryblok
+    | LatestPostsStoryblok
+    | LinkStoryblok
+    | MovingCardStoryblok
+    | NavigationStoryblok
+    | PageStoryblok
+    | ReferenceStoryblok
+    | RichtextBlockStoryblok
+    | SectionItemStoryblok
+    | TrailerStoryblok
+    | VideoSectionStoryblok
+    | ZoomHeroStoryblok
+  )[];
+  component: "key_features";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface LatestPostsStoryblok {
+  overline?: string;
+  title?: string;
+  posts: (ISbStoryData<BlogPostStoryblok> | string)[];
+  component: "latest_posts";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface LinkStoryblok {
+  label: string;
+  url: MultilinkStoryblok;
+  component: "link";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface MovingCardStoryblok {
+  top_image: AssetStoryblok;
+  bottom_image: AssetStoryblok;
+  background_image: AssetStoryblok;
+  component: "moving_card";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface NavigationStoryblok {
+  logo: AssetStoryblok;
+  nav_links?: (ISbStoryData<LinkStoryblok> | string)[];
+  blocks?: (
+    | BlogPostStoryblok
+    | ButtonStoryblok
+    | CharacterCustomizationStoryblok
+    | FooterStoryblok
+    | ImageGridStoryblok
+    | KeyFeaturesStoryblok
+    | LatestPostsStoryblok
+    | LinkStoryblok
+    | MovingCardStoryblok
+    | NavigationStoryblok
+    | PageStoryblok
+    | ReferenceStoryblok
+    | RichtextBlockStoryblok
+    | SectionItemStoryblok
+    | TrailerStoryblok
+    | VideoSectionStoryblok
+    | ZoomHeroStoryblok
+  )[];
+  component: "navigation";
   _uid: string;
   [k: string]: any;
 }
@@ -217,21 +237,31 @@ export interface NavigationLinkStoryblok {
 export interface PageStoryblok {
   body?: (
     | BlogPostStoryblok
+    | ButtonStoryblok
     | CharacterCustomizationStoryblok
     | FooterStoryblok
     | ImageGridStoryblok
     | KeyFeaturesStoryblok
     | LatestPostsStoryblok
+    | LinkStoryblok
     | MovingCardStoryblok
-    | NavbarStoryblok
-    | NavigationLinkStoryblok
+    | NavigationStoryblok
     | PageStoryblok
+    | ReferenceStoryblok
     | RichtextBlockStoryblok
     | SectionItemStoryblok
-    | SocialsStoryblok
+    | TrailerStoryblok
+    | VideoSectionStoryblok
     | ZoomHeroStoryblok
   )[];
   component: "page";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface ReferenceStoryblok {
+  ref: any[];
+  component: "reference";
   _uid: string;
   [k: string]: any;
 }
@@ -253,8 +283,26 @@ export interface SectionItemStoryblok {
   [k: string]: any;
 }
 
-export interface SocialsStoryblok {
-  component: "socials";
+export interface TrailerStoryblok {
+  title: string;
+  description: string;
+  url?: string;
+  image: AssetStoryblok;
+  video?: AssetStoryblok;
+  component: "trailer";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface VideoSectionStoryblok {
+  overline?: string;
+  title?: string;
+  description?: string;
+  right_image?: AssetStoryblok;
+  left_image?: AssetStoryblok;
+  video?: AssetStoryblok;
+  video_url?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
+  component: "video_section";
   _uid: string;
   [k: string]: any;
 }

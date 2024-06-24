@@ -1,10 +1,14 @@
-import { StoryblokProvider } from "@/components/StoryblokProvider";
-import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
+import { Footer, Navigation, StoryblokProvider } from "@/components";
+import { Dialog } from "@/components/ui/dialog";
+import {
+  apiPlugin,
+  getStoryblokApi,
+  storyblokInit,
+} from "@storyblok/react/rsc";
 import type { Metadata } from "next";
+import { ThemeProvider } from "next-themes";
 import { baskerville, josefin_sans, oswald } from "./fonts";
 import "./globals.css";
-import { ThemeProvider } from "next-themes";
-import { Dialog } from "@/components/ui/dialog";
 
 export const metadata: Metadata = {
   title: "Clubhouse on Haunted Hill",
@@ -16,11 +20,28 @@ storyblokInit({
   use: [apiPlugin],
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const storyblokApi = getStoryblokApi();
+  let { data } = await storyblokApi.get(
+    `cdn/stories`,
+    {
+      starts_with: "layout/",
+      version: "draft",
+      resolve_links: "url",
+    },
+    { cache: "no-store" }
+  );
+
+  const navStory = data.stories.find(
+    (story: any) => story.content.component === "navigation"
+  );
+  const footerStory = data.stories.find(
+    (story: any) => story.content.component === "footer"
+  );
   return (
     <StoryblokProvider>
       <html lang="en">
@@ -34,9 +55,10 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Dialog>
-              {/* <Navigation /> */}
+              {navStory && <Navigation blok={navStory.content} />}
               {children}
-              {/* <Footer /> */}
+
+              {footerStory && <Footer blok={footerStory.content} />}
             </Dialog>
           </ThemeProvider>
         </body>

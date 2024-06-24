@@ -12,3 +12,5 @@ export * from "./StickyScroll";
 export * from "./VideoContainer";
 export * from "./ZoomHeader";
 export * from "./SectionItem";
+export * from "./Navigation";
+export * from "./StoryblokProvider";

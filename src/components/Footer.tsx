@@ -12,7 +12,6 @@ import { cn } from "@/lib/utils";
 
 export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
   const ref = useRef(null);
-
   const { scrollYProgress } = useScroll({
     target: ref,
   });
@@ -23,7 +22,7 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
     <section className="relative overflow-hidden" {...storyblokEditable(blok)}>
       <Constraints>
         <div
-          className="grid grid-cols-12 items-center gap-6  relative py-24 "
+          className="grid grid-cols-12 items-center gap-6 relative py-24 "
           ref={ref}
         >
           <Image
@@ -45,7 +44,6 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
             <div className="space-y-8 items-start justify-start flex flex-col relative">
               <div className="space-y-4">{render(blok.text_block)}</div>
               <Button>Go to discord</Button>
-              {/* socials here      */}
             </div>
           </div>
 
@@ -106,7 +104,7 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
                           className="bg-neutral-200 py-3 px-6 flex-1"
                           placeholder="eg. yourname@example.com"
                         />
-                        <div className="absolute  right-0 ">
+                        <div className="absolute right-0 ">
                           <button
                             type="submit"
                             className="bg-palette-backgroundLight py-3 px-6"
@@ -117,13 +115,6 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
                       </div>
                     </div>
                   </form>
-                  {/* <div className="flex space-x-8 items-center">
-                    {footerLinks.map((link, index) => (
-                      <p className="underline" key={link}>
-                        {link}
-                      </p>
-                    ))}
-                  </div> */}
                 </div>
               </div>
               <Separator />
@@ -139,7 +130,7 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
                   <Image
                     src={logo.filename}
                     alt={logo.alt ?? "logo "}
-                    width={120}
+                    width={160}
                     height={30}
                     key={index}
                   />

@@ -5,9 +5,9 @@ import { cn } from "@/lib/utils";
 import { Variants, motion } from "framer-motion";
 import Image from "next/image";
 import { FC, useLayoutEffect, useRef, useState } from "react";
-import { Constraints } from "./Constraints";
-import type { SectionItemStoryblok } from "../../component-types-sb";
 import { render } from "storyblok-rich-text-react-renderer";
+import type { SectionItemStoryblok } from "../../component-types-sb";
+import { Constraints } from "./Constraints";
 
 type SectionItemProps = {
   idx: number;

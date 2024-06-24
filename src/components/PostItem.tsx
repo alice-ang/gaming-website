@@ -9,11 +9,11 @@ export const PostItem: FC<{ blok: BlogPostStoryblok; idx: number }> = ({
   blok,
   idx,
 }) => {
+  console.log(blok.slug);
   return (
     <Link
       href={`/posts/${blok.slug}`}
       passHref
-      as="article"
       className={cn(
         idx % 2 ? " hover:rotate-2" : "hover:-rotate-2",
         "rotate-0 col-span-3 md:col-span-1 bg-white w-full p-2: lg:p-4 relative space-y-4 shadow-md border border-white animation-transition group"
@@ -38,6 +38,9 @@ export const PostItem: FC<{ blok: BlogPostStoryblok; idx: number }> = ({
             alt={blok.content.cover_image?.alt ?? "blog image"}
             className="aspect-video group-hover:scale-110 animation-transition"
             fill
+            placeholder="blur"
+            blurDataURL={blok.content.cover_image.filename}
+            loading="lazy"
           />
         </div>
       )}
