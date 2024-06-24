@@ -58,7 +58,7 @@ export default async function RootLayout({
               {navStory && <Navigation blok={navStory.content} />}
               {children}
 
-              {footerStory && <Footer blok={footerStory.content} />}
+              {/* {footerStory && <Footer blok={footerStory.content} />} */}
             </Dialog>
           </ThemeProvider>
         </body>

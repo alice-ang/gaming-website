@@ -1,8 +1,4 @@
-import {
-  StoryblokComponent,
-  getStoryblokApi,
-  storyblokEditable,
-} from "@storyblok/react/rsc";
+import { storyblokEditable } from "@storyblok/react/rsc";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";

@@ -140,6 +140,8 @@ export interface FooterStoryblok {
   background_image: AssetStoryblok;
   logos?: MultiassetStoryblok;
   button?: ISbStoryData<ButtonStoryblok> | string;
+  copyright?: string;
+  developer?: RichtextStoryblok;
   component: "footer";
   _uid: string;
   [k: string]: any;

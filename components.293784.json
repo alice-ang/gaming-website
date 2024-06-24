@@ -137,7 +137,7 @@
       "name": "footer",
       "display_name": null,
       "created_at": "2024-06-21T09:33:09.080Z",
-      "updated_at": "2024-06-23T15:36:44.008Z",
+      "updated_at": "2024-06-24T15:27:18.888Z",
       "id": 5959424,
       "schema": {
         "overline": {
@@ -193,6 +193,14 @@
           "filter_content_type": [
             "button"
           ]
+        },
+        "copyright": {
+          "type": "text",
+          "pos": 8
+        },
+        "developer": {
+          "type": "richtext",
+          "pos": 9
         }
       },
       "image": null,

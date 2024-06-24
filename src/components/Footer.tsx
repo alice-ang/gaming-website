@@ -137,13 +137,17 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
                 ))}
               </div>
 
-              <div className="flex flex-row justify-between items-center">
-                <p className="text-palette-lightGrey text-sm">
-                  © 2024 Gibbet Games | All Rights Reserved
-                </p>
-                <p className="text-palette-lightGrey text-sm">
-                  Website crafted by Alice A
-                </p>
+              <div className="grid grid-cols-2 gap-4">
+                {blok.copyright && (
+                  <p className="text-palette-lightGrey text-sm col-span-2 md:col-span-1 text-center">
+                    {blok.copyright}
+                  </p>
+                )}
+                {blok.developer && (
+                  <p className="text-palette-lightGrey text-sm col-span-2 md:col-span-1 text-center md:text-end">
+                    {render(blok.developer)}
+                  </p>
+                )}
               </div>
             </div>
           </Constraints>

@@ -9,7 +9,6 @@ export const PostItem: FC<{ blok: BlogPostStoryblok; idx: number }> = ({
   blok,
   idx,
 }) => {
-  console.log(blok.slug);
   return (
     <Link
       href={`/posts/${blok.slug}`}

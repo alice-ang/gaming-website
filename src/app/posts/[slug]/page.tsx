@@ -4,15 +4,9 @@ import Image from "next/image";
 import { render } from "storyblok-rich-text-react-renderer";
 
 export default async function PostPage({ params }: any) {
-  const storyblokApi = getStoryblokApi();
-  let { data } = await storyblokApi.get(
-    `cdn/stories/posts/${params?.slug}`,
-    {
-      version: "draft",
-      resolve_links: "url",
-    },
-    { cache: "no-store" }
-  );
+  let slug = params?.slug ?? "posts";
+
+  const { data } = await fetchPost(slug);
 
   return (
     <section className="min-h-screen py-32">
@@ -36,4 +30,15 @@ export default async function PostPage({ params }: any) {
       </div>
     </section>
   );
+}
+
+export async function fetchPost(slug: string) {
+  if (!slug) {
+    return;
+  }
+
+  const storyblokApi = getStoryblokApi();
+  return await storyblokApi.get(`cdn/stories/posts/${slug}`, {
+    version: "draft",
+  });
 }

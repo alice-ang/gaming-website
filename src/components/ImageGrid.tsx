@@ -37,7 +37,6 @@ export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
     }
 
     api.on("select", () => {
-      console.log(api.selectedScrollSnap(), imageIdx);
       setImageIdx(api.selectedScrollSnap());
     });
   }, [api, blok.images.length, imageIdx]);
