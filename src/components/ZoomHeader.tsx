@@ -75,12 +75,12 @@ export const ZoomHeader: FC<{ blok: ZoomHeroStoryblok }> = ({ blok }) => {
           </div>
 
           <Image
-            src={"/text.png"}
-            alt="logo"
+            src={blok.text_image.filename}
+            alt={blok.text_image.alt ?? "text logo"}
             width={800}
             height={400}
             placeholder="blur"
-            blurDataURL="/text.png"
+            blurDataURL={blok.text_image.filename}
             className="object-fit"
           />
         </div>

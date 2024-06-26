@@ -9,7 +9,7 @@ export default async function Page({ params }: any) {
     `cdn/stories/${slug}`,
     {
       version: "draft",
-      resolve_relations: ["NavBar.cta", "footer.footer_items"],
+      resolve_relations: ["navbar.cta", "footer.footer_items"],
     },
     { cache: "no-store" }
   );
@@ -19,7 +19,7 @@ export default async function Page({ params }: any) {
       <StoryblokStory
         story={data.story}
         bridgeOptions={{
-          resolveRelations: ["NavBar.cta", "footer.footer_items"],
+          resolveRelations: ["navbar.cta", "footer.footer_items"],
         }}
       />
     </main>

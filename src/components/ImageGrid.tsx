@@ -1,24 +1,17 @@
 "use client";
 
-import { StoryblokComponent, storyblokEditable } from "@storyblok/react/rsc";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { storyblokEditable } from "@storyblok/react/rsc";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { FC, useEffect, useRef, useState } from "react";
 import { ImageGridStoryblok } from "../../component-types-sb";
-import {
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "./ui/dialog";
 import {
   Carousel,
   CarouselApi,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "./ui/carousel";
+import { DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog";
 
 export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
   const ref = useRef(null);
@@ -62,6 +55,12 @@ export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
             className="hidden lg:block object-contain bg-center object-center top-0 absolute right-0 rotate-6 "
           />
         )}
+        <div className="space-y-2 py-4">
+          {blok?.overline && (
+            <h5 className="font-josefin_sans normal-case">{blok.overline}</h5>
+          )}
+          {blok?.title && <h1>{blok.title}</h1>}
+        </div>
 
         <div className="grid grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5  ">
           {blok.images.map((image, index) => (

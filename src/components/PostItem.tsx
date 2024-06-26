@@ -15,7 +15,7 @@ export const PostItem: FC<{ blok: BlogPostStoryblok; idx: number }> = ({
       passHref
       className={cn(
         idx % 2 ? " hover:rotate-2" : "hover:-rotate-2",
-        "rotate-0 col-span-3 md:col-span-1 bg-white w-full p-2: lg:p-4 relative shadow-md border border-white animation-transition group"
+        "rotate-0 col-span-3 md:col-span-1 bg-white w-full p-2: lg:p-4 relative shadow-md border border-white animation-transition group hover:no-underline"
       )}
       {...storyblokEditable(blok)}
     >

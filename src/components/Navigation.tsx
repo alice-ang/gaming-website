@@ -28,13 +28,14 @@ export const Navigation: FC<{ blok: NavBarStoryblok }> = async ({ blok }) => {
           )}
 
           <ul className="flex gap-8 items-center">
-            {["about", "news"].map((link, index) => (
-              <li className="text-lg uppercase cursor-pointer " key={index}>
-                <Link href={`${link}`} className="font-josefin_sans">
-                  {link}
-                </Link>
-              </li>
-            ))}
+            {blok?.nav_links &&
+              blok.nav_links.map((link, index) => (
+                <li className="text-lg uppercase cursor-pointer" key={index}>
+                  <Link href={`${link}`} className="font-josefin_sans">
+                    {link}
+                  </Link>
+                </li>
+              ))}
           </ul>
         </div>
       </Constraints>

@@ -253,23 +253,74 @@
       "component_group_name": "Global"
     },
     {
-      "name": "image_grid",
+      "name": "image_block",
       "display_name": null,
-      "created_at": "2024-06-21T09:33:52.565Z",
-      "updated_at": "2024-06-21T09:39:59.613Z",
-      "id": 5959426,
+      "created_at": "2024-06-26T14:22:38.056Z",
+      "updated_at": "2024-06-26T14:37:09.797Z",
+      "id": 5981588,
       "schema": {
-        "title": {
-          "type": "text",
-          "pos": 0
+        "main_image": {
+          "type": "asset",
+          "pos": 0,
+          "required": true,
+          "filetypes": [
+            "images"
+          ]
         },
-        "character": {
+        "top_left": {
           "type": "asset",
           "pos": 1
         },
+        "top_right": {
+          "type": "asset",
+          "pos": 2
+        },
+        "bottom_left": {
+          "type": "asset",
+          "pos": 3
+        },
+        "bottom_right": {
+          "type": "asset",
+          "pos": 4
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "image_block",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null
+    },
+    {
+      "name": "image_grid",
+      "display_name": null,
+      "created_at": "2024-06-21T09:33:52.565Z",
+      "updated_at": "2024-06-26T14:13:10.499Z",
+      "id": 5959426,
+      "schema": {
+        "overline": {
+          "type": "text",
+          "pos": 0
+        },
+        "title": {
+          "type": "text",
+          "pos": 1
+        },
+        "character": {
+          "type": "asset",
+          "pos": 2
+        },
         "images": {
           "type": "multiasset",
-          "pos": 2,
+          "pos": 3,
           "required": true,
           "filetypes": [
             "images"
@@ -460,7 +511,7 @@
       "name": "NavBar",
       "display_name": null,
       "created_at": "2024-06-25T11:39:13.385Z",
-      "updated_at": "2024-06-25T11:53:45.500Z",
+      "updated_at": "2024-06-26T11:23:13.587Z",
       "id": 5974568,
       "schema": {
         "logo": {
@@ -471,9 +522,30 @@
             "images"
           ]
         },
+        "nav_links": {
+          "type": "options",
+          "pos": 1,
+          "options": [
+            {
+              "_uid": "aa48f0ee-ce8f-478f-a5ce-fdfc40e467aa",
+              "name": "About",
+              "value": "about"
+            },
+            {
+              "_uid": "f14bb0c7-3f75-4e13-b469-0393045c4fb3",
+              "value": "news",
+              "name": "News"
+            },
+            {
+              "_uid": "6d2fe019-5133-49d5-952f-cbe20e8215b4",
+              "value": "press",
+              "name": "Press"
+            }
+          ]
+        },
         "cta": {
           "type": "option",
-          "pos": 1,
+          "pos": 2,
           "use_uuid": true,
           "source": "internal_stories",
           "filter_content_type": [
@@ -587,7 +659,7 @@
       "name": "section_item",
       "display_name": null,
       "created_at": "2024-06-20T15:52:36.767Z",
-      "updated_at": "2024-06-20T16:30:50.573Z",
+      "updated_at": "2024-06-26T14:43:16.291Z",
       "id": 5956527,
       "schema": {
         "overline": {
@@ -608,6 +680,15 @@
           "type": "richtext",
           "pos": 3,
           "required": true
+        },
+        "image_block": {
+          "type": "option",
+          "pos": 4,
+          "use_uuid": true,
+          "source": "internal_stories",
+          "filter_content_type": [
+            "image_block"
+          ]
         }
       },
       "image": null,
@@ -742,10 +823,10 @@
       "name": "zoom_hero",
       "display_name": null,
       "created_at": "2024-06-22T11:00:15.236Z",
-      "updated_at": "2024-06-22T11:01:55.392Z",
+      "updated_at": "2024-06-26T22:00:16.348Z",
       "id": 5963145,
       "schema": {
-        "background_image": {
+        "text_image": {
           "type": "asset",
           "pos": 0,
           "filetypes": [
@@ -753,9 +834,17 @@
           ],
           "required": true
         },
-        "foreground_image": {
+        "background_image": {
           "type": "asset",
           "pos": 1,
+          "filetypes": [
+            "images"
+          ],
+          "required": true
+        },
+        "foreground_image": {
+          "type": "asset",
+          "pos": 2,
           "required": true,
           "filetypes": [
             "images"
@@ -763,7 +852,7 @@
         },
         "fog_layer": {
           "type": "asset",
-          "pos": 2
+          "pos": 3
         }
       },
       "image": null,

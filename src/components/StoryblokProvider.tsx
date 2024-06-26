@@ -17,6 +17,7 @@ import { Navigation } from "./Navigation";
 import { Trailer } from "./Trailer";
 import { CTA } from "./CTA";
 import { VideoSection } from "./VideoSection";
+import { ImageBlock } from "./ImageBlock";
 
 /** 2. Import your components */
 
@@ -39,6 +40,7 @@ storyblokInit({
     trailer: Trailer,
     button: CTA,
     video_section: VideoSection,
+    image_block: ImageBlock,
   },
 });
 

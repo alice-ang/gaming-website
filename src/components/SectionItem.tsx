@@ -8,6 +8,7 @@ import { FC, useLayoutEffect, useRef, useState } from "react";
 import { render } from "storyblok-rich-text-react-renderer";
 import type { SectionItemStoryblok } from "../../component-types-sb";
 import { Constraints } from "./Constraints";
+import { ImageBlock } from "./ImageBlock";
 
 type SectionItemProps = {
   idx: number;
@@ -66,8 +67,8 @@ export const SectionItem: FC<SectionItemProps> = ({ idx, blok }) => {
           <motion.div
             variants={sectionVariants}
             className={cn(
-              idx % 2 ? "mask" : "mask",
-              "col-span-12 lg:col-span-6 h-full w-full  aspect-video relative shadow"
+              idx % 2 ? "mask" : "shadow-mask",
+              "col-span-12 lg:col-span-6 h-full w-full aspect-video relative shadow"
             )}
           >
             <Image

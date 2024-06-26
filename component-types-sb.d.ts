@@ -103,6 +103,7 @@ export interface CharacterCustomizationStoryblok {
     | CharacterCustomizationStoryblok
     | FooterStoryblok
     | FooterItemStoryblok
+    | ImageBlockStoryblok
     | ImageGridStoryblok
     | KeyFeaturesStoryblok
     | LatestPostsStoryblok
@@ -156,6 +157,7 @@ export interface FooterItemStoryblok {
     | CharacterCustomizationStoryblok
     | FooterStoryblok
     | FooterItemStoryblok
+    | ImageBlockStoryblok
     | ImageGridStoryblok
     | KeyFeaturesStoryblok
     | LatestPostsStoryblok
@@ -175,7 +177,19 @@ export interface FooterItemStoryblok {
   [k: string]: any;
 }
 
+export interface ImageBlockStoryblok {
+  main_image: AssetStoryblok;
+  top_left?: AssetStoryblok;
+  top_right?: AssetStoryblok;
+  bottom_left?: AssetStoryblok;
+  bottom_right?: AssetStoryblok;
+  component: "image_block";
+  _uid: string;
+  [k: string]: any;
+}
+
 export interface ImageGridStoryblok {
+  overline?: string;
   title?: string;
   character?: AssetStoryblok;
   images: MultiassetStoryblok;
@@ -193,6 +207,7 @@ export interface KeyFeaturesStoryblok {
     | CharacterCustomizationStoryblok
     | FooterStoryblok
     | FooterItemStoryblok
+    | ImageBlockStoryblok
     | ImageGridStoryblok
     | KeyFeaturesStoryblok
     | LatestPostsStoryblok
@@ -240,6 +255,7 @@ export interface MovingCardStoryblok {
 
 export interface NavBarStoryblok {
   logo: AssetStoryblok;
+  nav_links?: ("" | "about" | "news" | "press")[];
   cta?: ISbStoryData<ButtonStoryblok> | string;
   component: "NavBar";
   _uid: string;
@@ -253,6 +269,7 @@ export interface PageStoryblok {
     | CharacterCustomizationStoryblok
     | FooterStoryblok
     | FooterItemStoryblok
+    | ImageBlockStoryblok
     | ImageGridStoryblok
     | KeyFeaturesStoryblok
     | LatestPostsStoryblok
@@ -291,6 +308,7 @@ export interface SectionItemStoryblok {
   image: AssetStoryblok;
   title: string;
   description: RichtextStoryblok;
+  image_block?: ISbStoryData<ImageBlockStoryblok> | string;
   component: "section_item";
   _uid: string;
   [k: string]: any;
@@ -321,6 +339,7 @@ export interface VideoSectionStoryblok {
 }
 
 export interface ZoomHeroStoryblok {
+  text_image: AssetStoryblok;
   background_image: AssetStoryblok;
   foreground_image: AssetStoryblok;
   fog_layer?: AssetStoryblok;
