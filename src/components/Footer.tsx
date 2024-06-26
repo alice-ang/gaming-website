@@ -95,7 +95,7 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
                     </p>
                   </div>
                 </div>
-                <div className="space-y-4 w-full lg:w-1/3">
+                <div className="space-y-4 w-full md:w-1/3">
                   <h6 className="overline-title"> Newsletter</h6>
                   <form>
                     <div className="flex-1">
@@ -137,16 +137,11 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
                 ))}
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                {blok.copyright && (
-                  <p className="text-palette-lightGrey text-sm col-span-2 md:col-span-1 text-center">
-                    {blok.copyright}
-                  </p>
-                )}
+              <div className="flex justify-center">
                 {blok.developer && (
-                  <p className="text-palette-lightGrey text-sm col-span-2 md:col-span-1 text-center md:text-end">
+                  <div className="text-palette-lightGrey text-sm text-center ">
                     {render(blok.developer)}
-                  </p>
+                  </div>
                 )}
               </div>
             </div>

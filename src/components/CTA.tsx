@@ -6,8 +6,8 @@ import Link from "next/link";
 
 export const CTA: FC<{ blok: ButtonStoryblok }> = ({ blok }) => {
   return (
-    <Link href={blok.link.url} target={blok.link.target}>
-      <Button {...storyblokEditable(blok)}>{blok.title}</Button>
-    </Link>
+    // <Link href={blok.link.url} target={blok.link.target}>
+    <Button {...storyblokEditable(blok)}>{blok.title}</Button>
+    //</Link>
   );
 };

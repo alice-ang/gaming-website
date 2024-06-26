@@ -1,13 +1,17 @@
 import { getStoryblokApi, storyblokEditable } from "@storyblok/react/rsc";
 import { FC } from "react";
-import type { LatestPostsStoryblok } from "../../component-types-sb";
+import type {
+  BlogPostStoryblok,
+  LatestPostsStoryblok,
+} from "../../component-types-sb";
 import { Constraints } from "./Constraints";
 import { PostItem } from "./PostItem";
+import Link from "next/link";
 
 export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = async ({
   blok,
 }) => {
-  const posts = await fetchPosts();
+  const { data } = await fetchPosts(Number(blok.max_num_posts));
 
   return (
     <section className="section-padding" {...storyblokEditable(blok)}>
@@ -17,22 +21,25 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = async ({
             <h5 className="font-josefin_sans normal-case">{blok.overline}</h5>
             <h1>{blok.title} </h1>
           </div>
-          {posts && (
+          {data.stories.length && (
             <div className="grid grid-cols-3 gap-6 w-full">
-              {posts.map((post, index) => (
-                <PostItem key={post.title} blok={post} idx={index} />
+              {data.stories.map((story: BlogPostStoryblok, index: number) => (
+                <PostItem key={story._id} blok={story} idx={index} />
               ))}
             </div>
           )}
-
-          <h4 className="font-josefin_sans normal-case">See all</h4>
+          {Number(blok.max_num_posts) <= 3 && (
+            <Link href={"/news"}>
+              <h4 className="font-josefin_sans normal-case">See all</h4>
+            </Link>
+          )}
         </div>
       </Constraints>
     </section>
   );
 };
 
-export async function fetchPosts() {
+export async function fetchPosts(numOfPosts: number) {
   let filter_query = {
     component: {
       in: "blog_post",
@@ -40,11 +47,11 @@ export async function fetchPosts() {
   };
 
   const storyblokApi = getStoryblokApi();
-  return await storyblokApi.getAll("cdn/stories", {
+  return await storyblokApi.get("cdn/stories", {
     version: "draft",
     resolve_links: "url",
     sort_by: "first_published_at:desc",
     filter_query: filter_query,
-    per_page: 3,
+    per_page: numOfPosts,
   });
 }

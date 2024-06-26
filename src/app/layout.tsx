@@ -37,11 +37,12 @@ export default async function RootLayout({
   );
 
   const navStory = data.stories.find(
-    (story: any) => story.content.component === "navigation"
+    (story: any) => story.content.component === "NavBar"
   );
   const footerStory = data.stories.find(
     (story: any) => story.content.component === "footer"
   );
+
   return (
     <StoryblokProvider>
       <html lang="en">

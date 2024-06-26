@@ -102,12 +102,13 @@ export interface CharacterCustomizationStoryblok {
     | ButtonStoryblok
     | CharacterCustomizationStoryblok
     | FooterStoryblok
+    | FooterItemStoryblok
     | ImageGridStoryblok
     | KeyFeaturesStoryblok
     | LatestPostsStoryblok
     | LinkStoryblok
     | MovingCardStoryblok
-    | NavigationStoryblok
+    | NavBarStoryblok
     | PageStoryblok
     | ReferenceStoryblok
     | RichtextBlockStoryblok
@@ -140,9 +141,36 @@ export interface FooterStoryblok {
   background_image: AssetStoryblok;
   logos?: MultiassetStoryblok;
   button?: ISbStoryData<ButtonStoryblok> | string;
-  copyright?: string;
+  footer_items?: any[];
   developer?: RichtextStoryblok;
   component: "footer";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface FooterItemStoryblok {
+  title: string;
+  blocks?: (
+    | BlogPostStoryblok
+    | ButtonStoryblok
+    | CharacterCustomizationStoryblok
+    | FooterStoryblok
+    | FooterItemStoryblok
+    | ImageGridStoryblok
+    | KeyFeaturesStoryblok
+    | LatestPostsStoryblok
+    | LinkStoryblok
+    | MovingCardStoryblok
+    | NavBarStoryblok
+    | PageStoryblok
+    | ReferenceStoryblok
+    | RichtextBlockStoryblok
+    | SectionItemStoryblok
+    | TrailerStoryblok
+    | VideoSectionStoryblok
+    | ZoomHeroStoryblok
+  )[];
+  component: "footer_item";
   _uid: string;
   [k: string]: any;
 }
@@ -164,12 +192,13 @@ export interface KeyFeaturesStoryblok {
     | ButtonStoryblok
     | CharacterCustomizationStoryblok
     | FooterStoryblok
+    | FooterItemStoryblok
     | ImageGridStoryblok
     | KeyFeaturesStoryblok
     | LatestPostsStoryblok
     | LinkStoryblok
     | MovingCardStoryblok
-    | NavigationStoryblok
+    | NavBarStoryblok
     | PageStoryblok
     | ReferenceStoryblok
     | RichtextBlockStoryblok
@@ -186,7 +215,7 @@ export interface KeyFeaturesStoryblok {
 export interface LatestPostsStoryblok {
   overline?: string;
   title?: string;
-  posts: (ISbStoryData<BlogPostStoryblok> | string)[];
+  max_num_posts: string;
   component: "latest_posts";
   _uid: string;
   [k: string]: any;
@@ -209,29 +238,10 @@ export interface MovingCardStoryblok {
   [k: string]: any;
 }
 
-export interface NavigationStoryblok {
+export interface NavBarStoryblok {
   logo: AssetStoryblok;
-  nav_links?: (ISbStoryData<LinkStoryblok> | string)[];
-  blocks?: (
-    | BlogPostStoryblok
-    | ButtonStoryblok
-    | CharacterCustomizationStoryblok
-    | FooterStoryblok
-    | ImageGridStoryblok
-    | KeyFeaturesStoryblok
-    | LatestPostsStoryblok
-    | LinkStoryblok
-    | MovingCardStoryblok
-    | NavigationStoryblok
-    | PageStoryblok
-    | ReferenceStoryblok
-    | RichtextBlockStoryblok
-    | SectionItemStoryblok
-    | TrailerStoryblok
-    | VideoSectionStoryblok
-    | ZoomHeroStoryblok
-  )[];
-  component: "navigation";
+  cta?: ISbStoryData<ButtonStoryblok> | string;
+  component: "NavBar";
   _uid: string;
   [k: string]: any;
 }
@@ -242,12 +252,13 @@ export interface PageStoryblok {
     | ButtonStoryblok
     | CharacterCustomizationStoryblok
     | FooterStoryblok
+    | FooterItemStoryblok
     | ImageGridStoryblok
     | KeyFeaturesStoryblok
     | LatestPostsStoryblok
     | LinkStoryblok
     | MovingCardStoryblok
-    | NavigationStoryblok
+    | NavBarStoryblok
     | PageStoryblok
     | ReferenceStoryblok
     | RichtextBlockStoryblok

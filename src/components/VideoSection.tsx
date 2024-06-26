@@ -12,14 +12,22 @@ export const VideoSection: FC<{ blok: VideoSectionStoryblok }> = ({ blok }) => {
           <h1>{blok.title}</h1>
           <p>{blok.description}</p>
         </div>
+
         <div className="bg-palette-backgroundLight w-full aspect-video h-full max-w-7xl relative -traslate-y-24 mx-auto ">
-          <video
+          {/* <video
             src={
-              blok.video.filename ??
+              blok.video?.filename ??
               "https://www.youtube.com/embed/oD3pxbG9YYI?si=F8xI4etqxs2EG9hY&amp;controls=0"
             }
-            className="absolute h-full w-full aspect-video bg-palette-footer"
-          ></video>
+            className="absolute h-full w-full aspect-video border border-white"
+          ></video> */}
+          <iframe
+            src={blok.video_url?.url}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+            className="absolute h-full w-full mask"
+          ></iframe>
 
           {blok.left_image && (
             <Image

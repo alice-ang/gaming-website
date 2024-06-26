@@ -3,10 +3,17 @@ import { getStoryblokApi } from "@storyblok/react/rsc";
 import Image from "next/image";
 import { render } from "storyblok-rich-text-react-renderer";
 
-export default async function PostPage({ params }: any) {
-  let slug = params?.slug ?? "posts";
+export default async function Page({ params }: { params: { slug: string } }) {
+  let slug = params?.slug ?? "first-post";
 
-  const { data } = await fetchPost(slug);
+  const fetchData = async (slug: string) => {
+    const storyblokApi = getStoryblokApi();
+    return await storyblokApi.get(`cdn/stories/posts/${slug}`, {
+      version: "draft",
+    });
+  };
+
+  const { data } = await fetchData(slug);
 
   return (
     <section className="min-h-screen py-32">
@@ -30,15 +37,4 @@ export default async function PostPage({ params }: any) {
       </div>
     </section>
   );
-}
-
-export async function fetchPost(slug: string) {
-  if (!slug) {
-    return;
-  }
-
-  const storyblokApi = getStoryblokApi();
-  return await storyblokApi.get(`cdn/stories/posts/${slug}`, {
-    version: "draft",
-  });
 }

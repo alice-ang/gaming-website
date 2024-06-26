@@ -4,7 +4,6 @@ export * from "./ImageGrid";
 export * from "./Navigation";
 export * from "./PostItem";
 export * from "./PreLoader";
-export * from "./Roadmap";
 export * from "./SnapSection";
 export * from "./SplatterContainer";
 export * from "./StatsCard";

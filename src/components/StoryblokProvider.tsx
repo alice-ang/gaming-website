@@ -35,7 +35,7 @@ storyblokInit({
     zoom_hero: ZoomHeader,
     moving_card: StatsCard,
     character_customization: CustomizationSection,
-    navigation: Navigation,
+    navbar: Navigation,
     trailer: Trailer,
     button: CTA,
     video_section: VideoSection,
