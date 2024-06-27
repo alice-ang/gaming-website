@@ -1,4 +1,4 @@
-import { Roadmap } from "@/components/RoadMap";
+import { GolfPath } from "@/components";
 import { getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokStory from "@storyblok/react/story";
 
@@ -16,14 +16,13 @@ export default async function Page({ params }: any) {
   );
 
   return (
-    <main>
-      <Roadmap />
-      {/* <StoryblokStory
+    <main className="">
+      <StoryblokStory
         story={data.story}
         bridgeOptions={{
           resolveRelations: ["navbar.cta", "footer.footer_items"],
         }}
-      /> */}
+      />
     </main>
   );
 }

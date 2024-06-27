@@ -13,3 +13,4 @@ export * from "./ZoomHeader";
 export * from "./SectionItem";
 export * from "./Navigation";
 export * from "./StoryblokProvider";
+export * from "./GolfPath";

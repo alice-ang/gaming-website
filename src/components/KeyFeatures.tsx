@@ -6,10 +6,17 @@ import type {
 } from "../../component-types-sb";
 import { storyblokEditable } from "@storyblok/react/rsc";
 import { SectionItem } from "./SectionItem";
+import { GolfPath } from "./GolfPath";
 
 export const KeyFeatures: FC<{ blok: KeyFeaturesStoryblok }> = ({ blok }) => {
   return (
-    <section {...storyblokEditable(blok)} className="section-padding">
+    <section
+      {...storyblokEditable(blok)}
+      className="section-padding relative overflow-hidden"
+    >
+      <div className=" w-full h-full absolute">
+        <GolfPath />
+      </div>
       <Constraints>
         <div className="flex flex-row items-center justify-center">
           <div className=" text-center space-y-2">

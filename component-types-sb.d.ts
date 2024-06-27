@@ -103,6 +103,7 @@ export interface CharacterCustomizationStoryblok {
     | CharacterCustomizationStoryblok
     | FooterStoryblok
     | FooterItemStoryblok
+    | GolfPathStoryblok
     | ImageBlockStoryblok
     | ImageGridStoryblok
     | KeyFeaturesStoryblok
@@ -157,6 +158,7 @@ export interface FooterItemStoryblok {
     | CharacterCustomizationStoryblok
     | FooterStoryblok
     | FooterItemStoryblok
+    | GolfPathStoryblok
     | ImageBlockStoryblok
     | ImageGridStoryblok
     | KeyFeaturesStoryblok
@@ -173,6 +175,14 @@ export interface FooterItemStoryblok {
     | ZoomHeroStoryblok
   )[];
   component: "footer_item";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface GolfPathStoryblok {
+  dash_color: string;
+  line_color: string;
+  component: "golf_path";
   _uid: string;
   [k: string]: any;
 }
@@ -207,6 +217,7 @@ export interface KeyFeaturesStoryblok {
     | CharacterCustomizationStoryblok
     | FooterStoryblok
     | FooterItemStoryblok
+    | GolfPathStoryblok
     | ImageBlockStoryblok
     | ImageGridStoryblok
     | KeyFeaturesStoryblok
@@ -269,6 +280,7 @@ export interface PageStoryblok {
     | CharacterCustomizationStoryblok
     | FooterStoryblok
     | FooterItemStoryblok
+    | GolfPathStoryblok
     | ImageBlockStoryblok
     | ImageGridStoryblok
     | KeyFeaturesStoryblok
