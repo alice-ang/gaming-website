@@ -25,24 +25,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const storyblokApi = getStoryblokApi();
-  let { data } = await storyblokApi.get(
-    `cdn/stories`,
-    {
-      starts_with: "layout/",
-      version: "draft",
-      resolve_links: "url",
-    },
-    { cache: "no-store" }
-  );
-
-  const navStory = data.stories.find(
-    (story: any) => story.content.component === "NavBar"
-  );
-  const footerStory = data.stories.find(
-    (story: any) => story.content.component === "footer"
-  );
-
   return (
     <StoryblokProvider>
       <html lang="en">
@@ -56,7 +38,7 @@ export default async function RootLayout({
             disableTransitionOnChange
           >
             <Dialog>
-              {navStory && <Navigation blok={navStory.content} />}
+              <Navigation />
               {children}
 
               {/* {footerStory && <Footer blok={footerStory.content} />} */}
