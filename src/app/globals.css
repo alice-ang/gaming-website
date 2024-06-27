@@ -105,6 +105,9 @@
   blockquote {
     @apply mt-6 border-l-2 pl-6 italic;
   }
+  a {
+    @apply hover:underline hover:text-palette-yellow;
+  }
 }
 
 @layer utilities {
@@ -187,6 +190,13 @@ span {
 
 .mask2 {
   mask-image: url("../../public/img-mask2.svg");
+  mask-repeat: no-repeat;
+  mask-size: 100%;
+  mask-position: center;
+}
+
+.shadow-mask {
+  mask-image: url("../../public/shadow.png");
   mask-repeat: no-repeat;
   mask-size: 100%;
   mask-position: center;

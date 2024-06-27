@@ -1,10 +1,15 @@
-import { ReactNode } from "react";
+import { FC, ReactNode } from "react";
+import { Constraints } from "./Constraints";
 
-export const SplatterContainer = ({ children }: { children: ReactNode }) => {
+export const SplatterContainer: FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   return (
     <section className="relative">
-      <div className="h-16 container-mask w-full bg-palette-footer bg-top object-top bg-cover" />
-      <div className="py-16 bg-palette-footer">{children}</div>
+      <div className="h-16 container-mask w-full bg-palette-footer bg-top object-top bg-contain object-contain" />
+      <div className="py-16 bg-palette-footer">
+        <Constraints>{children}</Constraints>
+      </div>
       <div className="h-16 container-mask w-full bg-palette-footer bg-top object-top bg-cover scale-y-[-1]" />
     </section>
   );

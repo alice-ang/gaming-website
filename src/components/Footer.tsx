@@ -1,14 +1,17 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
+import { FC, useRef } from "react";
 import { Constraints } from "./Constraints";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
+import { storyblokEditable } from "@storyblok/react/rsc";
+import type { FooterStoryblok } from "../../component-types-sb";
+import { render } from "storyblok-rich-text-react-renderer";
+import { cn } from "@/lib/utils";
 
-export const Footer = () => {
+export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
   const ref = useRef(null);
-
   const { scrollYProgress } = useScroll({
     target: ref,
   });
@@ -16,44 +19,31 @@ export const Footer = () => {
   const saluteY = useTransform(scrollYProgress, [0, 1], ["80%", "100%"]);
 
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden" {...storyblokEditable(blok)}>
       <Constraints>
         <div
-          className="grid grid-cols-12 items-center gap-6  relative py-24 "
+          className="grid grid-cols-12 items-center gap-6 relative py-24 "
           ref={ref}
         >
           <Image
-            src={"/victims.png"}
+            src={blok.background_image.filename}
             fill
-            alt="Characters"
+            alt={blok.background_image.alt ?? "Characters"}
             className="object-contain bg-right object-center absolute opacity-10 aspect-video -rotate-6 scale-125 lg:scale-90 lg:translate-x-56 "
           />
           <div className="col-span-12 lg:col-span-6 ">
-            <button className="text-2xl text-palette-yellow border border-palette-yellow px-6 py-2 -rotate-12 mb-4">
-              Community
-            </button>
-            <h2 className="title uppercase">
-              Take <br />
-              the <br />
-              Swing
-            </h2>
+            {blok.overline && (
+              <button className="w-fit text-2xl text-palette-yellow border border-palette-yellow px-6 py-2 -rotate-12 mb-4">
+                {blok.overline}
+              </button>
+            )}
+
+            <h2 className="title uppercase max-w-[90px]">{blok.title}</h2>
           </div>
           <div className="col-span-12 lg:col-span-6 h-full relative items-center justify-center flex flex-col">
             <div className="space-y-8 items-start justify-start flex flex-col relative">
-              <div className="space-y-4">
-                <h4>Official forums</h4>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                  eleifend porta sem, sit amet ultricies nunc vehicula at.
-                  Vestibulum urna arcu, suscipit semper nisl ut, imperdiet
-                  imperdiet purus. Maecenas accumsan ullamcorper arcu ac
-                  finibus. Aenean porttitor, libero quis tempus venenatis, nibh
-                  urna tincidunt felis, non condimentum augue lacus vel ligula.
-                  Morbi id orci tristique.
-                </p>
-              </div>
+              <div className="space-y-4">{render(blok.text_block)}</div>
               <Button>Go to discord</Button>
-              {/* socials here      */}
             </div>
           </div>
 
@@ -64,10 +54,10 @@ export const Footer = () => {
               backgroundSize: "cover",
               scale: 1.3,
             }}
-            src={"/priest.png"}
+            src={blok.character.filename}
             width={340}
             height={290}
-            alt="Priest"
+            alt={blok.character.alt ?? "character"}
             className="object-contain bg-center object-center bottom-0 absolute -left-24 rotate-6 hidden lg:block"
           />
         </div>
@@ -80,8 +70,8 @@ export const Footer = () => {
           <Constraints>
             <div className="space-y-16">
               <Image
-                src={"/gibbet.png"}
-                alt="logo-full"
+                src={blok.logo.filename}
+                alt={blok.logo.alt ?? "logo"}
                 width={190}
                 height={60}
               />
@@ -105,7 +95,7 @@ export const Footer = () => {
                     </p>
                   </div>
                 </div>
-                <div className="space-y-4 w-full lg:w-1/3">
+                <div className="space-y-4 w-full md:w-1/3">
                   <h6 className="overline-title"> Newsletter</h6>
                   <form>
                     <div className="flex-1">
@@ -114,7 +104,7 @@ export const Footer = () => {
                           className="bg-neutral-200 py-3 px-6 flex-1"
                           placeholder="eg. yourname@example.com"
                         />
-                        <div className="absolute  right-0 ">
+                        <div className="absolute right-0 ">
                           <button
                             type="submit"
                             className="bg-palette-backgroundLight py-3 px-6"
@@ -125,35 +115,34 @@ export const Footer = () => {
                       </div>
                     </div>
                   </form>
-                  {/* <div className="flex space-x-8 items-center">
-                    {footerLinks.map((link, index) => (
-                      <p className="underline" key={link}>
-                        {link}
-                      </p>
-                    ))}
-                  </div> */}
                 </div>
               </div>
               <Separator />
-              <div className="flex flex-row justify-between flex-wrap items-center gap-4 lg:gap-x-32 lg:gap-y-4 ">
-                {Array.from({ length: 4 }).map((_, index) => (
+              <div
+                className={cn(
+                  blok.logos?.length && blok.logos.length > 2
+                    ? "justify-between"
+                    : "justify-start",
+                  "flex flex-row  flex-wrap items-center gap-4 lg:gap-x-32 lg:gap-y-4 "
+                )}
+              >
+                {blok.logos?.map((logo, index) => (
                   <Image
-                    src={"/gibbet.png"}
-                    alt="logo-full"
-                    width={120}
+                    src={logo.filename}
+                    alt={logo.alt ?? "logo "}
+                    width={160}
                     height={30}
                     key={index}
                   />
                 ))}
               </div>
 
-              <div className="flex flex-row justify-between items-center">
-                <p className="text-palette-lightGrey text-sm">
-                  © 2024 Gibbet Games | All Rights Reserved
-                </p>
-                <p className="text-palette-lightGrey text-sm">
-                  Website crafted by Alice A
-                </p>
+              <div className="flex justify-center">
+                {blok.developer && (
+                  <div className="text-palette-lightGrey text-sm text-center ">
+                    {render(blok.developer)}
+                  </div>
+                )}
               </div>
             </div>
           </Constraints>

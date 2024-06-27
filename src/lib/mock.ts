@@ -1,4 +1,3 @@
-import { m } from "framer-motion";
 import { Post } from "./types";
 import { getLocaleDateString } from "./utils";
 

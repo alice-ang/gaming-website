@@ -6,13 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "update-sb": "storyblok pull-components --space 293784 && storyblok generate-typescript-typedefs --sourceFilePaths ./components.293784.json --destinationFilePath ./component-types-sb.d.ts",
+    "pull-sb-components": "storyblok pull-components --space 293784",
+    "generate-sb-types": "storyblok generate-typescript-typedefs --sourceFilePaths ./components.293784.json --destinationFilePath ./component-types-sb.d.ts"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
+    "@storyblok/react": "^3.0.10",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.1.5",
@@ -22,6 +27,7 @@
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
+    "storyblok-rich-text-react-renderer": "^2.9.2",
     "tailwind-gradient-mask-image": "^1.2.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7"

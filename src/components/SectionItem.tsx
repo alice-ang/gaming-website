@@ -1,23 +1,20 @@
 "use client";
+import { storyblokEditable } from "@storyblok/react/rsc";
+
 import { cn } from "@/lib/utils";
 import { Variants, motion } from "framer-motion";
 import Image from "next/image";
-import { FC, ReactNode, useLayoutEffect, useRef, useState } from "react";
+import { FC, useLayoutEffect, useRef, useState } from "react";
+import { render } from "storyblok-rich-text-react-renderer";
+import type { SectionItemStoryblok } from "../../component-types-sb";
 import { Constraints } from "./Constraints";
 
 type SectionItemProps = {
   idx: number;
-  overline?: string;
-  title: string;
-  description: string;
+  blok: SectionItemStoryblok;
 };
 
-export const SectionItem: FC<SectionItemProps> = ({
-  idx,
-  overline,
-  title,
-  description,
-}) => {
+export const SectionItem: FC<SectionItemProps> = ({ idx, blok }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState<number>(0);
 
@@ -44,11 +41,11 @@ export const SectionItem: FC<SectionItemProps> = ({
   }, [ref]);
 
   return (
-    <section key={idx} className="section-padding">
+    <section key={idx} className="section-padding" {...storyblokEditable(blok)}>
       <Constraints>
         <motion.div
           ref={ref}
-          className="grid grid-cols-12 gap-4 xl:gap-[130px] items-center"
+          className="grid grid-cols-12 gap-8 xl:gap-[130px] items-center"
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.8 }}
@@ -56,25 +53,26 @@ export const SectionItem: FC<SectionItemProps> = ({
           <motion.div
             className={cn(
               idx % 2 ? "lg:order-last " : "lg:text-right",
-              "col-span-12 lg:col-span-6 space-y-4"
+              "col-span-12 lg:col-span-6 space-y-2 md:space-y-4"
             )}
             variants={sectionVariants}
           >
-            <h5 className="font-josefin_sans normal-case">{overline}</h5>
-            <h1>{title} </h1>
-            <p>{description}</p>
+            <h5 className="font-josefin_sans normal-case">{blok.overline}</h5>
+            <h1>{blok.title} </h1>
+
+            <div>{render(blok.description)}</div>
           </motion.div>
 
           <motion.div
             variants={sectionVariants}
             className={cn(
               idx % 2 ? "mask" : "mask",
-              "col-span-12 lg:col-span-6 h-full w-full  aspect-video relative shadow"
+              "col-span-12 lg:col-span-6 h-full w-full aspect-video relative shadow"
             )}
           >
             <Image
-              src="/tree.png"
-              alt="trees"
+              src={blok.image.filename}
+              alt={blok.image.alt ?? ""}
               className="aspect-video object-cover h-full w-full bg-center"
               fill
             />
