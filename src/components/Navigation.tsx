@@ -50,7 +50,6 @@ export async function fetchData() {
     resolve_links: "url",
   });
 
-  console.log(data);
   return {
     nav: data.story.content,
   };

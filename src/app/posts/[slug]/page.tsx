@@ -3,17 +3,18 @@ import { getStoryblokApi } from "@storyblok/react/rsc";
 import Image from "next/image";
 import { render } from "storyblok-rich-text-react-renderer";
 
-export default async function Page({ params }: { params: { slug: string } }) {
-  let slug = params?.slug ?? "first-post";
+export default async function Page({ params }: any) {
+  let slug = params?.slug ? params.slug.join("/") : "posts";
+  console.log(params);
 
-  const fetchData = async (slug: string) => {
-    const storyblokApi = getStoryblokApi();
-    return await storyblokApi.get(`cdn/stories/posts/${slug}`, {
+  const storyblokApi = getStoryblokApi();
+  let { data } = await storyblokApi.get(
+    `cdn/stories/posts/${slug}`,
+    {
       version: "draft",
-    });
-  };
-
-  const { data } = await fetchData(slug);
+    },
+    { cache: "no-store" }
+  );
 
   return (
     <section className="min-h-screen py-32">
