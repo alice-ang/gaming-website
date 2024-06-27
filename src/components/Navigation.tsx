@@ -7,10 +7,9 @@ import { CTA } from "./CTA";
 import { NavBarStoryblok } from "../../component-types-sb";
 
 export const Navigation: FC<{ blok: NavBarStoryblok }> = async ({ blok }) => {
-  console.log(blok);
   return (
     <nav
-      className="bg-transparent py-6 px-4 fixed top-0 z-40 w-full backdrop-blur-sm"
+      className="bg-gradient-to-b from-black to-transparent py-6 px-4 fixed top-0 z-40 w-full"
       {...storyblokEditable(blok)}
     >
       <Constraints>

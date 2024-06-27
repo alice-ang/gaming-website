@@ -29,7 +29,7 @@ export const ZoomHeader: FC<{ blok: ZoomHeroStoryblok }> = ({ blok }) => {
         }}
         className=" overflow-hidden top-0 h-screen sticky "
       >
-        {blok.background_image && (
+        {blok.background_image.filename && (
           <motion.div
             className="aspect-video h-full w-full absolute"
             style={{ scale }}
@@ -44,7 +44,7 @@ export const ZoomHeader: FC<{ blok: ZoomHeroStoryblok }> = ({ blok }) => {
             />
           </motion.div>
         )}
-        {blok.fog_layer && (
+        {blok.fog_layer?.filename && (
           <div className=" h-full w-full absolute">
             <video
               src={blok.fog_layer.filename}
@@ -74,15 +74,17 @@ export const ZoomHeader: FC<{ blok: ZoomHeroStoryblok }> = ({ blok }) => {
             <h4 className="text-lg font-baskerville">presents</h4>
           </div>
 
-          <Image
-            src={blok.text_image.filename}
-            alt={blok.text_image.alt ?? "text logo"}
-            width={800}
-            height={400}
-            placeholder="blur"
-            blurDataURL={blok.text_image.filename}
-            className="object-fit"
-          />
+          {blok?.text_image?.filename && (
+            <Image
+              src={blok.text_image.filename}
+              alt={blok.text_image.alt ?? "text logo"}
+              width={800}
+              height={400}
+              placeholder="blur"
+              blurDataURL={blok.text_image.filename}
+              className="object-fit"
+            />
+          )}
         </div>
 
         <motion.div

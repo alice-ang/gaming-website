@@ -26,10 +26,10 @@ export const VideoSection: FC<{ blok: VideoSectionStoryblok }> = ({ blok }) => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
-            className="absolute h-full w-full mask"
+            className="absolute h-full w-full shadow-mask"
           ></iframe>
 
-          {blok.left_image && (
+          {blok?.left_image?.filename && (
             <Image
               src={blok.left_image.filename}
               alt={blok.left_image.alt ?? "left image"}
@@ -39,7 +39,7 @@ export const VideoSection: FC<{ blok: VideoSectionStoryblok }> = ({ blok }) => {
             />
           )}
 
-          {blok.right_image && (
+          {blok?.right_image?.filename && (
             <Image
               src={blok.right_image.filename}
               alt={blok.right_image.alt ?? "right image"}

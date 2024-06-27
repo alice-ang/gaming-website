@@ -1,3 +1,4 @@
+import { Roadmap } from "@/components/RoadMap";
 import { getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokStory from "@storyblok/react/story";
 
@@ -16,12 +17,13 @@ export default async function Page({ params }: any) {
 
   return (
     <main>
-      <StoryblokStory
+      <Roadmap />
+      {/* <StoryblokStory
         story={data.story}
         bridgeOptions={{
           resolveRelations: ["navbar.cta", "footer.footer_items"],
         }}
-      />
+      /> */}
     </main>
   );
 }
