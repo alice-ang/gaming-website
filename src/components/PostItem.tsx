@@ -14,7 +14,7 @@ export const PostItem: FC<{ blok: BlogPostStoryblok; idx: number }> = ({
       href={`/posts/${blok.slug}`}
       passHref
       className={cn(
-        idx % 2 ? " hover:rotate-2" : "hover:-rotate-2",
+        idx % 2 ? " md:hover:rotate-2" : "md:hover:-rotate-2",
         "rotate-0 col-span-3 md:col-span-1 bg-white w-full p-2: lg:p-4 relative shadow-md border border-white animation-transition group hover:no-underline"
       )}
       {...storyblokEditable(blok)}
@@ -44,7 +44,7 @@ export const PostItem: FC<{ blok: BlogPostStoryblok; idx: number }> = ({
         </div>
       )}
 
-      <div className="space-y-2">
+      <div className="space-y-2 p-4">
         <h5 className="text-palette-red">
           {getLocaleDateString(blok.created_at).full}
         </h5>

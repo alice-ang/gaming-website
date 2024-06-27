@@ -7,9 +7,10 @@ import type { NavigationStoryblok } from "../../component-types-sb";
 
 export const Navigation: FC = async () => {
   const { nav }: { nav: NavigationStoryblok } = await fetchData();
+
   return (
     <nav
-      className="bg-gradient-to-b from-black to-transparent py-6 px-4 fixed top-0 z-40 w-full"
+      className="bg-gradient-to-b from-black to-transparent py-6 fixed top-0 z-40 w-full"
       {...storyblokEditable(nav)}
     >
       <Constraints>

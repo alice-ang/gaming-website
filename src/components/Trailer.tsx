@@ -13,7 +13,7 @@ export const Trailer: FC<{ blok: TrailerStoryblok }> = ({ blok }) => {
             <h1>{blok.title}</h1>
             <p>{blok.description}</p>
           </div>
-          <div className=" grid grid-cols-12 gap-4 h-full items-center ">
+          <div className=" grid grid-cols-12 gap-8 h-full items-center ">
             <div className="col-span-12 lg:col-span-4 hidden lg:block relative aspect-video">
               <Image
                 src={blok.image.filename}

@@ -3,13 +3,10 @@ import { getStoryblokApi } from "@storyblok/react/rsc";
 import Image from "next/image";
 import { render } from "storyblok-rich-text-react-renderer";
 
-export default async function Page({ params }: any) {
-  let slug = params?.slug ? params.slug.join("/") : "posts";
-  console.log(params);
-
+export default async function Page({ params }: { params: { slug: string } }) {
   const storyblokApi = getStoryblokApi();
   let { data } = await storyblokApi.get(
-    `cdn/stories/posts/${slug}`,
+    `cdn/stories/posts/${params.slug}`,
     {
       version: "draft",
     },

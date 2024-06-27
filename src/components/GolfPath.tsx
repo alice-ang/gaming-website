@@ -45,7 +45,7 @@ export const GolfPath: FC = () => {
         <motion.path
           ref={pathRef}
           fill={"none"}
-          stroke={"#898889"}
+          stroke={"#a4a4a6"}
           d="M -5,0
           Q 450 230 300 450 
           T 130 750

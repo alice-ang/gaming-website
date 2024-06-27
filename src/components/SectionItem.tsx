@@ -45,7 +45,7 @@ export const SectionItem: FC<SectionItemProps> = ({ idx, blok }) => {
       <Constraints>
         <motion.div
           ref={ref}
-          className="grid grid-cols-12 gap-4 xl:gap-[130px] items-center"
+          className="grid grid-cols-12 gap-8 xl:gap-[130px] items-center"
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.8 }}

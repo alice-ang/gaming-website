@@ -41,7 +41,7 @@ export const StickyScroll = ({
 
   return (
     <motion.div
-      className="h-screen overflow-y-auto grid grid-cols-4 gap-4 w-full bg-[url('/theatre.png')] items-center bg-cover object-cover bg-no-repeat "
+      className="h-screen overflow-y-auto grid grid-cols-4 gap-8 w-full bg-[url('/theatre.png')] items-center bg-cover object-cover bg-no-repeat "
       ref={ref}
     >
       <div className="div relative flex items-start px-4 col-span-2">

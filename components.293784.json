@@ -545,9 +545,9 @@
     {
       "name": "navigation",
       "display_name": null,
-      "created_at": "2024-06-25T11:39:13.385Z",
-      "updated_at": "2024-06-27T11:13:51.827Z",
-      "id": 5974568,
+      "created_at": "2024-06-27T11:51:35.884Z",
+      "updated_at": "2024-06-27T21:31:44.187Z",
+      "id": 5985233,
       "schema": {
         "logo": {
           "type": "asset",
@@ -562,23 +562,19 @@
           "pos": 1,
           "options": [
             {
-              "_uid": "aa48f0ee-ce8f-478f-a5ce-fdfc40e467aa",
-              "name": "About",
-              "value": "about"
+              "_uid": "a2682b9e-9c6c-4641-8a9c-ecefc53e7e16",
+              "name": "News",
+              "value": "news"
             },
             {
-              "_uid": "f14bb0c7-3f75-4e13-b469-0393045c4fb3",
-              "value": "news",
-              "name": "News"
-            },
-            {
-              "_uid": "6d2fe019-5133-49d5-952f-cbe20e8215b4",
+              "_uid": "feb764c9-64a0-45c3-b5af-cb66e0429d11",
               "value": "press",
               "name": "Press"
             }
-          ]
+          ],
+          "required": true
         },
-        "cta": {
+        "nav_cta": {
           "type": "option",
           "pos": 2,
           "use_uuid": true,

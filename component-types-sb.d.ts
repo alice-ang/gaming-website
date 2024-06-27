@@ -265,8 +265,8 @@ export interface MovingCardStoryblok {
 
 export interface NavigationStoryblok {
   logo: AssetStoryblok;
-  nav_links?: ("" | "about" | "news" | "press")[];
-  cta: ISbStoryData<ButtonStoryblok> | string;
+  nav_links: ("" | "news" | "press")[];
+  nav_cta: ISbStoryData<ButtonStoryblok> | string;
   component: "navigation";
   _uid: string;
   [k: string]: any;

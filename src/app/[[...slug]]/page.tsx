@@ -1,4 +1,3 @@
-import { GolfPath } from "@/components";
 import { getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokStory from "@storyblok/react/story";
 
@@ -10,7 +9,7 @@ export default async function Page({ params }: any) {
     `cdn/stories/${slug}`,
     {
       version: "draft",
-      resolve_relations: ["navbar.cta", "footer.footer_items"],
+      resolve_relations: ["navigation.nav_cta", "footer.footer_items"],
     },
     { cache: "no-store" }
   );
@@ -20,7 +19,7 @@ export default async function Page({ params }: any) {
       <StoryblokStory
         story={data.story}
         bridgeOptions={{
-          resolveRelations: ["navbar.cta", "footer.footer_items"],
+          resolveRelations: ["navigation.nav_cta", "footer.footer_items"],
         }}
       />
     </main>
