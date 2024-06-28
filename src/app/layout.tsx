@@ -1,10 +1,15 @@
-import { Navigation, StoryblokProvider } from "@/components";
+import { Navigation, StoryblokProvider, Footer } from "@/components";
 import { Dialog } from "@/components/ui/dialog";
-import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
+import {
+  apiPlugin,
+  getStoryblokApi,
+  storyblokInit,
+} from "@storyblok/react/rsc";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { baskerville, josefin_sans, oswald } from "./fonts";
 import "./globals.css";
+import type { FooterStoryblok } from "../../component-types-sb";
 
 export const metadata: Metadata = {
   title: "Clubhouse on Haunted Hill",
@@ -31,6 +36,8 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { blok }: { blok: FooterStoryblok } = await fetchData();
+
   return (
     <StoryblokProvider>
       <html lang="en">
@@ -47,11 +54,24 @@ export default async function RootLayout({
               <Navigation />
               {children}
 
-              {/* {footerStory && <Footer blok={footerStory.content} />} */}
+              <Footer blok={blok} />
             </Dialog>
           </ThemeProvider>
         </body>
       </html>
     </StoryblokProvider>
   );
+}
+
+export async function fetchData() {
+  const storyblokApi = getStoryblokApi();
+
+  const { data } = await storyblokApi.get("cdn/stories/layout/footer", {
+    version: "draft",
+    resolve_links: "url",
+  });
+
+  return {
+    blok: data.story.content,
+  };
 }

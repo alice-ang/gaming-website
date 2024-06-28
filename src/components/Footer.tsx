@@ -28,7 +28,7 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
           <Image
             src={blok.background_image.filename}
             fill
-            alt={blok.background_image.alt ?? "Characters"}
+            alt={blok.background_image.alt ?? "Character"}
             className="object-contain bg-right object-center absolute opacity-10 aspect-video -rotate-6 scale-125 lg:scale-90 lg:translate-x-56 "
           />
           <div className="col-span-12 lg:col-span-6 ">

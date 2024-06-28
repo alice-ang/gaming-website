@@ -198,7 +198,7 @@ span {
 .shadow-mask {
   mask-image: url("../../public/shadow.png");
   mask-repeat: no-repeat;
-  mask-size: 100%;
+  mask-size: 95%;
   mask-position: center;
 }
 

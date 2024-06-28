@@ -232,6 +232,7 @@ export interface KeyFeaturesStoryblok {
     | VideoSectionStoryblok
     | ZoomHeroStoryblok
   )[];
+  show_golf_path?: boolean;
   component: "key_features";
   _uid: string;
   [k: string]: any;
@@ -319,7 +320,10 @@ export interface SectionItemStoryblok {
   image: AssetStoryblok;
   title: string;
   description: RichtextStoryblok;
-  image_block?: ISbStoryData<ImageBlockStoryblok> | string;
+  top_left_image?: AssetStoryblok;
+  top_right_image?: AssetStoryblok;
+  bottom_left_image?: AssetStoryblok;
+  bottom_right_image?: AssetStoryblok;
   component: "section_item";
   _uid: string;
   [k: string]: any;

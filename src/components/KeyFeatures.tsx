@@ -14,9 +14,12 @@ export const KeyFeatures: FC<{ blok: KeyFeaturesStoryblok }> = ({ blok }) => {
       {...storyblokEditable(blok)}
       className="section-padding relative overflow-hidden"
     >
-      <div className=" w-full h-full absolute">
-        <GolfPath />
-      </div>
+      {blok.show_golf_path && (
+        <div className=" w-full h-full absolute 3xl:hidden">
+          <GolfPath />
+        </div>
+      )}
+
       <Constraints>
         <div className="flex flex-row items-center justify-center">
           <div className=" text-center space-y-2">

@@ -39,6 +39,7 @@ export const ZoomHeader: FC<{ blok: ZoomHeroStoryblok }> = ({ blok }) => {
               alt={blok.background_image.alt ?? "background image"}
               fill
               placeholder="blur"
+              loading="eager"
               blurDataURL={blok.background_image.filename}
               className="aspect-video bg-cover object-center object-cover "
             />
@@ -81,6 +82,7 @@ export const ZoomHeader: FC<{ blok: ZoomHeroStoryblok }> = ({ blok }) => {
               width={800}
               height={400}
               placeholder="blur"
+              loading="eager"
               blurDataURL={blok.text_image.filename}
               className="object-fit"
             />
@@ -97,6 +99,7 @@ export const ZoomHeader: FC<{ blok: ZoomHeroStoryblok }> = ({ blok }) => {
               fill
               alt={blok.foreground_image.alt ?? "foreground"}
               placeholder="blur"
+              loading="eager"
               blurDataURL={blok.foreground_image.filename}
               className="object-cover aspect-video"
             />
