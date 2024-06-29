@@ -136,39 +136,6 @@
       "content_type_asset_preview": null
     },
     {
-      "name": "featured_posts",
-      "display_name": null,
-      "created_at": "2024-06-27T09:39:04.318Z",
-      "updated_at": "2024-06-27T09:39:33.631Z",
-      "id": 5984808,
-      "schema": {
-        "posts": {
-          "type": "options",
-          "pos": 0,
-          "required": true,
-          "source": "internal_stories",
-          "folder_slug": "posts/",
-          "filter_content_type": [
-            "blog_post"
-          ]
-        }
-      },
-      "image": null,
-      "preview_field": null,
-      "is_root": true,
-      "preview_tmpl": null,
-      "is_nestable": true,
-      "all_presets": [],
-      "preset_id": null,
-      "real_name": "featured_posts",
-      "component_group_uuid": null,
-      "color": null,
-      "icon": null,
-      "internal_tags_list": [],
-      "internal_tag_ids": [],
-      "content_type_asset_preview": null
-    },
-    {
       "name": "footer",
       "display_name": null,
       "created_at": "2024-06-21T09:33:09.080Z",

@@ -101,7 +101,6 @@ export interface CharacterCustomizationStoryblok {
     | BlogPostStoryblok
     | ButtonStoryblok
     | CharacterCustomizationStoryblok
-    | FeaturedPostsStoryblok
     | FooterStoryblok
     | FooterItemStoryblok
     | ImageBlockStoryblok
@@ -120,13 +119,6 @@ export interface CharacterCustomizationStoryblok {
     | ZoomHeroStoryblok
   )[];
   component: "character_customization";
-  _uid: string;
-  [k: string]: any;
-}
-
-export interface FeaturedPostsStoryblok {
-  posts: (ISbStoryData<BlogPostStoryblok> | string)[];
-  component: "featured_posts";
   _uid: string;
   [k: string]: any;
 }
@@ -163,7 +155,6 @@ export interface FooterItemStoryblok {
     | BlogPostStoryblok
     | ButtonStoryblok
     | CharacterCustomizationStoryblok
-    | FeaturedPostsStoryblok
     | FooterStoryblok
     | FooterItemStoryblok
     | ImageBlockStoryblok
@@ -214,7 +205,6 @@ export interface KeyFeaturesStoryblok {
     | BlogPostStoryblok
     | ButtonStoryblok
     | CharacterCustomizationStoryblok
-    | FeaturedPostsStoryblok
     | FooterStoryblok
     | FooterItemStoryblok
     | ImageBlockStoryblok
@@ -279,7 +269,6 @@ export interface PageStoryblok {
     | BlogPostStoryblok
     | ButtonStoryblok
     | CharacterCustomizationStoryblok
-    | FeaturedPostsStoryblok
     | FooterStoryblok
     | FooterItemStoryblok
     | ImageBlockStoryblok
