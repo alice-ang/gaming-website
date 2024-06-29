@@ -22,7 +22,7 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
     <section className="relative overflow-hidden" {...storyblokEditable(blok)}>
       <Constraints>
         <div
-          className="grid grid-cols-12 items-center gap-6 relative py-24 "
+          className="grid grid-cols-12 items-center gap-6 relative section-padding"
           ref={ref}
         >
           <Image

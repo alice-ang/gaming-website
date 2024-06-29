@@ -110,6 +110,7 @@ export interface CharacterCustomizationStoryblok {
     | LinkStoryblok
     | MovingCardStoryblok
     | NavigationStoryblok
+    | NavLinksStoryblok
     | PageStoryblok
     | ReferenceStoryblok
     | SectionItemStoryblok
@@ -164,6 +165,7 @@ export interface FooterItemStoryblok {
     | LinkStoryblok
     | MovingCardStoryblok
     | NavigationStoryblok
+    | NavLinksStoryblok
     | PageStoryblok
     | ReferenceStoryblok
     | SectionItemStoryblok
@@ -214,6 +216,7 @@ export interface KeyFeaturesStoryblok {
     | LinkStoryblok
     | MovingCardStoryblok
     | NavigationStoryblok
+    | NavLinksStoryblok
     | PageStoryblok
     | ReferenceStoryblok
     | SectionItemStoryblok
@@ -233,6 +236,7 @@ export interface LatestPostsStoryblok {
   title?: string;
   max_num_posts: string;
   show_pagination?: boolean;
+  show_banner?: boolean;
   component: "latest_posts";
   _uid: string;
   [k: string]: any;
@@ -257,9 +261,17 @@ export interface MovingCardStoryblok {
 
 export interface NavigationStoryblok {
   logo: AssetStoryblok;
-  nav_links: ("" | "news" | "press")[];
+  nav_links: (ISbStoryData<NavLinksStoryblok> | string)[];
   nav_cta: ISbStoryData<ButtonStoryblok> | string;
   component: "navigation";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface NavLinksStoryblok {
+  label: string;
+  link: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
+  component: "nav_links";
   _uid: string;
   [k: string]: any;
 }
@@ -278,6 +290,7 @@ export interface PageStoryblok {
     | LinkStoryblok
     | MovingCardStoryblok
     | NavigationStoryblok
+    | NavLinksStoryblok
     | PageStoryblok
     | ReferenceStoryblok
     | SectionItemStoryblok

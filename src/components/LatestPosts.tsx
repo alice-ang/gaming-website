@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "@/lib/utils";
+import { cn, getLocaleDateString } from "@/lib/utils";
 import { getStoryblokApi, storyblokEditable } from "@storyblok/react/rsc";
 import { Variants, motion } from "framer-motion";
 import Link from "next/link";
@@ -19,11 +19,13 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "./ui/pagination";
+import Image from "next/image";
 
 type PostData = {
   posts: BlogPostStoryblok[];
   totalPosts: number;
   perPage?: number;
+  latestPost: BlogPostStoryblok;
 };
 
 export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
@@ -79,6 +81,7 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
         posts: posts.data.stories,
         totalPosts: posts.total,
         perPage: posts.perPage,
+        latestPost: posts.data.stories[0],
       });
     };
 
@@ -87,8 +90,56 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
 
   return (
     <section className="section-padding" {...storyblokEditable(blok)}>
+      {blok.show_banner === true &&
+        postData?.latestPost.content.cover_image.filename && (
+          <div className="top-image-mask ">
+            <Image
+              src={postData.latestPost.content.cover_image.filename}
+              alt={"latest blog post image"}
+              className="blur opacity-65 bg-cover bg-center object-cover"
+              fill
+            />
+          </div>
+        )}
       <Constraints>
-        <div className="flex flex-col justify-center items-center space-y-8">
+        <div className="flex flex-col justify-center items-center space-y-8 relative">
+          {blok.show_banner === true &&
+            postData?.latestPost.content.cover_image.filename && (
+              <div className="grid grid-cols-12 w-full">
+                <div className="col-span-8 relative aspect-video">
+                  <Image
+                    src={postData.latestPost.content.cover_image.filename}
+                    alt={"blog post image"}
+                    className="bg-cover object-cover bg-center aspect-video"
+                    fill
+                  />
+                </div>
+                <div className="col-span-4 bg-white space-y-6 pt-6 max-h-fit">
+                  <div
+                    className={cn(
+                      "ml-4 w-fit bg-palette-background brush-mask animation-transition"
+                    )}
+                  >
+                    {postData?.latestPost.content.label && (
+                      <h2 className="font-josefin_sans px-12 py-4">
+                        {postData.latestPost.content.label}
+                      </h2>
+                    )}
+                  </div>
+                  <div className="space-y-2 p-4">
+                    <h5 className="text-palette-red">
+                      {getLocaleDateString(postData.latestPost.created_at).full}
+                    </h5>
+                    <h2 className="text-palette-footer ">
+                      {postData.latestPost.content?.title}
+                    </h2>
+                    <p className=" text-black ">
+                      {postData.latestPost.content?.excerpt}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
           <div className="text-center space-y-2">
             <h5 className="font-josefin_sans normal-case">{blok.overline}</h5>
             <h1>{blok.title}</h1>
@@ -105,14 +156,18 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
                   viewport={{ amount: 0.8 }}
                   custom={index}
                 >
-                  <Link href={`/posts/${story.slug}`} passHref>
+                  <Link
+                    href={`/posts/${story.slug}`}
+                    passHref
+                    className="hover:no-underline"
+                  >
                     <PostItem blok={story} idx={index} />
                   </Link>
                 </motion.div>
               ))}
             </div>
           )}
-          {!blok.show_pagination && Number(blok.max_num_posts) <= 3 && (
+          {!blok.show_pagination && Number(blok.max_num_posts) >= 3 && (
             <Link href={"/news"}>
               <h4 className="font-josefin_sans normal-case">See all</h4>
             </Link>

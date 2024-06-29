@@ -24,7 +24,7 @@ export const SectionItem: FC<SectionItemProps> = ({ idx, blok }) => {
       opacity: 0,
     },
     onscreen: {
-      y: 20,
+      y: 0,
       opacity: 1,
       transition: {
         type: "spring",

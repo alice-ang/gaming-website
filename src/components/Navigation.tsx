@@ -22,7 +22,7 @@ export const Navigation: FC = async () => {
                 alt={nav.logo?.alt ?? "golf ball logo"}
                 height={60}
                 width={60}
-                className="animation-transition hover:scale-110"
+                className="animation-transition hover:scale-110 "
               />
             </Link>
           )}

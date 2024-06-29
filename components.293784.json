@@ -389,7 +389,7 @@
       "name": "latest_posts",
       "display_name": null,
       "created_at": "2024-06-21T10:18:56.370Z",
-      "updated_at": "2024-06-29T08:36:09.994Z",
+      "updated_at": "2024-06-29T16:11:55.442Z",
       "id": 5959483,
       "schema": {
         "overline": {
@@ -412,6 +412,10 @@
         "show_pagination": {
           "type": "boolean",
           "pos": 3
+        },
+        "show_banner": {
+          "type": "boolean",
+          "pos": 4
         }
       },
       "image": null,
@@ -522,7 +526,7 @@
       "name": "navigation",
       "display_name": null,
       "created_at": "2024-06-27T11:51:35.884Z",
-      "updated_at": "2024-06-27T21:31:44.187Z",
+      "updated_at": "2024-06-29T13:12:02.519Z",
       "id": 5985233,
       "schema": {
         "logo": {
@@ -548,7 +552,11 @@
               "name": "Press"
             }
           ],
-          "required": true
+          "required": true,
+          "source": "internal_stories",
+          "filter_content_type": [
+            "nav_links"
+          ]
         },
         "nav_cta": {
           "type": "option",
@@ -577,6 +585,42 @@
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
       "component_group_name": "Global"
+    },
+    {
+      "name": "nav_links",
+      "display_name": null,
+      "created_at": "2024-06-29T13:10:39.410Z",
+      "updated_at": "2024-06-29T13:11:09.862Z",
+      "id": 5993797,
+      "schema": {
+        "label": {
+          "type": "text",
+          "pos": 0,
+          "required": true
+        },
+        "link": {
+          "type": "multilink",
+          "pos": 1,
+          "show_anchor": true,
+          "allow_target_blank": false,
+          "required": true
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "nav_links",
+      "component_group_uuid": "7dc4cf36-aed6-47df-9fe3-88833400ba72",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "Links"
     },
     {
       "name": "page",
@@ -738,12 +782,13 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "social_media",
-      "component_group_uuid": null,
+      "component_group_uuid": "7dc4cf36-aed6-47df-9fe3-88833400ba72",
       "color": null,
       "icon": null,
       "internal_tags_list": [],
       "internal_tag_ids": [],
-      "content_type_asset_preview": null
+      "content_type_asset_preview": null,
+      "component_group_name": "Links"
     },
     {
       "name": "trailer",
