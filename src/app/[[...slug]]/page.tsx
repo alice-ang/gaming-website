@@ -4,7 +4,7 @@ import StoryblokStory from "@storyblok/react/story";
 export default async function Page({ params }: any) {
   let slug = params?.slug ? params.slug.join("/") : "home";
 
-  const storyblokApi = getStoryblokApi();
+  let storyblokApi = getStoryblokApi();
   let { data } = await storyblokApi.get(
     `cdn/stories/${slug}`,
     {

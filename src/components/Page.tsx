@@ -1,5 +1,5 @@
 import { StoryblokComponent, storyblokEditable } from "@storyblok/react/rsc";
-import { FC } from "react";
+import { FC, Suspense } from "react";
 import type { ButtonStoryblok, PageStoryblok } from "../../component-types-sb";
 
 export const Page: FC<{
@@ -9,11 +9,9 @@ export const Page: FC<{
   <main {...storyblokEditable(blok)}>
     {blok.body &&
       blok.body.map((nestedBlok) => (
-        <StoryblokComponent
-          nav_cta={nav_cta}
-          blok={nestedBlok}
-          key={nestedBlok._uid}
-        />
+        <Suspense key={nestedBlok._uid}>
+          <StoryblokComponent nav_cta={nav_cta} blok={nestedBlok} />
+        </Suspense>
       ))}
   </main>
 );

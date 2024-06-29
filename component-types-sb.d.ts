@@ -101,7 +101,6 @@ export interface CharacterCustomizationStoryblok {
     | BlogPostStoryblok
     | ButtonStoryblok
     | CharacterCustomizationStoryblok
-    | FeaturedPostsStoryblok
     | FooterStoryblok
     | FooterItemStoryblok
     | ImageBlockStoryblok
@@ -113,20 +112,13 @@ export interface CharacterCustomizationStoryblok {
     | NavigationStoryblok
     | PageStoryblok
     | ReferenceStoryblok
-    | RichtextBlockStoryblok
     | SectionItemStoryblok
+    | SocialMediaStoryblok
     | TrailerStoryblok
     | VideoSectionStoryblok
     | ZoomHeroStoryblok
   )[];
   component: "character_customization";
-  _uid: string;
-  [k: string]: any;
-}
-
-export interface FeaturedPostsStoryblok {
-  posts: (ISbStoryData<BlogPostStoryblok> | string)[];
-  component: "featured_posts";
   _uid: string;
   [k: string]: any;
 }
@@ -163,7 +155,6 @@ export interface FooterItemStoryblok {
     | BlogPostStoryblok
     | ButtonStoryblok
     | CharacterCustomizationStoryblok
-    | FeaturedPostsStoryblok
     | FooterStoryblok
     | FooterItemStoryblok
     | ImageBlockStoryblok
@@ -175,8 +166,8 @@ export interface FooterItemStoryblok {
     | NavigationStoryblok
     | PageStoryblok
     | ReferenceStoryblok
-    | RichtextBlockStoryblok
     | SectionItemStoryblok
+    | SocialMediaStoryblok
     | TrailerStoryblok
     | VideoSectionStoryblok
     | ZoomHeroStoryblok
@@ -214,7 +205,6 @@ export interface KeyFeaturesStoryblok {
     | BlogPostStoryblok
     | ButtonStoryblok
     | CharacterCustomizationStoryblok
-    | FeaturedPostsStoryblok
     | FooterStoryblok
     | FooterItemStoryblok
     | ImageBlockStoryblok
@@ -226,12 +216,13 @@ export interface KeyFeaturesStoryblok {
     | NavigationStoryblok
     | PageStoryblok
     | ReferenceStoryblok
-    | RichtextBlockStoryblok
     | SectionItemStoryblok
+    | SocialMediaStoryblok
     | TrailerStoryblok
     | VideoSectionStoryblok
     | ZoomHeroStoryblok
   )[];
+  show_golf_path?: boolean;
   component: "key_features";
   _uid: string;
   [k: string]: any;
@@ -241,6 +232,7 @@ export interface LatestPostsStoryblok {
   overline?: string;
   title?: string;
   max_num_posts: string;
+  show_pagination?: boolean;
   component: "latest_posts";
   _uid: string;
   [k: string]: any;
@@ -277,7 +269,6 @@ export interface PageStoryblok {
     | BlogPostStoryblok
     | ButtonStoryblok
     | CharacterCustomizationStoryblok
-    | FeaturedPostsStoryblok
     | FooterStoryblok
     | FooterItemStoryblok
     | ImageBlockStoryblok
@@ -289,8 +280,8 @@ export interface PageStoryblok {
     | NavigationStoryblok
     | PageStoryblok
     | ReferenceStoryblok
-    | RichtextBlockStoryblok
     | SectionItemStoryblok
+    | SocialMediaStoryblok
     | TrailerStoryblok
     | VideoSectionStoryblok
     | ZoomHeroStoryblok
@@ -307,20 +298,25 @@ export interface ReferenceStoryblok {
   [k: string]: any;
 }
 
-export interface RichtextBlockStoryblok {
-  body?: RichtextStoryblok;
-  component: "richtext_block";
-  _uid: string;
-  [k: string]: any;
-}
-
 export interface SectionItemStoryblok {
   overline?: string;
   image: AssetStoryblok;
   title: string;
   description: RichtextStoryblok;
-  image_block?: ISbStoryData<ImageBlockStoryblok> | string;
+  top_left_image?: AssetStoryblok;
+  top_right_image?: AssetStoryblok;
+  bottom_left_image?: AssetStoryblok;
+  bottom_right_image?: AssetStoryblok;
   component: "section_item";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface SocialMediaStoryblok {
+  label?: string;
+  link: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
+  icon: AssetStoryblok;
+  component: "social_media";
   _uid: string;
   [k: string]: any;
 }

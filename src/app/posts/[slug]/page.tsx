@@ -14,8 +14,16 @@ export default async function Page({ params }: { params: { slug: string } }) {
   );
 
   return (
-    <section className="min-h-screen py-32">
-      <div className="max-w-5xl h-full mx-auto shadow-lg space-y-4">
+    <section className="min-h-screen py-32 ">
+      <div className="top-image-mask ">
+        <Image
+          src={data.story.content.cover_image.filename}
+          alt={"blog post image"}
+          className="blur"
+          fill
+        />
+      </div>
+      <div className="max-w-5xl h-full mx-auto shadow space-y-4 bg-palette-footer ">
         {data.story.content.cover_image && (
           <div className="aspect-video relative ">
             <Image
@@ -28,10 +36,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
             />
           </div>
         )}
-        <h5 className="text-palette-red">
-          {getLocaleDateString(data.story.created_at).full}
-        </h5>
-        <div className="  space-y-4">{render(data.story.content.post)}</div>
+        <div className="py-6 px-12 bg-palette-footer ">
+          <h5 className="text-palette-red">
+            {getLocaleDateString(data.story.created_at).full}
+          </h5>
+          <div className="space-y-4">{render(data.story.content.post)}</div>
+        </div>
       </div>
     </section>
   );

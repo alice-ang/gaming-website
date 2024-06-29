@@ -1,9 +1,9 @@
-import React, { FC } from "react";
-import { SplatterContainer } from "./SplatterContainer";
-import { Constraints } from "./Constraints";
-import type { CharacterCustomizationStoryblok } from "../../component-types-sb";
 import { StoryblokComponent, storyblokEditable } from "@storyblok/react/rsc";
+import { FC } from "react";
 import { render } from "storyblok-rich-text-react-renderer";
+import type { CharacterCustomizationStoryblok } from "../../component-types-sb";
+import { Constraints } from "./Constraints";
+import { SplatterContainer } from "./SplatterContainer";
 
 export const CustomizationSection: FC<{
   blok: CharacterCustomizationStoryblok;
