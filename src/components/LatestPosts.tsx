@@ -1,6 +1,9 @@
 "use client";
+import { cn } from "@/lib/utils";
 import { getStoryblokApi, storyblokEditable } from "@storyblok/react/rsc";
+import { Variants, motion } from "framer-motion";
 import Link from "next/link";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { FC, useEffect, useMemo, useRef, useState } from "react";
 import type {
   BlogPostStoryblok,
@@ -8,17 +11,14 @@ import type {
 } from "../../component-types-sb";
 import { Constraints } from "./Constraints";
 import { PostItem } from "./PostItem";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {
   Pagination,
   PaginationContent,
   PaginationItem,
-  PaginationPrevious,
   PaginationLink,
   PaginationNext,
+  PaginationPrevious,
 } from "./ui/pagination";
-import { cn } from "@/lib/utils";
-import { Variants, motion } from "framer-motion";
 
 type PostData = {
   posts: BlogPostStoryblok[];

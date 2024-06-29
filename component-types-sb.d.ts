@@ -113,7 +113,6 @@ export interface CharacterCustomizationStoryblok {
     | NavigationStoryblok
     | PageStoryblok
     | ReferenceStoryblok
-    | RichtextBlockStoryblok
     | SectionItemStoryblok
     | SocialMediaStoryblok
     | TrailerStoryblok
@@ -176,7 +175,6 @@ export interface FooterItemStoryblok {
     | NavigationStoryblok
     | PageStoryblok
     | ReferenceStoryblok
-    | RichtextBlockStoryblok
     | SectionItemStoryblok
     | SocialMediaStoryblok
     | TrailerStoryblok
@@ -228,7 +226,6 @@ export interface KeyFeaturesStoryblok {
     | NavigationStoryblok
     | PageStoryblok
     | ReferenceStoryblok
-    | RichtextBlockStoryblok
     | SectionItemStoryblok
     | SocialMediaStoryblok
     | TrailerStoryblok
@@ -294,7 +291,6 @@ export interface PageStoryblok {
     | NavigationStoryblok
     | PageStoryblok
     | ReferenceStoryblok
-    | RichtextBlockStoryblok
     | SectionItemStoryblok
     | SocialMediaStoryblok
     | TrailerStoryblok
@@ -309,13 +305,6 @@ export interface PageStoryblok {
 export interface ReferenceStoryblok {
   ref: any[];
   component: "reference";
-  _uid: string;
-  [k: string]: any;
-}
-
-export interface RichtextBlockStoryblok {
-  body?: RichtextStoryblok;
-  component: "richtext_block";
   _uid: string;
   [k: string]: any;
 }
