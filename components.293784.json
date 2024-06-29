@@ -526,7 +526,7 @@
       "name": "navigation",
       "display_name": null,
       "created_at": "2024-06-27T11:51:35.884Z",
-      "updated_at": "2024-06-29T13:12:02.519Z",
+      "updated_at": "2024-06-29T17:38:30.970Z",
       "id": 5985233,
       "schema": {
         "logo": {
@@ -555,8 +555,10 @@
           "required": true,
           "source": "internal_stories",
           "filter_content_type": [
-            "nav_links"
-          ]
+            "nav_links",
+            "nav_link"
+          ],
+          "folder_slug": "layout/navigation-links"
         },
         "nav_cta": {
           "type": "option",
@@ -587,10 +589,10 @@
       "component_group_name": "Global"
     },
     {
-      "name": "nav_links",
+      "name": "nav_link",
       "display_name": null,
       "created_at": "2024-06-29T13:10:39.410Z",
-      "updated_at": "2024-06-29T13:11:09.862Z",
+      "updated_at": "2024-06-29T17:38:03.921Z",
       "id": 5993797,
       "schema": {
         "label": {
@@ -613,7 +615,7 @@
       "is_nestable": false,
       "all_presets": [],
       "preset_id": null,
-      "real_name": "nav_links",
+      "real_name": "nav_link",
       "component_group_uuid": "7dc4cf36-aed6-47df-9fe3-88833400ba72",
       "color": null,
       "icon": null,

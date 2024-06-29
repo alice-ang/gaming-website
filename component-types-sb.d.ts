@@ -110,7 +110,7 @@ export interface CharacterCustomizationStoryblok {
     | LinkStoryblok
     | MovingCardStoryblok
     | NavigationStoryblok
-    | NavLinksStoryblok
+    | NavLinkStoryblok
     | PageStoryblok
     | ReferenceStoryblok
     | SectionItemStoryblok
@@ -165,7 +165,7 @@ export interface FooterItemStoryblok {
     | LinkStoryblok
     | MovingCardStoryblok
     | NavigationStoryblok
-    | NavLinksStoryblok
+    | NavLinkStoryblok
     | PageStoryblok
     | ReferenceStoryblok
     | SectionItemStoryblok
@@ -216,7 +216,7 @@ export interface KeyFeaturesStoryblok {
     | LinkStoryblok
     | MovingCardStoryblok
     | NavigationStoryblok
-    | NavLinksStoryblok
+    | NavLinkStoryblok
     | PageStoryblok
     | ReferenceStoryblok
     | SectionItemStoryblok
@@ -261,17 +261,17 @@ export interface MovingCardStoryblok {
 
 export interface NavigationStoryblok {
   logo: AssetStoryblok;
-  nav_links: (ISbStoryData<NavLinksStoryblok> | string)[];
+  nav_links: (ISbStoryData<NavLinksStoryblok> | ISbStoryData<NavLinkStoryblok> | string)[];
   nav_cta: ISbStoryData<ButtonStoryblok> | string;
   component: "navigation";
   _uid: string;
   [k: string]: any;
 }
 
-export interface NavLinksStoryblok {
+export interface NavLinkStoryblok {
   label: string;
   link: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
-  component: "nav_links";
+  component: "nav_link";
   _uid: string;
   [k: string]: any;
 }
@@ -290,7 +290,7 @@ export interface PageStoryblok {
     | LinkStoryblok
     | MovingCardStoryblok
     | NavigationStoryblok
-    | NavLinksStoryblok
+    | NavLinkStoryblok
     | PageStoryblok
     | ReferenceStoryblok
     | SectionItemStoryblok

@@ -114,7 +114,7 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
                     fill
                   />
                 </div>
-                <div className="col-span-4 bg-white space-y-6 pt-6 max-h-fit">
+                <div className="col-span-4 bg-white py-6 flex flex-col justify-between">
                   <div
                     className={cn(
                       "ml-4 w-fit bg-palette-background brush-mask animation-transition"
@@ -126,14 +126,14 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
                       </h2>
                     )}
                   </div>
-                  <div className="space-y-2 p-4">
+                  <div className="space-y-2 p-4 flex-1 overflow-hidden text-ellipsis  bg-blue-100">
                     <h5 className="text-palette-red">
                       {getLocaleDateString(postData.latestPost.created_at).full}
                     </h5>
                     <h2 className="text-palette-footer ">
                       {postData.latestPost.content?.title}
                     </h2>
-                    <p className=" text-black ">
+                    <p className=" text-black h-fit text-ellipsis ">
                       {postData.latestPost.content?.excerpt}
                     </p>
                   </div>

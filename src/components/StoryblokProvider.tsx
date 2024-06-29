@@ -19,6 +19,7 @@ import { CTA } from "./CTA";
 import { VideoSection } from "./VideoSection";
 import { ImageBlock } from "./ImageBlock";
 import { GolfPath } from "./GolfPath";
+import { NavLink } from "./NavLink";
 
 /** 2. Import your components */
 
@@ -43,6 +44,7 @@ storyblokInit({
     video_section: VideoSection,
     image_block: ImageBlock,
     golf_path: GolfPath,
+    nav_link: NavLink,
   },
 });
 
