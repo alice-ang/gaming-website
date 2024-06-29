@@ -15,7 +15,7 @@ export const KeyFeatures: FC<{ blok: KeyFeaturesStoryblok }> = ({ blok }) => {
       className="section-padding relative overflow-hidden"
     >
       {blok.show_golf_path && (
-        <div className=" w-full h-full absolute 3xl:hidden">
+        <div className=" w-full h-full absolute">
           <GolfPath />
         </div>
       )}
