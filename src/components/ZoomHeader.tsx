@@ -27,7 +27,7 @@ export const ZoomHeader: FC<{ blok: ZoomHeroStoryblok }> = ({ blok }) => {
         style={{
           opacity,
         }}
-        className=" overflow-hidden top-0 h-screen sticky "
+        className=" overflow-hidden top-0 h-screen sticky"
       >
         {blok.background_image.filename && (
           <motion.div

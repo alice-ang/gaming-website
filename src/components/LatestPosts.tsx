@@ -1,7 +1,7 @@
 "use client";
 import { getStoryblokApi, storyblokEditable } from "@storyblok/react/rsc";
 import Link from "next/link";
-import { FC, useCallback, useEffect, useMemo, useState } from "react";
+import { FC, useEffect, useMemo, useRef, useState } from "react";
 import type {
   BlogPostStoryblok,
   LatestPostsStoryblok,
@@ -17,6 +17,8 @@ import {
   PaginationLink,
   PaginationNext,
 } from "./ui/pagination";
+import { cn } from "@/lib/utils";
+import { Variants, motion } from "framer-motion";
 
 type PostData = {
   posts: BlogPostStoryblok[];
@@ -28,13 +30,29 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
-
   const [postData, setPostData] = useState<PostData | null>(null);
+  const ref = useRef(null);
 
+  const sectionVariants: Variants = {
+    offscreen: {
+      y: 100,
+      opacity: 0,
+    },
+    onscreen: (index: number) => ({
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        bounce: 0.4,
+        duration: 2,
+        delay: 0.1 * index,
+      },
+    }),
+  };
   const page = searchParams.get("page");
 
   const currentPage = useMemo(() => {
-    return Number(page);
+    return Number(page) === 0 ? 1 : Number(page);
   }, [page]);
 
   useEffect(() => {
@@ -54,7 +72,7 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
         starts_with: "posts/",
         filter_query: filter_query,
         per_page: numOfPosts,
-        page: currentPage === 0 ? 1 : currentPage,
+        page: page === 0 ? 1 : page,
       });
 
       setPostData({
@@ -76,52 +94,75 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
             <h1>{blok.title}</h1>
           </div>
           {postData?.posts && (
-            <div className="grid grid-cols-3 gap-6 w-full">
+            <div className="grid grid-cols-3 gap-6 w-full ">
               {postData.posts.map((story: BlogPostStoryblok, index: number) => (
-                <PostItem key={story._id} blok={story} idx={index} />
+                <motion.div
+                  ref={ref}
+                  variants={sectionVariants}
+                  initial="offscreen"
+                  key={story._id}
+                  animate="onscreen"
+                  viewport={{ amount: 0.8 }}
+                  custom={index}
+                >
+                  <Link href={`/posts/${story.slug}`} passHref>
+                    <PostItem blok={story} idx={index} />
+                  </Link>
+                </motion.div>
               ))}
             </div>
           )}
-          {Number(blok.max_num_posts) <= 3 && (
+          {!blok.show_pagination && Number(blok.max_num_posts) <= 3 && (
             <Link href={"/news"}>
               <h4 className="font-josefin_sans normal-case">See all</h4>
             </Link>
           )}
 
-          {postData?.totalPosts && postData.perPage && (
-            <Pagination>
-              <PaginationContent>
-                {currentPage > 1 && (
-                  <PaginationItem>
-                    <PaginationPrevious
-                      onClick={() =>
-                        router.push(`${pathname}?page=${currentPage - 1}`)
-                      }
-                    />
-                  </PaginationItem>
-                )}
+          {blok.show_pagination &&
+            postData?.totalPosts &&
+            postData?.perPage && (
+              <Pagination className="py-12">
+                <PaginationContent>
+                  {currentPage > 1 && (
+                    <PaginationItem>
+                      <PaginationPrevious
+                        onClick={() =>
+                          router.push(`${pathname}?page=${currentPage - 1}`)
+                        }
+                      />
+                    </PaginationItem>
+                  )}
 
-                <PaginationItem>
-                  {Array.from({
-                    length: postData.totalPosts / postData.perPage,
-                  }).map((_, index) => (
-                    <PaginationLink href="#" key={index}>
-                      {index + 1}
-                    </PaginationLink>
-                  ))}
-                </PaginationItem>
-                {currentPage <= postData.totalPosts / postData.perPage - 1 && (
                   <PaginationItem>
-                    <PaginationNext
-                      onClick={() =>
-                        router.push(`${pathname}?page=${currentPage + 1}`)
-                      }
-                    />
+                    {Array.from({
+                      length: postData.totalPosts / postData.perPage,
+                    }).map((_, index) => (
+                      <PaginationLink
+                        href="#"
+                        key={index}
+                        className={cn(
+                          currentPage === index + 1
+                            ? "bg-palette-footer border-palette-body"
+                            : ""
+                        )}
+                      >
+                        {index + 1}
+                      </PaginationLink>
+                    ))}
                   </PaginationItem>
-                )}
-              </PaginationContent>
-            </Pagination>
-          )}
+                  {currentPage <=
+                    postData.totalPosts / postData.perPage - 1 && (
+                    <PaginationItem>
+                      <PaginationNext
+                        onClick={() =>
+                          router.push(`${pathname}?page=${currentPage + 1}`)
+                        }
+                      />
+                    </PaginationItem>
+                  )}
+                </PaginationContent>
+              </Pagination>
+            )}
         </div>
       </Constraints>
     </section>

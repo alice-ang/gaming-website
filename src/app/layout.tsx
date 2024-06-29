@@ -42,7 +42,7 @@ export default async function RootLayout({
     <StoryblokProvider>
       <html lang="en">
         <body
-          className={`${oswald.variable} ${baskerville.variable} ${josefin_sans.variable}`}
+          className={`${oswald.variable} ${baskerville.variable} ${josefin_sans.variable} bg-[url('/texture.jpg')] `}
         >
           <ThemeProvider
             attribute="class"
