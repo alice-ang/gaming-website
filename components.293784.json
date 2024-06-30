@@ -56,7 +56,7 @@
       "name": "button",
       "display_name": null,
       "created_at": "2024-06-23T14:24:28.588Z",
-      "updated_at": "2024-06-27T10:10:52.486Z",
+      "updated_at": "2024-06-29T19:05:07.874Z",
       "id": 5964944,
       "schema": {
         "title": {
@@ -75,7 +75,7 @@
       "preview_field": null,
       "is_root": true,
       "preview_tmpl": null,
-      "is_nestable": true,
+      "is_nestable": false,
       "all_presets": [],
       "preset_id": null,
       "real_name": "button",
@@ -434,48 +434,6 @@
       "content_type_asset_preview": null
     },
     {
-      "name": "link",
-      "display_name": null,
-      "created_at": "2024-06-23T13:32:27.445Z",
-      "updated_at": "2024-06-24T13:27:45.166Z",
-      "id": 5964901,
-      "schema": {
-        "label": {
-          "type": "text",
-          "pos": 0,
-          "required": true
-        },
-        "url": {
-          "type": "multilink",
-          "pos": 1,
-          "required": true,
-          "asset_link_type": true,
-          "email_link_type": true,
-          "show_anchor": true,
-          "allow_target_blank": true,
-          "allow_custom_attributes": true,
-          "restrict_content_types": true,
-          "component_whitelist": [
-            "link"
-          ]
-        }
-      },
-      "image": null,
-      "preview_field": null,
-      "is_root": true,
-      "preview_tmpl": null,
-      "is_nestable": true,
-      "all_presets": [],
-      "preset_id": null,
-      "real_name": "link",
-      "component_group_uuid": null,
-      "color": null,
-      "icon": null,
-      "internal_tags_list": [],
-      "internal_tag_ids": [],
-      "content_type_asset_preview": null
-    },
-    {
       "name": "moving_card",
       "display_name": null,
       "created_at": "2024-06-22T13:29:04.481Z",
@@ -526,7 +484,7 @@
       "name": "navigation",
       "display_name": null,
       "created_at": "2024-06-27T11:51:35.884Z",
-      "updated_at": "2024-06-29T17:38:30.970Z",
+      "updated_at": "2024-06-29T18:59:33.693Z",
       "id": 5985233,
       "schema": {
         "logo": {
@@ -537,39 +495,42 @@
             "images"
           ]
         },
-        "nav_links": {
-          "type": "options",
+        "news_link": {
+          "type": "multilink",
           "pos": 1,
-          "options": [
-            {
-              "_uid": "a2682b9e-9c6c-4641-8a9c-ecefc53e7e16",
-              "name": "News",
-              "value": "news"
-            },
-            {
-              "_uid": "feb764c9-64a0-45c3-b5af-cb66e0429d11",
-              "value": "press",
-              "name": "Press"
-            }
+          "restrict_content_types": true,
+          "component_whitelist": [
+            "page"
           ],
-          "required": true,
-          "source": "internal_stories",
-          "filter_content_type": [
-            "nav_links",
-            "nav_link"
-          ],
-          "folder_slug": "layout/navigation-links"
+          "force_link_scope": true
         },
-        "nav_cta": {
-          "type": "option",
+        "nav_links": {
+          "type": "section",
           "pos": 2,
+          "keys": [
+            "news_link",
+            "press_link"
+          ]
+        },
+        "press_link": {
+          "type": "multilink",
+          "pos": 3,
+          "restrict_content_types": true,
+          "component_whitelist": [
+            "page"
+          ],
+          "force_link_scope": false
+        },
+        "nav_button": {
+          "type": "option",
+          "pos": 4,
           "use_uuid": true,
-          "required": true,
+          "required": false,
           "source": "internal_stories",
-          "folder_slug": "buttons/",
           "filter_content_type": [
             "button"
-          ]
+          ],
+          "folder_slug": "buttons/"
         }
       },
       "image": null,
@@ -589,11 +550,11 @@
       "component_group_name": "Global"
     },
     {
-      "name": "nav_link",
+      "name": "nav_item",
       "display_name": null,
-      "created_at": "2024-06-29T13:10:39.410Z",
-      "updated_at": "2024-06-29T17:38:03.921Z",
-      "id": 5993797,
+      "created_at": "2024-06-29T18:13:22.692Z",
+      "updated_at": "2024-06-29T18:25:07.052Z",
+      "id": 5994037,
       "schema": {
         "label": {
           "type": "text",
@@ -603,19 +564,20 @@
         "link": {
           "type": "multilink",
           "pos": 1,
-          "show_anchor": true,
-          "allow_target_blank": false,
-          "required": true
+          "restrict_content_types": true,
+          "component_whitelist": [
+            "page"
+          ]
         }
       },
       "image": null,
       "preview_field": null,
       "is_root": true,
       "preview_tmpl": null,
-      "is_nestable": false,
+      "is_nestable": true,
       "all_presets": [],
       "preset_id": null,
-      "real_name": "nav_link",
+      "real_name": "nav_item",
       "component_group_uuid": "7dc4cf36-aed6-47df-9fe3-88833400ba72",
       "color": null,
       "icon": null,

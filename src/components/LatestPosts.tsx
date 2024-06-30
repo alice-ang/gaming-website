@@ -151,13 +151,13 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
                   ref={ref}
                   variants={sectionVariants}
                   initial="offscreen"
-                  key={story._id}
+                  key={story.slug}
                   animate="onscreen"
                   viewport={{ amount: 0.8 }}
                   custom={index}
                 >
                   <Link
-                    href={`/posts/${story.slug}`}
+                    href={`/${story.full_slug}`}
                     passHref
                     className="hover:no-underline"
                   >

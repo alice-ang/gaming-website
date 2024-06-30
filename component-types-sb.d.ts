@@ -107,10 +107,9 @@ export interface CharacterCustomizationStoryblok {
     | ImageGridStoryblok
     | KeyFeaturesStoryblok
     | LatestPostsStoryblok
-    | LinkStoryblok
     | MovingCardStoryblok
     | NavigationStoryblok
-    | NavLinkStoryblok
+    | NavItemStoryblok
     | PageStoryblok
     | ReferenceStoryblok
     | SectionItemStoryblok
@@ -162,10 +161,9 @@ export interface FooterItemStoryblok {
     | ImageGridStoryblok
     | KeyFeaturesStoryblok
     | LatestPostsStoryblok
-    | LinkStoryblok
     | MovingCardStoryblok
     | NavigationStoryblok
-    | NavLinkStoryblok
+    | NavItemStoryblok
     | PageStoryblok
     | ReferenceStoryblok
     | SectionItemStoryblok
@@ -213,10 +211,9 @@ export interface KeyFeaturesStoryblok {
     | ImageGridStoryblok
     | KeyFeaturesStoryblok
     | LatestPostsStoryblok
-    | LinkStoryblok
     | MovingCardStoryblok
     | NavigationStoryblok
-    | NavLinkStoryblok
+    | NavItemStoryblok
     | PageStoryblok
     | ReferenceStoryblok
     | SectionItemStoryblok
@@ -242,14 +239,6 @@ export interface LatestPostsStoryblok {
   [k: string]: any;
 }
 
-export interface LinkStoryblok {
-  label: string;
-  url: MultilinkStoryblok;
-  component: "link";
-  _uid: string;
-  [k: string]: any;
-}
-
 export interface MovingCardStoryblok {
   top_image: AssetStoryblok;
   bottom_image: AssetStoryblok;
@@ -261,17 +250,19 @@ export interface MovingCardStoryblok {
 
 export interface NavigationStoryblok {
   logo: AssetStoryblok;
-  nav_links: (ISbStoryData<NavLinksStoryblok> | ISbStoryData<NavLinkStoryblok> | string)[];
-  nav_cta: ISbStoryData<ButtonStoryblok> | string;
+  news_link?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
+  nav_links?: any;
+  press_link?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
+  nav_button?: ISbStoryData<ButtonStoryblok> | string;
   component: "navigation";
   _uid: string;
   [k: string]: any;
 }
 
-export interface NavLinkStoryblok {
+export interface NavItemStoryblok {
   label: string;
-  link: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
-  component: "nav_link";
+  link?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
+  component: "nav_item";
   _uid: string;
   [k: string]: any;
 }
@@ -287,10 +278,9 @@ export interface PageStoryblok {
     | ImageGridStoryblok
     | KeyFeaturesStoryblok
     | LatestPostsStoryblok
-    | LinkStoryblok
     | MovingCardStoryblok
     | NavigationStoryblok
-    | NavLinkStoryblok
+    | NavItemStoryblok
     | PageStoryblok
     | ReferenceStoryblok
     | SectionItemStoryblok

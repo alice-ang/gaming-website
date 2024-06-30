@@ -218,6 +218,14 @@ span {
   mask-position: center;
 }
 
+.frame-mask {
+  -webkit-mask-image: var("../../public/frame.jpg");
+  mask-image: url("../../public/frame.jpg");
+  mask-repeat: no-repeat;
+  mask-size: 100%;
+  mask-position: center;
+}
+
 .linear-mask {
   top: 0;
   left: 0;

@@ -8,7 +8,8 @@ export const Trailer: FC<{ blok: TrailerStoryblok }> = ({ blok }) => {
   return (
     <section {...storyblokEditable(blok)}>
       <Constraints>
-        <div className="flex flex-col justify-between items-stretch h-full section-padding">
+        <div className="bg-[url('/paper.jpg')]"></div>
+        {/* <div className="flex flex-col justify-between items-stretch h-full section-padding">
           <div className="flex items-center justify-center flex-col space-y-4 max-w-2xl mx-auto text-center relative">
             <h1>{blok.title}</h1>
             <p>{blok.description}</p>
@@ -32,7 +33,7 @@ export const Trailer: FC<{ blok: TrailerStoryblok }> = ({ blok }) => {
               ></iframe>
             </div>
           </div>
-        </div>
+        </div> */}
       </Constraints>
     </section>
   );

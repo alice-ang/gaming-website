@@ -44,7 +44,7 @@ storyblokInit({
     video_section: VideoSection,
     image_block: ImageBlock,
     golf_path: GolfPath,
-    nav_link: NavLink,
+    // nav_item: NavLink,
   },
 });
 
