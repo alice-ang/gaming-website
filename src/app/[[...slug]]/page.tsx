@@ -9,7 +9,9 @@ export default async function Page({ params }: any) {
     `cdn/stories/${slug}`,
     {
       version: "draft",
-      resolve_relations: ["navigation.nav_button"],
+      resolve_relations: [
+        // "navigation.nav_button"
+      ],
     },
     { cache: "no-store" }
   );
@@ -19,7 +21,9 @@ export default async function Page({ params }: any) {
       <StoryblokStory
         story={data.story}
         bridgeOptions={{
-          resolveRelations: ["navigation.nav_button"],
+          resolveRelations: [
+            // "navigation.nav_button"
+          ],
         }}
       />
     </main>

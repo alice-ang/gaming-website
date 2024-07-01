@@ -15,11 +15,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <section className="min-h-screen pt-32">
-      <div className="top-image-mask ">
+      <div className="top-img-fade ">
         <Image
           src={data.story.content.cover_image.filename}
           alt={"blog post image"}
-          className="blur opacity-65 bg-center object-cover bg-cover"
+          className="opacity-65 blur bg-center object-cover bg-cover"
           fill
         />
       </div>
@@ -40,7 +40,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <h5 className="text-palette-red">
             {getLocaleDateString(data.story.created_at).full}
           </h5>
-          <div className="space-y-4 pb-12">
+          <div className="space-y-4 pb-12  text-white">
             {render(data.story.content.post)}
           </div>
         </div>

@@ -141,6 +141,10 @@
   .animation-transition {
     @apply transition duration-300 ease-in-out;
   }
+
+  .top-img-fade {
+    @apply gradient-mask-b-0 aspect-video absolute h-5/6 w-full top-0 z-0;
+  }
 }
 
 h1,
@@ -223,29 +227,6 @@ span {
   mask-size: 100%;
   mask-position: center;
 }
-
-/* .frame-mask {
-  -webkit-mask-image: var("../../public/trailer-frame.png");
-  mask-image: url("../../public/trailer-frame.png");
-  mask-repeat: no-repeat;
-  mask-size: 99%;
-  mask-position: center;
-} */
-
-/* .linear-mask {
-  top: 0;
-  left: 0;
-  z-index: 0;
-  width: 100%;
-  --tw-bg-opacity: 1;
-  opacity: 0.6;
-  --tw-blur: blur(4px);
-  -webkit-mask-image: linear-gradient(180deg, #000, transparent);
-  mask-image: linear-gradient(180deg, #000, transparent);
-  height: 100%;
-  -webkit-mask-image: linear-gradient(180deg, #000, transparent);
-  mask-image: linear-gradient(180deg, #000, transparent);
-} */
 
 .section-mask {
   position: absolute;

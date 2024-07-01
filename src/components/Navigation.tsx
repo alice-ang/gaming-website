@@ -32,7 +32,7 @@ export const Navigation: FC = async () => {
             {nav.press_link && (
               <li className="text-lg uppercase cursor-pointer">
                 <Link
-                  href={`${nav.press_link.story.url}`}
+                  href={`/${nav.press_link.story.url}`}
                   className="font-josefin_sans"
                 >
                   {nav.press_link.story.name}
@@ -42,7 +42,7 @@ export const Navigation: FC = async () => {
             {nav.news_link && (
               <li className="text-lg uppercase cursor-pointer">
                 <Link
-                  href={`${nav.news_link.story.url}`}
+                  href={`/${nav.news_link.story.url}`}
                   className="font-josefin_sans"
                   passHref
                 >
