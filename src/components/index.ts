@@ -8,7 +8,6 @@ export * from "./SnapSection";
 export * from "./SplatterContainer";
 export * from "./StatsCard";
 export * from "./StickyScroll";
-export * from "./VideoContainer";
 export * from "./ZoomHeader";
 export * from "./SectionItem";
 export * from "./Navigation";

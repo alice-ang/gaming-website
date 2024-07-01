@@ -18,20 +18,18 @@ export const ZoomHeader: FC<{ blok: ZoomHeroStoryblok }> = ({ blok }) => {
   const opacity = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
   return (
-    <div
-      ref={container}
-      className="h-[300vh] relative"
-      {...storyblokEditable(blok)}
-    >
+    <div ref={container} className="h-[300vh] " {...storyblokEditable(blok)}>
       <motion.div
-        style={{
-          opacity,
-        }}
+        style={
+          {
+            // opacity,
+          }
+        }
         className=" overflow-hidden top-0 h-screen sticky"
       >
         {blok.background_image.filename && (
           <motion.div
-            className="aspect-video h-full w-full absolute"
+            className="aspect-video h-full w-full absolute "
             style={{ scale }}
           >
             <Image
@@ -41,7 +39,7 @@ export const ZoomHeader: FC<{ blok: ZoomHeroStoryblok }> = ({ blok }) => {
               placeholder="blur"
               loading="eager"
               blurDataURL={blok.background_image.filename}
-              className="aspect-video bg-cover object-center object-cover "
+              className="aspect-video bg-cover object-center object-cover top-image-mask"
             />
           </motion.div>
         )}
@@ -84,7 +82,7 @@ export const ZoomHeader: FC<{ blok: ZoomHeroStoryblok }> = ({ blok }) => {
               placeholder="blur"
               loading="eager"
               blurDataURL={blok.text_image.filename}
-              className="object-fit"
+              className="object-fit bg-center"
             />
           )}
         </div>

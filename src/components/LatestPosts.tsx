@@ -155,6 +155,7 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
                   animate="onscreen"
                   viewport={{ amount: 0.8 }}
                   custom={index}
+                  className="col-span-3 md:col-span-1"
                 >
                   <Link
                     href={`/${story.full_slug}`}

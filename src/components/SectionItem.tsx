@@ -53,7 +53,7 @@ export const SectionItem: FC<SectionItemProps> = ({ idx, blok }) => {
           <motion.div
             className={cn(
               idx % 2 ? "lg:order-last " : "lg:text-right",
-              "col-span-12 lg:col-span-6 space-y-2 md:space-y-4"
+              "col-span-12 lg:col-span-6 space-y-2 md:space-y-4",
             )}
             variants={sectionVariants}
           >
@@ -66,7 +66,7 @@ export const SectionItem: FC<SectionItemProps> = ({ idx, blok }) => {
           <motion.div
             variants={sectionVariants}
             className={cn(
-              "col-span-12 lg:col-span-6 h-full w-full aspect-video relative shadow"
+              "col-span-12 lg:col-span-6 h-full w-full aspect-video relative shadow",
             )}
           >
             {blok?.top_left_image?.filename && (

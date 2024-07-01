@@ -19,11 +19,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <Image
           src={data.story.content.cover_image.filename}
           alt={"blog post image"}
-          className="blur opacity-65"
+          className="blur opacity-65 bg-center object-cover bg-cover"
           fill
         />
       </div>
-      <div className="max-w-5xl h-full mx-auto shadow space-y-4 bg-palette-footer ">
+      <div className="max-w-5xl h-full mx-auto shadow space-y-4 bg-palette-footer relative">
         {data.story.content.cover_image && (
           <div className="aspect-video relative ">
             <Image
@@ -32,7 +32,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               fill
               placeholder="blur"
               blurDataURL={data.story.content.cover_image.filename}
-              className="object-cover bg-center aspect-video md:rounded-lg "
+              className="object-cover bg-center aspect-video md:rounded-t-lg "
             />
           </div>
         )}

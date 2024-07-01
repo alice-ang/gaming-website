@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FC } from "react";
 import { Constraints } from "./Constraints";
 import type { NavigationStoryblok } from "../../component-types-sb";
+import { Button } from "./ui/button";
 
 export const Navigation: FC = async () => {
   const { nav }: { nav: NavigationStoryblok } = await fetchData();
@@ -48,6 +49,7 @@ export const Navigation: FC = async () => {
                 </Link>
               </li>
             )}
+            <Button>Play Demo</Button>
           </ul>
         </div>
       </Constraints>

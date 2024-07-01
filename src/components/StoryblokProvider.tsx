@@ -14,7 +14,6 @@ import { ZoomHeader } from "./ZoomHeader";
 import { StatsCard } from "./StatsCard";
 import { CustomizationSection } from "./CustomizationSection";
 import { Navigation } from "./Navigation";
-import { Trailer } from "./Trailer";
 import { CTA } from "./CTA";
 import { VideoSection } from "./VideoSection";
 import { ImageBlock } from "./ImageBlock";
@@ -39,7 +38,6 @@ storyblokInit({
     moving_card: StatsCard,
     character_customization: CustomizationSection,
     navigation: Navigation,
-    trailer: Trailer,
     button: CTA,
     video_section: VideoSection,
     image_block: ImageBlock,
