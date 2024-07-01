@@ -23,7 +23,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           fill
         />
       </div>
-      <div className="max-w-5xl h-full mx-auto shadow space-y-4 bg-palette-footer relative">
+      <div className="max-w-5xl h-full mx-auto shadow space-y-4 bg-palette-footer md:rounded-lg relative overflow-hidden">
         {data.story.content.cover_image && (
           <div className="aspect-video relative ">
             <Image
@@ -32,7 +32,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               fill
               placeholder="blur"
               blurDataURL={data.story.content.cover_image.filename}
-              className="object-cover bg-center aspect-video md:rounded-t-lg "
+              className="object-cover bg-center aspect-video "
             />
           </div>
         )}

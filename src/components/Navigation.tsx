@@ -44,6 +44,7 @@ export const Navigation: FC = async () => {
                 <Link
                   href={`${nav.news_link.story.url}`}
                   className="font-josefin_sans"
+                  passHref
                 >
                   {nav.news_link.story.name}
                 </Link>

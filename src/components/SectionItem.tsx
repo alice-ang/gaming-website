@@ -45,7 +45,7 @@ export const SectionItem: FC<SectionItemProps> = ({ idx, blok }) => {
       <Constraints>
         <motion.div
           ref={ref}
-          className="grid grid-cols-12 gap-16 xl:gap-[130px] items-center"
+          className="grid grid-cols-12 gap-6 2xl:gap-32  items-center"
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.8 }}
@@ -53,7 +53,7 @@ export const SectionItem: FC<SectionItemProps> = ({ idx, blok }) => {
           <motion.div
             className={cn(
               idx % 2 ? "lg:order-last " : "lg:text-right",
-              "col-span-12 lg:col-span-6 space-y-2 md:space-y-4",
+              "col-span-12 lg:col-span-6 space-y-2 md:space-y-4"
             )}
             variants={sectionVariants}
           >
@@ -66,7 +66,7 @@ export const SectionItem: FC<SectionItemProps> = ({ idx, blok }) => {
           <motion.div
             variants={sectionVariants}
             className={cn(
-              "col-span-12 lg:col-span-6 h-full w-full aspect-video relative shadow",
+              "col-span-12 lg:col-span-6 h-full w-full aspect-video relative shadow"
             )}
           >
             {blok?.top_left_image?.filename && (

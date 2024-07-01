@@ -18,8 +18,8 @@ export const VideoSection: FC<{ blok: VideoSectionStoryblok }> = ({ blok }) => {
         </div>
       )}
       <Constraints>
-        <div className="grid grid-cols-12 gap-6  items-center relative">
-          <div className="col-span-12 lg:col-span-5 space-y-4 ">
+        <div className="grid grid-cols-12 gap-16 xl:gap-[130px] items-center relative">
+          <div className="col-span-12 lg:col-span-5 space-y-2 md:space-y-4">
             <h1>accept the invitation</h1>
             <p>
               Dare to accept the invitation from enigmatic millionaire Nicolas
@@ -28,14 +28,14 @@ export const VideoSection: FC<{ blok: VideoSectionStoryblok }> = ({ blok }) => {
             </p>
           </div>
           <div className="col-span-12 lg:col-span-7">
-            <div className="bg-[url('/paper.jpg')] p-3 max-w-3xl mx-auto shadow-xl frame-mask ">
-              <div className="aspect-video frame-mask relative">
+            <div className="bg-[url('/trailer-frame.png')] p-4 mx-auto shadow-xl bg-center bg-cover object-cover object-center">
+              <div className="aspect-video relative border-2 lg:border-4 border-black">
                 <iframe
                   src={blok.video_url?.url}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
-                  className="absolute w-full h-full shadow"
+                  className="absolute w-full h-full shadow "
                 ></iframe>
               </div>
             </div>

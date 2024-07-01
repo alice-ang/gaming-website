@@ -224,13 +224,13 @@ span {
   mask-position: center;
 }
 
-.frame-mask {
-  -webkit-mask-image: var("../../public/frame.svg");
-  mask-image: url("../../public/frame.svg");
+/* .frame-mask {
+  -webkit-mask-image: var("../../public/trailer-frame.png");
+  mask-image: url("../../public/trailer-frame.png");
   mask-repeat: no-repeat;
-  mask-size: 100%;
+  mask-size: 99%;
   mask-position: center;
-}
+} */
 
 /* .linear-mask {
   top: 0;

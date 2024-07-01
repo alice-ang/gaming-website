@@ -13,8 +13,8 @@ export const ZoomHeader: FC<{ blok: ZoomHeroStoryblok }> = ({ blok }) => {
     offset: ["start start", "end end"],
   });
 
-  const bushScale = useTransform(scrollYProgress, [0, 1], [1.6, 3.6]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const bushScale = useTransform(scrollYProgress, [0, 1], [1.6, 3.4]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.06]);
   const opacity = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
   return (
@@ -25,7 +25,7 @@ export const ZoomHeader: FC<{ blok: ZoomHeroStoryblok }> = ({ blok }) => {
             // opacity,
           }
         }
-        className=" overflow-hidden top-0 h-screen sticky"
+        className="overflow-hidden top-0 h-screen sticky"
       >
         {blok.background_image.filename && (
           <motion.div

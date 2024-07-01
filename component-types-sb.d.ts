@@ -114,7 +114,6 @@ export interface CharacterCustomizationStoryblok {
     | ReferenceStoryblok
     | SectionItemStoryblok
     | SocialMediaStoryblok
-    | TrailerStoryblok
     | VideoSectionStoryblok
     | ZoomHeroStoryblok
   )[];
@@ -168,7 +167,6 @@ export interface FooterItemStoryblok {
     | ReferenceStoryblok
     | SectionItemStoryblok
     | SocialMediaStoryblok
-    | TrailerStoryblok
     | VideoSectionStoryblok
     | ZoomHeroStoryblok
   )[];
@@ -218,7 +216,6 @@ export interface KeyFeaturesStoryblok {
     | ReferenceStoryblok
     | SectionItemStoryblok
     | SocialMediaStoryblok
-    | TrailerStoryblok
     | VideoSectionStoryblok
     | ZoomHeroStoryblok
   )[];
@@ -285,7 +282,6 @@ export interface PageStoryblok {
     | ReferenceStoryblok
     | SectionItemStoryblok
     | SocialMediaStoryblok
-    | TrailerStoryblok
     | VideoSectionStoryblok
     | ZoomHeroStoryblok
   )[];
@@ -320,17 +316,6 @@ export interface SocialMediaStoryblok {
   link: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
   icon: AssetStoryblok;
   component: "social_media";
-  _uid: string;
-  [k: string]: any;
-}
-
-export interface TrailerStoryblok {
-  title: string;
-  description: string;
-  url?: string;
-  image: AssetStoryblok;
-  video?: AssetStoryblok;
-  component: "trailer";
   _uid: string;
   [k: string]: any;
 }

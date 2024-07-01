@@ -6,7 +6,7 @@ export const Page: FC<{
   blok: PageStoryblok;
   nav_button: ButtonStoryblok;
 }> = ({ blok, nav_button }) => (
-  <main {...storyblokEditable(blok)}>
+  <main {...storyblokEditable(blok)} className="">
     {blok.body &&
       blok.body.map((nestedBlok) => (
         <Suspense key={nestedBlok._uid}>
