@@ -40,7 +40,7 @@ export default async function RootLayout({
 
   return (
     <StoryblokProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body
           className={`${oswald.variable} ${baskerville.variable} ${josefin_sans.variable} bg-[url('/texture.jpg')] `}
         >
@@ -52,6 +52,7 @@ export default async function RootLayout({
           >
             <Dialog>
               <Navigation />
+
               {children}
 
               <Footer blok={blok} />

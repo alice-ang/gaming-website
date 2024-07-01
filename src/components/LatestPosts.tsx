@@ -78,10 +78,12 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
       });
 
       setPostData({
-        posts: posts.data.stories,
         totalPosts: posts.total,
         perPage: posts.perPage,
         latestPost: posts.data.stories[0],
+        posts: posts.data.stories.filter(
+          (post: BlogPostStoryblok) => post.id != posts.data.stories[0].id
+        ),
       });
     };
 
@@ -92,7 +94,7 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
     <section className="section-padding" {...storyblokEditable(blok)}>
       {blok.show_banner === true &&
         postData?.latestPost.content.cover_image.filename && (
-          <div className="top-image-mask ">
+          <div className="top-img-fade">
             <Image
               src={postData.latestPost.content.cover_image.filename}
               alt={"latest blog post image"}
@@ -151,13 +153,14 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
                   ref={ref}
                   variants={sectionVariants}
                   initial="offscreen"
-                  key={story._id}
+                  key={story.slug}
                   animate="onscreen"
-                  viewport={{ amount: 0.8 }}
+                  viewport={{ amount: 0.8, once: true }}
                   custom={index}
+                  className="col-span-3 md:col-span-1"
                 >
                   <Link
-                    href={`/posts/${story.slug}`}
+                    href={`/${story.full_slug}`}
                     passHref
                     className="hover:no-underline"
                   >

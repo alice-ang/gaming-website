@@ -22,7 +22,7 @@ export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
     offset: ["center end", "end end"],
   });
 
-  const saluteY = useTransform(scrollYProgress, [0, 1], ["-50%", "-10%"]);
+  const peekY = useTransform(scrollYProgress, [0, 1], ["-50%", "-10%"]);
 
   useEffect(() => {
     if (!api) {
@@ -44,7 +44,7 @@ export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
         {blok.character?.filename && (
           <motion.img
             style={{
-              y: saluteY,
+              y: peekY,
               backgroundPosition: "bottom",
               backgroundSize: "cover",
             }}
@@ -52,7 +52,7 @@ export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
             width={340}
             height={290}
             alt={blok.character.alt ?? "character"}
-            className="hidden lg:block object-contain bg-center object-center top-0 absolute right-0 rotate-6 "
+            className=" object-contain bg-center object-center top-0 absolute right-0 rotate-6 "
           />
         )}
         <div className="space-y-2 py-4">

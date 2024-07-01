@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FC } from "react";
 import { Constraints } from "./Constraints";
 import type { NavigationStoryblok } from "../../component-types-sb";
+import { Button } from "./ui/button";
 
 export const Navigation: FC = async () => {
   const { nav }: { nav: NavigationStoryblok } = await fetchData();
@@ -28,14 +29,28 @@ export const Navigation: FC = async () => {
           )}
 
           <ul className="flex gap-8 items-center">
-            {nav?.nav_links &&
-              nav.nav_links.map((link, index) => (
-                <li className="text-lg uppercase cursor-pointer" key={index}>
-                  <Link href={`${link}`} className="font-josefin_sans">
-                    {link}
-                  </Link>
-                </li>
-              ))}
+            {nav.press_link && (
+              <li className="text-lg uppercase cursor-pointer">
+                <Link
+                  href={`/${nav.press_link.story.url}`}
+                  className="font-josefin_sans"
+                >
+                  {nav.press_link.story.name}
+                </Link>
+              </li>
+            )}
+            {nav.news_link && (
+              <li className="text-lg uppercase cursor-pointer">
+                <Link
+                  href={`/${nav.news_link.story.url}`}
+                  className="font-josefin_sans"
+                  passHref
+                >
+                  {nav.news_link.story.name}
+                </Link>
+              </li>
+            )}
+            <Button>Play Demo</Button>
           </ul>
         </div>
       </Constraints>
