@@ -42,6 +42,16 @@ export const SectionItem: FC<SectionItemProps> = ({ idx, blok }) => {
 
   return (
     <section key={idx} className="section-padding" {...storyblokEditable(blok)}>
+      {blok.left_image?.filename && (
+        <div className="vingette-left aspect-video">
+          <Image
+            src={blok.left_image.filename}
+            alt={"blog post image"}
+            className=" opacity-65 z-10 bg-cover object-cover aspect-video"
+            fill
+          />
+        </div>
+      )}
       <Constraints>
         <motion.div
           ref={ref}
@@ -53,7 +63,7 @@ export const SectionItem: FC<SectionItemProps> = ({ idx, blok }) => {
           <motion.div
             className={cn(
               idx % 2 ? "lg:order-last " : "lg:text-right",
-              "col-span-12 lg:col-span-6 space-y-2 md:space-y-4"
+              "col-span-12 lg:col-span-6 space-y-2 md:space-y-4 "
             )}
             variants={sectionVariants}
           >
@@ -98,10 +108,8 @@ export const SectionItem: FC<SectionItemProps> = ({ idx, blok }) => {
               <Image
                 src={blok.bottom_left_image.filename}
                 alt={blok.bottom_left_image.alt ?? "bottom left image"}
-                // width={360}
-                // height={360}
-                width={240}
-                height={240}
+                width={200}
+                height={200}
                 className="-left-8 -bottom-10 absolute object-cover bg-cover "
               />
             )}
@@ -109,8 +117,8 @@ export const SectionItem: FC<SectionItemProps> = ({ idx, blok }) => {
               <Image
                 src={blok.bottom_right_image.filename}
                 alt={blok.bottom_right_image.alt ?? "bottom right image"}
-                width={240}
-                height={240}
+                width={200}
+                height={200}
                 className="-right-8 -bottom-10 absolute  object-cover bg-cover"
               />
             )}

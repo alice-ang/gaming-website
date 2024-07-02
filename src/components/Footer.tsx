@@ -77,7 +77,7 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
               />
 
               <div className="flex flex-row items-start flex-wrap gap-4 justify-between">
-                <div className="flex-1 space-x-16 flex flex-row ">
+                <div className="flex-1 space-x-12 md:space-x-16 flex flex-row ">
                   <div className="space-y-4 ">
                     <h6 className="overline-title">Follow us</h6>
                     <div>
@@ -98,16 +98,16 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
                 <div className="space-y-4 w-full md:w-1/3">
                   <h6 className="overline-title"> Newsletter</h6>
                   <form>
-                    <div className="flex-1">
+                    <div className="">
                       <div className="w-full relative flex flex-nowrap ">
                         <input
-                          className="bg-neutral-200 py-3 px-6 flex-1"
+                          className="bg-neutral-200 py-3 px-4 flex-1"
                           placeholder="eg. yourname@example.com"
                         />
                         <div className="absolute right-0 ">
                           <button
                             type="submit"
-                            className="bg-palette-backgroundLight py-3 px-6"
+                            className="bg-palette-yellow py-3 px-6 text-palette-footer rounded-r-sm"
                           >
                             Sign up
                           </button>
@@ -123,15 +123,15 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
                   blok.logos?.length && blok.logos.length > 2
                     ? "justify-between"
                     : "justify-start",
-                  "flex flex-row  flex-wrap items-center gap-4 lg:gap-x-32 lg:gap-y-4 "
+                  "flex flex-row  flex-wrap items-center gap-4 lg:gap-x-32 lg:gap-y-6 "
                 )}
               >
                 {blok.logos?.map((logo, index) => (
                   <Image
                     src={logo.filename}
                     alt={logo.alt ?? "logo "}
-                    width={160}
-                    height={30}
+                    width={140}
+                    height={40}
                     key={index}
                   />
                 ))}
@@ -139,9 +139,7 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
 
               <div className="flex justify-center">
                 {blok.developer && (
-                  <div className="text-palette-lightGrey text-sm text-center ">
-                    {render(blok.developer)}
-                  </div>
+                  <div className="text-center ">{render(blok.developer)}</div>
                 )}
               </div>
             </div>

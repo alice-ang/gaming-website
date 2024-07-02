@@ -8,7 +8,7 @@ export const VideoSection: FC<{ blok: VideoSectionStoryblok }> = ({ blok }) => {
   return (
     <section className="section-padding relative" {...storyblokEditable(blok)}>
       {blok.left_image?.filename && (
-        <div className="vingette aspect-video">
+        <div className="vingette-left aspect-video">
           <Image
             src={blok.left_image.filename}
             alt={"blog post image"}
@@ -18,7 +18,7 @@ export const VideoSection: FC<{ blok: VideoSectionStoryblok }> = ({ blok }) => {
         </div>
       )}
       <Constraints>
-        <div className="grid grid-cols-12 gap-16 xl:gap-[130px] items-center relative">
+        <div className="grid grid-cols-12 gap-6 2xl:gap-32 items-center relative">
           <div className="col-span-12 lg:col-span-5 space-y-2 md:space-y-4">
             <h1>accept the invitation</h1>
             <p>
@@ -27,9 +27,9 @@ export const VideoSection: FC<{ blok: VideoSectionStoryblok }> = ({ blok }) => {
               House on Haunted Hill.
             </p>
           </div>
-          <div className="col-span-12 lg:col-span-7">
-            <div className="bg-[url('/trailer-frame.png')] p-4 mx-auto shadow-xl bg-center bg-cover object-cover object-center">
-              <div className="aspect-video relative border-2 lg:border-4 border-black">
+          <div className="col-span-12 lg:col-span-7 ">
+            <div className="bg-[url('/trailer-frame.png')] p-2 md:p-4 aspect-video shadow-xl bg-center bg-cover object-cover object-center">
+              <div className="aspect-video relative border-2 md:border-4 border-black">
                 <iframe
                   src={blok.video_url?.url}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

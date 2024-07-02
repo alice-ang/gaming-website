@@ -1,13 +1,34 @@
+"use client";
 import { getStoryblokApi, storyblokEditable } from "@storyblok/react/rsc";
 import Image from "next/image";
 import Link from "next/link";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { Constraints } from "./Constraints";
 import type { NavigationStoryblok } from "../../component-types-sb";
 import { Button } from "./ui/button";
+import { Hamburger } from "./Hamburger";
 
-export const Navigation: FC = async () => {
-  const { nav }: { nav: NavigationStoryblok } = await fetchData();
+export const Navigation: FC = () => {
+  const [nav, setNav] = useState<NavigationStoryblok>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const storyblokApi = getStoryblokApi();
+
+      const { data } = await storyblokApi.get("cdn/stories/layout/navigation", {
+        version: "draft",
+        resolve_links: "url",
+      });
+
+      setNav(data.story.content);
+    };
+
+    fetchData();
+  }, []);
+
+  if (!nav) {
+    return;
+  }
 
   return (
     <nav
@@ -28,7 +49,7 @@ export const Navigation: FC = async () => {
             </Link>
           )}
 
-          <ul className="flex gap-8 items-center">
+          <ul className=" gap-8 items-center hidden 2xl:flex">
             {nav.press_link && (
               <li className="text-lg uppercase cursor-pointer">
                 <Link
@@ -52,6 +73,9 @@ export const Navigation: FC = async () => {
             )}
             <Button>Play Demo</Button>
           </ul>
+          <button className="block 2xl:hidden">
+            <Hamburger isClicked={true} />
+          </button>
         </div>
       </Constraints>
     </nav>

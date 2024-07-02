@@ -18,7 +18,7 @@ export const ZoomHeader: FC<{ blok: ZoomHeroStoryblok }> = ({ blok }) => {
   const opacity = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
   return (
-    <div ref={container} className="h-[300vh] " {...storyblokEditable(blok)}>
+    <div ref={container} className="h-[300vh]" {...storyblokEditable(blok)}>
       <motion.div
         style={
           {
@@ -39,7 +39,7 @@ export const ZoomHeader: FC<{ blok: ZoomHeroStoryblok }> = ({ blok }) => {
               placeholder="blur"
               loading="eager"
               blurDataURL={blok.background_image.filename}
-              className="aspect-video bg-cover object-center object-cover top-image-mask"
+              className="aspect-video bg-cover object-center object-cover top-img-fade"
             />
           </motion.div>
         )}

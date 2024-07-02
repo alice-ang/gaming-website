@@ -20,6 +20,7 @@ import {
   PaginationPrevious,
 } from "./ui/pagination";
 import Image from "next/image";
+import { LatestPostBanner } from "./LatestPostBanner";
 
 type PostData = {
   posts: BlogPostStoryblok[];
@@ -103,43 +104,9 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
         )}
       <Constraints>
         <div className="flex flex-col justify-center items-center space-y-8 relative">
-          {blok.show_banner === true &&
-            postData?.latestPost.content.cover_image.filename && (
-              <div className="grid grid-cols-12 w-full">
-                <div className="col-span-8 relative aspect-video">
-                  <Image
-                    src={postData.latestPost.content.cover_image.filename}
-                    alt={"blog post image"}
-                    className="bg-cover object-cover bg-center aspect-video"
-                    fill
-                  />
-                </div>
-                <div className="col-span-4 bg-white py-6 flex flex-col justify-between">
-                  <div
-                    className={cn(
-                      "ml-4 w-fit bg-palette-background brush-mask animation-transition"
-                    )}
-                  >
-                    {postData?.latestPost.content.label && (
-                      <h2 className="font-josefin_sans px-12 py-4">
-                        {postData.latestPost.content.label}
-                      </h2>
-                    )}
-                  </div>
-                  <div className="space-y-2 p-4 flex-1 overflow-hidden text-ellipsis  bg-blue-100">
-                    <h5 className="text-palette-red">
-                      {getLocaleDateString(postData.latestPost.created_at).full}
-                    </h5>
-                    <h2 className="text-palette-footer ">
-                      {postData.latestPost.content?.title}
-                    </h2>
-                    <p className=" text-black h-fit text-ellipsis ">
-                      {postData.latestPost.content?.excerpt}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
+          {blok.show_banner === true && postData?.latestPost && (
+            <LatestPostBanner post={postData.latestPost} />
+          )}
           <div className="text-center space-y-2">
             <h5 className="font-josefin_sans normal-case">{blok.overline}</h5>
             <h1>{blok.title}</h1>
@@ -219,7 +186,9 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
 
                   <PaginationItem>
                     {Array.from({
-                      length: postData.totalPosts / postData.perPage,
+                      length: Math.round(
+                        postData.totalPosts / postData.perPage
+                      ),
                     }).map((_, index) => (
                       <PaginationLink
                         href="#"
@@ -235,7 +204,7 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
                     ))}
                   </PaginationItem>
                   {currentPage <=
-                    postData.totalPosts / postData.perPage - 1 && (
+                    Math.round(postData.totalPosts / postData.perPage) && (
                     <PaginationItem>
                       <PaginationNext
                         onClick={() =>

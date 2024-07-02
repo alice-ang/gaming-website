@@ -13,3 +13,4 @@ export * from "./SectionItem";
 export * from "./Navigation";
 export * from "./StoryblokProvider";
 export * from "./GolfPath";
+export * from "./LatestPostBanner";
