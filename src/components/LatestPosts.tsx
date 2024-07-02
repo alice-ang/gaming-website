@@ -28,29 +28,29 @@ type PostData = {
   latestPost: BlogPostStoryblok;
 };
 
+const sectionVariants: Variants = {
+  offscreen: {
+    y: 100,
+    opacity: 0,
+  },
+  onscreen: (index: number) => ({
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 2,
+      delay: 0.1 * index,
+    },
+  }),
+};
+
 export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
   const [postData, setPostData] = useState<PostData | null>(null);
   const ref = useRef(null);
-
-  const sectionVariants: Variants = {
-    offscreen: {
-      y: 100,
-      opacity: 0,
-    },
-    onscreen: (index: number) => ({
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        bounce: 0.4,
-        duration: 2,
-        delay: 0.1 * index,
-      },
-    }),
-  };
   const page = searchParams.get("page");
 
   const currentPage = useMemo(() => {
@@ -81,9 +81,7 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
         totalPosts: posts.total,
         perPage: posts.perPage,
         latestPost: posts.data.stories[0],
-        posts: posts.data.stories.filter(
-          (post: BlogPostStoryblok) => post.id != posts.data.stories[0].id
-        ),
+        posts: posts.data.stories,
       });
     };
 
@@ -148,26 +146,54 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
           </div>
           {postData?.posts && (
             <div className="grid grid-cols-3 gap-6 w-full ">
-              {postData.posts.map((story: BlogPostStoryblok, index: number) => (
-                <motion.div
-                  ref={ref}
-                  variants={sectionVariants}
-                  initial="offscreen"
-                  key={story.slug}
-                  animate="onscreen"
-                  viewport={{ amount: 0.8, once: true }}
-                  custom={index}
-                  className="col-span-3 md:col-span-1"
-                >
-                  <Link
-                    href={`/${story.full_slug}`}
-                    passHref
-                    className="hover:no-underline"
-                  >
-                    <PostItem blok={story} idx={index} />
-                  </Link>
-                </motion.div>
-              ))}
+              {!blok.show_banner
+                ? postData.posts.map(
+                    (story: BlogPostStoryblok, index: number) => (
+                      <motion.div
+                        ref={ref}
+                        variants={sectionVariants}
+                        initial="offscreen"
+                        key={story.slug}
+                        animate="onscreen"
+                        viewport={{ amount: 0.8, once: true }}
+                        custom={index}
+                        className="col-span-3 md:col-span-1"
+                      >
+                        <Link
+                          href={`/${story.full_slug}`}
+                          passHref
+                          className="hover:no-underline"
+                        >
+                          <PostItem blok={story} idx={index} />
+                        </Link>
+                      </motion.div>
+                    )
+                  )
+                : postData.posts
+                    .filter(
+                      (post: BlogPostStoryblok) =>
+                        post.id != postData.latestPost.id
+                    )
+                    .map((story: BlogPostStoryblok, index: number) => (
+                      <motion.div
+                        ref={ref}
+                        variants={sectionVariants}
+                        initial="offscreen"
+                        key={story.slug}
+                        animate="onscreen"
+                        viewport={{ amount: 0.8, once: true }}
+                        custom={index}
+                        className="col-span-3 md:col-span-1"
+                      >
+                        <Link
+                          href={`/${story.full_slug}`}
+                          passHref
+                          className="hover:no-underline"
+                        >
+                          <PostItem blok={story} idx={index} />
+                        </Link>
+                      </motion.div>
+                    ))}
             </div>
           )}
           {!blok.show_pagination && Number(blok.max_num_posts) >= 3 && (
