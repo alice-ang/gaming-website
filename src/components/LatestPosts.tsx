@@ -171,7 +171,8 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
 
           {blok.show_pagination &&
             postData?.totalPosts &&
-            postData?.perPage && (
+            postData?.perPage &&
+            postData.totalPosts > postData.perPage && (
               <Pagination className="py-12">
                 <PaginationContent>
                   {currentPage > 1 && (
@@ -186,13 +187,13 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
 
                   <PaginationItem>
                     {Array.from({
-                      length: Math.round(
-                        postData.totalPosts / postData.perPage
-                      ),
+                      length: Math.ceil(postData.totalPosts / postData.perPage),
                     }).map((_, index) => (
                       <PaginationLink
-                        href="#"
                         key={index}
+                        onClick={() =>
+                          router.push(`${pathname}?page=${index + 1}`)
+                        }
                         className={cn(
                           currentPage === index + 1
                             ? "bg-palette-footer border-palette-body"
