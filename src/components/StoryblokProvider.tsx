@@ -18,6 +18,8 @@ import { CTA } from "./CTA";
 import { VideoSection } from "./VideoSection";
 import { ImageBlock } from "./ImageBlock";
 import { GolfPath } from "./GolfPath";
+import { SocialLink } from "./SocialLink";
+import { SocialMedia } from "./SocialMedia";
 
 /** 2. Import your components */
 
@@ -41,6 +43,8 @@ storyblokInit({
     video_section: VideoSection,
     image_block: ImageBlock,
     golf_path: GolfPath,
+    social_link: SocialLink,
+    social_links: SocialMedia,
   },
 });
 

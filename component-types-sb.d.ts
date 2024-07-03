@@ -113,7 +113,8 @@ export interface CharacterCustomizationStoryblok {
     | PageStoryblok
     | ReferenceStoryblok
     | SectionItemStoryblok
-    | SocialMediaStoryblok
+    | SocialLinkStoryblok
+    | SocialLinksStoryblok
     | VideoSectionStoryblok
     | ZoomHeroStoryblok
   )[];
@@ -143,6 +144,7 @@ export interface FooterStoryblok {
   button?: ISbStoryData<ButtonStoryblok> | string;
   footer_items?: any[];
   developer?: RichtextStoryblok;
+  socials?: ISbStoryData<SocialLinksStoryblok> | string;
   component: "footer";
   _uid: string;
   [k: string]: any;
@@ -166,7 +168,8 @@ export interface FooterItemStoryblok {
     | PageStoryblok
     | ReferenceStoryblok
     | SectionItemStoryblok
-    | SocialMediaStoryblok
+    | SocialLinkStoryblok
+    | SocialLinksStoryblok
     | VideoSectionStoryblok
     | ZoomHeroStoryblok
   )[];
@@ -215,7 +218,8 @@ export interface KeyFeaturesStoryblok {
     | PageStoryblok
     | ReferenceStoryblok
     | SectionItemStoryblok
-    | SocialMediaStoryblok
+    | SocialLinkStoryblok
+    | SocialLinksStoryblok
     | VideoSectionStoryblok
     | ZoomHeroStoryblok
   )[];
@@ -281,7 +285,8 @@ export interface PageStoryblok {
     | PageStoryblok
     | ReferenceStoryblok
     | SectionItemStoryblok
-    | SocialMediaStoryblok
+    | SocialLinkStoryblok
+    | SocialLinksStoryblok
     | VideoSectionStoryblok
     | ZoomHeroStoryblok
   )[];
@@ -311,11 +316,20 @@ export interface SectionItemStoryblok {
   [k: string]: any;
 }
 
-export interface SocialMediaStoryblok {
-  label?: string;
-  link: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
-  icon: AssetStoryblok;
-  component: "social_media";
+export interface SocialLinkStoryblok {
+  label: string;
+  url: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
+  type: "" | "discord" | "itch" | "facebook" | "instagram" | "reddit" | "steam" | "x" | "youtube";
+  size: string;
+  color: string;
+  component: "social_link";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface SocialLinksStoryblok {
+  socials: (ISbStoryData<SocialLinkStoryblok> | string)[];
+  component: "social_links";
   _uid: string;
   [k: string]: any;
 }

@@ -139,7 +139,7 @@
       "name": "footer",
       "display_name": null,
       "created_at": "2024-06-21T09:33:09.080Z",
-      "updated_at": "2024-06-25T13:36:18.504Z",
+      "updated_at": "2024-07-03T14:46:39.827Z",
       "id": 5959424,
       "schema": {
         "overline": {
@@ -203,6 +203,16 @@
         "developer": {
           "type": "richtext",
           "pos": 9
+        },
+        "socials": {
+          "type": "option",
+          "pos": 10,
+          "use_uuid": true,
+          "required": false,
+          "source": "internal_stories",
+          "filter_content_type": [
+            "social_links"
+          ]
         }
       },
       "image": null,
@@ -715,27 +725,85 @@
       "content_type_asset_preview": null
     },
     {
-      "name": "social_media",
+      "name": "social_link",
       "display_name": null,
-      "created_at": "2024-06-28T14:34:37.233Z",
-      "updated_at": "2024-06-28T14:35:54.731Z",
-      "id": 5992061,
+      "created_at": "2024-07-03T10:02:06.607Z",
+      "updated_at": "2024-07-03T13:38:32.715Z",
+      "id": 6007476,
       "schema": {
         "label": {
           "type": "text",
-          "pos": 0
+          "pos": 0,
+          "required": true
         },
-        "link": {
+        "url": {
           "type": "multilink",
           "pos": 1,
           "required": true,
           "allow_target_blank": true
         },
-        "icon": {
-          "type": "asset",
+        "type": {
+          "type": "option",
           "pos": 2,
           "required": true,
-          "filetypes": []
+          "options": [
+            {
+              "_uid": "321a1521-ccb4-4f29-8713-aca78d4384d8",
+              "name": "discord",
+              "value": "discord"
+            },
+            {
+              "_uid": "84396485-a924-403c-b175-74906adab953",
+              "value": "itch",
+              "name": "itch"
+            },
+            {
+              "_uid": "9537cbaa-9c41-4e40-a77b-72ddd5efadd8",
+              "value": "facebook",
+              "name": "facebook"
+            },
+            {
+              "_uid": "8c92b7c2-8812-417f-8adb-ec0a19619179",
+              "value": "instagram",
+              "name": "instagram"
+            },
+            {
+              "_uid": "4a1625f1-2e45-459e-805a-210b40c882e0",
+              "value": "reddit",
+              "name": "reddit"
+            },
+            {
+              "_uid": "33f59758-3915-455c-82ca-fa92bdceb734",
+              "value": "steam",
+              "name": "steam"
+            },
+            {
+              "_uid": "991c3506-c5e9-45bd-acaf-e9f0a9e57e4e",
+              "value": "x",
+              "name": "x"
+            },
+            {
+              "_uid": "771541ed-8317-4dc8-867b-de82ff65679f",
+              "value": "youtube",
+              "name": "youtube"
+            }
+          ],
+          "use_uuid": true
+        },
+        "size": {
+          "type": "number",
+          "pos": 3,
+          "required": true,
+          "description": "Size in px",
+          "default_value": "28",
+          "min_value": 16
+        },
+        "color": {
+          "type": "text",
+          "pos": 4,
+          "required": true,
+          "description": "Write color in hex number or plain text eg. white or #fff",
+          "default_value": "#fff"
         }
       },
       "image": null,
@@ -745,7 +813,41 @@
       "is_nestable": false,
       "all_presets": [],
       "preset_id": null,
-      "real_name": "social_media",
+      "real_name": "social_link",
+      "component_group_uuid": "7dc4cf36-aed6-47df-9fe3-88833400ba72",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "Links"
+    },
+    {
+      "name": "social_links",
+      "display_name": null,
+      "created_at": "2024-07-03T14:27:34.864Z",
+      "updated_at": "2024-07-03T14:35:14.014Z",
+      "id": 6008930,
+      "schema": {
+        "socials": {
+          "type": "options",
+          "pos": 0,
+          "required": true,
+          "source": "internal_stories",
+          "folder_slug": "",
+          "filter_content_type": [
+            "social_link"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "social_links",
       "component_group_uuid": "7dc4cf36-aed6-47df-9fe3-88833400ba72",
       "color": null,
       "icon": null,

@@ -9,6 +9,7 @@ import { storyblokEditable } from "@storyblok/react/rsc";
 import type { FooterStoryblok } from "../../component-types-sb";
 import { render } from "storyblok-rich-text-react-renderer";
 import { cn } from "@/lib/utils";
+import { SocialMedia } from "./SocialMedia";
 
 export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
   const ref = useRef(null);
@@ -37,6 +38,7 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
                 {blok.overline}
               </button>
             )}
+            {blok?.socials && <SocialMedia blok={blok.socials} />}
 
             <h2 className="title uppercase max-w-[90px]">{blok.title}</h2>
           </div>

@@ -1,16 +1,19 @@
 import { StoryblokComponent, storyblokEditable } from "@storyblok/react/rsc";
 import { FC, Suspense } from "react";
-import type { ButtonStoryblok, PageStoryblok } from "../../component-types-sb";
+import type {
+  PageStoryblok,
+  SocialLinkStoryblok,
+} from "../../component-types-sb";
 
 export const Page: FC<{
   blok: PageStoryblok;
-  nav_button: ButtonStoryblok;
-}> = ({ blok, nav_button }) => (
+  socials: SocialLinkStoryblok;
+}> = ({ blok, socials }) => (
   <main {...storyblokEditable(blok)} className="">
     {blok.body &&
       blok.body.map((nestedBlok) => (
         <Suspense key={nestedBlok._uid}>
-          <StoryblokComponent blok={nestedBlok} nav_button={nav_button} />
+          <StoryblokComponent blok={nestedBlok} socials={socials} />
         </Suspense>
       ))}
   </main>
