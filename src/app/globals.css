@@ -265,3 +265,30 @@ span {
   mask-image: linear-gradient(180deg, #000, transparent);
   height: 800px;
 }
+
+.post-card-image:before {
+  background-image: url("../../public/top-rip.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 70;
+  position: absolute;
+  bottom: -4px;
+  content: "";
+  display: block;
+  left: 0;
+  padding-top: 3.75%;
+  width: 100%;
+}
+.post-banner-image:after {
+  backface-visibility: hidden;
+  background: url("../../public/left-rip.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  bottom: 0;
+  content: "";
+  display: block;
+  padding-left: 4.25%;
+  position: absolute;
+  right: -10px;
+  top: 0;
+}

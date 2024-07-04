@@ -10,12 +10,14 @@ export const LatestPostBanner: FC<{ post: BlogPostStoryblok }> = ({ post }) => {
     <Link href={`/${post.full_slug}`} passHref className="hover:no-underline">
       <div className="hidden grid-cols-12 w-full lg:grid">
         <div className="col-span-8 relative aspect-video">
-          <Image
-            src={post.content.cover_image.filename}
-            alt={"blog post image"}
-            className="bg-cover object-cover bg-center aspect-video"
-            fill
-          />
+          <div className="post-banner-image">
+            <Image
+              src={post.content.cover_image.filename}
+              alt={"blog post image"}
+              className="bg-cover object-cover bg-center aspect-video"
+              fill
+            />
+          </div>
         </div>
         <div className="col-span-4 bg-white py-6 flex flex-col justify-between">
           <div

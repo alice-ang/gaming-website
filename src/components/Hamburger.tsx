@@ -24,7 +24,7 @@ export const Hamburger: FC<HamburgerProps> = ({ isClicked }) => {
   useEffect(() => {
     const click = async () => {
       setOpen(!isClicked);
-      if (isOpen) {
+      if (isClicked) {
         await path02Controls.start(path02Variants.moving);
         path01Controls.start(path01Variants.open);
         path02Controls.start(path02Variants.open);
@@ -36,11 +36,11 @@ export const Hamburger: FC<HamburgerProps> = ({ isClicked }) => {
     };
 
     click();
-  }, [isClicked, isOpen, path01Controls, path02Controls]);
+  }, [isClicked, path01Controls, path02Controls]);
 
   return (
     <div>
-      <svg width="42" height="42" viewBox="0 0 24 24">
+      <svg width="32" height="32" viewBox="0 0 24 24">
         <motion.path
           {...path01Variants.closed}
           animate={path01Controls}
