@@ -9,7 +9,11 @@ export default async function Page({ params }: any) {
     `cdn/stories/${slug}`,
     {
       version: "draft",
-      resolve_relations: ["social_links.socials", "footer.socials"],
+      resolve_relations: [
+        "social_links.socials",
+        "footer.footer_socials",
+        "navigation.nav_button",
+      ],
     },
     { cache: "no-store" }
   );
@@ -19,7 +23,11 @@ export default async function Page({ params }: any) {
       <StoryblokStory
         story={data.story}
         bridgeOptions={{
-          resolveRelations: ["social_links.socials", "footer.socials"],
+          resolveRelations: [
+            "social_links.socials",
+            "footer.footer_socials",
+            "navigation.nav_button",
+          ],
         }}
       />
     </main>

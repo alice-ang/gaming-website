@@ -9,7 +9,7 @@ import { storyblokEditable } from "@storyblok/react/rsc";
 import type { FooterStoryblok } from "../../component-types-sb";
 import { render } from "storyblok-rich-text-react-renderer";
 import { cn } from "@/lib/utils";
-import { SocialMedia } from "./SocialMedia";
+import { SocialLink } from "./SocialLink";
 
 export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
   const ref = useRef(null);
@@ -38,7 +38,6 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
                 {blok.overline}
               </button>
             )}
-            {blok?.socials && <SocialMedia blok={blok.socials} />}
 
             <h2 className="title uppercase max-w-[90px]">{blok.title}</h2>
           </div>
@@ -46,6 +45,13 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
             <div className="space-y-8 items-start justify-start flex flex-col relative">
               <div className="space-y-4">{render(blok.text_block)}</div>
               <Button>Go to discord</Button>
+              {blok?.footer_socials && (
+                <div className="space-x-4">
+                  {blok.footer_socials.map((social, index) => (
+                    <SocialLink blok={social.content} key={index} />
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 

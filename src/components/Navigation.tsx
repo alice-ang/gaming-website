@@ -27,7 +27,7 @@ export const Navigation: FC = () => {
   }, []);
 
   if (!nav) {
-    return;
+    return <div>Loading..</div>;
   }
 
   return (

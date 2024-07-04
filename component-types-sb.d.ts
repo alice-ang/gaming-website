@@ -144,7 +144,7 @@ export interface FooterStoryblok {
   button?: ISbStoryData<ButtonStoryblok> | string;
   footer_items?: any[];
   developer?: RichtextStoryblok;
-  socials?: ISbStoryData<SocialLinksStoryblok> | string;
+  footer_socials: (ISbStoryData<SocialLinkStoryblok> | string)[];
   component: "footer";
   _uid: string;
   [k: string]: any;

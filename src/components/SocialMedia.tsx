@@ -7,7 +7,7 @@ export const SocialMedia: FC<{ blok: SocialLinksStoryblok }> = ({ blok }) => {
     <div className="space-x-4">
       {blok?.socials &&
         blok.socials.map((social) => (
-          <SocialLink blok={social.content} key={social} />
+          <SocialLink blok={social.content} key={social.id} />
         ))}
     </div>
   );

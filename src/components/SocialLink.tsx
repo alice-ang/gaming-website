@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { FC } from "react";
 import type { SocialLinkStoryblok } from "../../component-types-sb";
-import Link from "next/link";
 import {
   FaDiscord,
   FaItchIo,
@@ -12,8 +11,11 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import Link from "next/link";
 
 export const SocialLink: FC<{ blok: SocialLinkStoryblok }> = ({ blok }) => {
+  // console.log(blok);
+
   const renderIcon = (
     type:
       | ""
@@ -49,10 +51,11 @@ export const SocialLink: FC<{ blok: SocialLinkStoryblok }> = ({ blok }) => {
         return "";
     }
   };
+
   return (
     <Button size="icon" variant="icon" asChild>
-      <Link href={""} target="_blank">
-        {renderIcon(blok.type, Number(blok.size), blok.color)}
+      <Link href={blok?.url?.url ?? ""} target="_blank">
+        {renderIcon(blok?.type, Number(blok?.size), blok?.color)}
       </Link>
     </Button>
   );
