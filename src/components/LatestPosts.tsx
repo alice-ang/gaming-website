@@ -20,6 +20,7 @@ import {
   PaginationPrevious,
 } from "./ui/pagination";
 import Image from "next/image";
+import { LatestPostBanner } from "./LatestPostBanner";
 
 type PostData = {
   posts: BlogPostStoryblok[];
@@ -28,29 +29,29 @@ type PostData = {
   latestPost: BlogPostStoryblok;
 };
 
+const sectionVariants: Variants = {
+  offscreen: {
+    y: 100,
+    opacity: 0,
+  },
+  onscreen: (index: number) => ({
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 2,
+      delay: 0.1 * index,
+    },
+  }),
+};
+
 export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
   const [postData, setPostData] = useState<PostData | null>(null);
   const ref = useRef(null);
-
-  const sectionVariants: Variants = {
-    offscreen: {
-      y: 100,
-      opacity: 0,
-    },
-    onscreen: (index: number) => ({
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        bounce: 0.4,
-        duration: 2,
-        delay: 0.1 * index,
-      },
-    }),
-  };
   const page = searchParams.get("page");
 
   const currentPage = useMemo(() => {
@@ -78,10 +79,10 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
       });
 
       setPostData({
-        posts: posts.data.stories,
         totalPosts: posts.total,
         perPage: posts.perPage,
         latestPost: posts.data.stories[0],
+        posts: posts.data.stories,
       });
     };
 
@@ -92,7 +93,7 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
     <section className="section-padding" {...storyblokEditable(blok)}>
       {blok.show_banner === true &&
         postData?.latestPost.content.cover_image.filename && (
-          <div className="top-image-mask ">
+          <div className="top-img-fade">
             <Image
               src={postData.latestPost.content.cover_image.filename}
               alt={"latest blog post image"}
@@ -103,68 +104,63 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
         )}
       <Constraints>
         <div className="flex flex-col justify-center items-center space-y-8 relative">
-          {blok.show_banner === true &&
-            postData?.latestPost.content.cover_image.filename && (
-              <div className="grid grid-cols-12 w-full">
-                <div className="col-span-8 relative aspect-video">
-                  <Image
-                    src={postData.latestPost.content.cover_image.filename}
-                    alt={"blog post image"}
-                    className="bg-cover object-cover bg-center aspect-video"
-                    fill
-                  />
-                </div>
-                <div className="col-span-4 bg-white py-6 flex flex-col justify-between">
-                  <div
-                    className={cn(
-                      "ml-4 w-fit bg-palette-background brush-mask animation-transition"
-                    )}
-                  >
-                    {postData?.latestPost.content.label && (
-                      <h2 className="font-josefin_sans px-12 py-4">
-                        {postData.latestPost.content.label}
-                      </h2>
-                    )}
-                  </div>
-                  <div className="space-y-2 p-4 flex-1 overflow-hidden text-ellipsis  bg-blue-100">
-                    <h5 className="text-palette-red">
-                      {getLocaleDateString(postData.latestPost.created_at).full}
-                    </h5>
-                    <h2 className="text-palette-footer ">
-                      {postData.latestPost.content?.title}
-                    </h2>
-                    <p className=" text-black h-fit text-ellipsis ">
-                      {postData.latestPost.content?.excerpt}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
+          {blok.show_banner === true && postData?.latestPost && (
+            <LatestPostBanner post={postData.latestPost} />
+          )}
           <div className="text-center space-y-2">
             <h5 className="font-josefin_sans normal-case">{blok.overline}</h5>
             <h1>{blok.title}</h1>
           </div>
           {postData?.posts && (
             <div className="grid grid-cols-3 gap-6 w-full ">
-              {postData.posts.map((story: BlogPostStoryblok, index: number) => (
-                <motion.div
-                  ref={ref}
-                  variants={sectionVariants}
-                  initial="offscreen"
-                  key={story._id}
-                  animate="onscreen"
-                  viewport={{ amount: 0.8 }}
-                  custom={index}
-                >
-                  <Link
-                    href={`/posts/${story.slug}`}
-                    passHref
-                    className="hover:no-underline"
-                  >
-                    <PostItem blok={story} idx={index} />
-                  </Link>
-                </motion.div>
-              ))}
+              {!blok.show_banner
+                ? postData.posts.map(
+                    (story: BlogPostStoryblok, index: number) => (
+                      <motion.div
+                        ref={ref}
+                        variants={sectionVariants}
+                        initial="offscreen"
+                        key={story.slug}
+                        animate="onscreen"
+                        viewport={{ amount: 0.8, once: true }}
+                        custom={index}
+                        className="col-span-3 md:col-span-1"
+                      >
+                        <Link
+                          href={`/${story.full_slug}`}
+                          passHref
+                          className="hover:no-underline"
+                        >
+                          <PostItem blok={story} idx={index} />
+                        </Link>
+                      </motion.div>
+                    )
+                  )
+                : postData.posts
+                    .filter(
+                      (post: BlogPostStoryblok) =>
+                        post.id != postData.latestPost.id
+                    )
+                    .map((story: BlogPostStoryblok, index: number) => (
+                      <motion.div
+                        ref={ref}
+                        variants={sectionVariants}
+                        initial="offscreen"
+                        key={story.slug}
+                        animate="onscreen"
+                        viewport={{ amount: 0.8, once: true }}
+                        custom={index}
+                        className="col-span-3 md:col-span-1"
+                      >
+                        <Link
+                          href={`/${story.full_slug}`}
+                          passHref
+                          className="hover:no-underline"
+                        >
+                          <PostItem blok={story} idx={index} />
+                        </Link>
+                      </motion.div>
+                    ))}
             </div>
           )}
           {!blok.show_pagination && Number(blok.max_num_posts) >= 3 && (
@@ -175,7 +171,8 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
 
           {blok.show_pagination &&
             postData?.totalPosts &&
-            postData?.perPage && (
+            postData?.perPage &&
+            postData.totalPosts > postData.perPage && (
               <Pagination className="py-12">
                 <PaginationContent>
                   {currentPage > 1 && (
@@ -190,11 +187,13 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
 
                   <PaginationItem>
                     {Array.from({
-                      length: postData.totalPosts / postData.perPage,
+                      length: Math.ceil(postData.totalPosts / postData.perPage),
                     }).map((_, index) => (
                       <PaginationLink
-                        href="#"
                         key={index}
+                        onClick={() =>
+                          router.push(`${pathname}?page=${index + 1}`)
+                        }
                         className={cn(
                           currentPage === index + 1
                             ? "bg-palette-footer border-palette-body"
@@ -206,7 +205,7 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
                     ))}
                   </PaginationItem>
                   {currentPage <=
-                    postData.totalPosts / postData.perPage - 1 && (
+                    Math.round(postData.totalPosts / postData.perPage) && (
                     <PaginationItem>
                       <PaginationNext
                         onClick={() =>

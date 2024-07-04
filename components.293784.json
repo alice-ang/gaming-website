@@ -56,7 +56,7 @@
       "name": "button",
       "display_name": null,
       "created_at": "2024-06-23T14:24:28.588Z",
-      "updated_at": "2024-06-27T10:10:52.486Z",
+      "updated_at": "2024-06-29T19:05:07.874Z",
       "id": 5964944,
       "schema": {
         "title": {
@@ -75,7 +75,7 @@
       "preview_field": null,
       "is_root": true,
       "preview_tmpl": null,
-      "is_nestable": true,
+      "is_nestable": false,
       "all_presets": [],
       "preset_id": null,
       "real_name": "button",
@@ -139,7 +139,7 @@
       "name": "footer",
       "display_name": null,
       "created_at": "2024-06-21T09:33:09.080Z",
-      "updated_at": "2024-06-25T13:36:18.504Z",
+      "updated_at": "2024-07-03T21:13:18.111Z",
       "id": 5959424,
       "schema": {
         "overline": {
@@ -203,6 +203,16 @@
         "developer": {
           "type": "richtext",
           "pos": 9
+        },
+        "footer_socials": {
+          "type": "options",
+          "pos": 10,
+          "use_uuid": true,
+          "required": true,
+          "source": "internal_stories",
+          "filter_content_type": [
+            "social_link"
+          ]
         }
       },
       "image": null,
@@ -434,48 +444,6 @@
       "content_type_asset_preview": null
     },
     {
-      "name": "link",
-      "display_name": null,
-      "created_at": "2024-06-23T13:32:27.445Z",
-      "updated_at": "2024-06-24T13:27:45.166Z",
-      "id": 5964901,
-      "schema": {
-        "label": {
-          "type": "text",
-          "pos": 0,
-          "required": true
-        },
-        "url": {
-          "type": "multilink",
-          "pos": 1,
-          "required": true,
-          "asset_link_type": true,
-          "email_link_type": true,
-          "show_anchor": true,
-          "allow_target_blank": true,
-          "allow_custom_attributes": true,
-          "restrict_content_types": true,
-          "component_whitelist": [
-            "link"
-          ]
-        }
-      },
-      "image": null,
-      "preview_field": null,
-      "is_root": true,
-      "preview_tmpl": null,
-      "is_nestable": true,
-      "all_presets": [],
-      "preset_id": null,
-      "real_name": "link",
-      "component_group_uuid": null,
-      "color": null,
-      "icon": null,
-      "internal_tags_list": [],
-      "internal_tag_ids": [],
-      "content_type_asset_preview": null
-    },
-    {
       "name": "moving_card",
       "display_name": null,
       "created_at": "2024-06-22T13:29:04.481Z",
@@ -526,7 +494,7 @@
       "name": "navigation",
       "display_name": null,
       "created_at": "2024-06-27T11:51:35.884Z",
-      "updated_at": "2024-06-29T17:38:30.970Z",
+      "updated_at": "2024-06-29T18:59:33.693Z",
       "id": 5985233,
       "schema": {
         "logo": {
@@ -537,39 +505,42 @@
             "images"
           ]
         },
-        "nav_links": {
-          "type": "options",
+        "news_link": {
+          "type": "multilink",
           "pos": 1,
-          "options": [
-            {
-              "_uid": "a2682b9e-9c6c-4641-8a9c-ecefc53e7e16",
-              "name": "News",
-              "value": "news"
-            },
-            {
-              "_uid": "feb764c9-64a0-45c3-b5af-cb66e0429d11",
-              "value": "press",
-              "name": "Press"
-            }
+          "restrict_content_types": true,
+          "component_whitelist": [
+            "page"
           ],
-          "required": true,
-          "source": "internal_stories",
-          "filter_content_type": [
-            "nav_links",
-            "nav_link"
-          ],
-          "folder_slug": "layout/navigation-links"
+          "force_link_scope": true
         },
-        "nav_cta": {
-          "type": "option",
+        "nav_links": {
+          "type": "section",
           "pos": 2,
+          "keys": [
+            "news_link",
+            "press_link"
+          ]
+        },
+        "press_link": {
+          "type": "multilink",
+          "pos": 3,
+          "restrict_content_types": true,
+          "component_whitelist": [
+            "page"
+          ],
+          "force_link_scope": false
+        },
+        "nav_button": {
+          "type": "option",
+          "pos": 4,
           "use_uuid": true,
-          "required": true,
+          "required": false,
           "source": "internal_stories",
-          "folder_slug": "buttons/",
           "filter_content_type": [
             "button"
-          ]
+          ],
+          "folder_slug": "buttons/"
         }
       },
       "image": null,
@@ -589,11 +560,11 @@
       "component_group_name": "Global"
     },
     {
-      "name": "nav_link",
+      "name": "nav_item",
       "display_name": null,
-      "created_at": "2024-06-29T13:10:39.410Z",
-      "updated_at": "2024-06-29T17:38:03.921Z",
-      "id": 5993797,
+      "created_at": "2024-06-29T18:13:22.692Z",
+      "updated_at": "2024-06-29T18:25:07.052Z",
+      "id": 5994037,
       "schema": {
         "label": {
           "type": "text",
@@ -603,19 +574,20 @@
         "link": {
           "type": "multilink",
           "pos": 1,
-          "show_anchor": true,
-          "allow_target_blank": false,
-          "required": true
+          "restrict_content_types": true,
+          "component_whitelist": [
+            "page"
+          ]
         }
       },
       "image": null,
       "preview_field": null,
       "is_root": true,
       "preview_tmpl": null,
-      "is_nestable": false,
+      "is_nestable": true,
       "all_presets": [],
       "preset_id": null,
-      "real_name": "nav_link",
+      "real_name": "nav_item",
       "component_group_uuid": "7dc4cf36-aed6-47df-9fe3-88833400ba72",
       "color": null,
       "icon": null,
@@ -753,27 +725,85 @@
       "content_type_asset_preview": null
     },
     {
-      "name": "social_media",
+      "name": "social_link",
       "display_name": null,
-      "created_at": "2024-06-28T14:34:37.233Z",
-      "updated_at": "2024-06-28T14:35:54.731Z",
-      "id": 5992061,
+      "created_at": "2024-07-03T10:02:06.607Z",
+      "updated_at": "2024-07-03T13:38:32.715Z",
+      "id": 6007476,
       "schema": {
         "label": {
           "type": "text",
-          "pos": 0
+          "pos": 0,
+          "required": true
         },
-        "link": {
+        "url": {
           "type": "multilink",
           "pos": 1,
           "required": true,
           "allow_target_blank": true
         },
-        "icon": {
-          "type": "asset",
+        "type": {
+          "type": "option",
           "pos": 2,
           "required": true,
-          "filetypes": []
+          "options": [
+            {
+              "_uid": "321a1521-ccb4-4f29-8713-aca78d4384d8",
+              "name": "discord",
+              "value": "discord"
+            },
+            {
+              "_uid": "84396485-a924-403c-b175-74906adab953",
+              "value": "itch",
+              "name": "itch"
+            },
+            {
+              "_uid": "9537cbaa-9c41-4e40-a77b-72ddd5efadd8",
+              "value": "facebook",
+              "name": "facebook"
+            },
+            {
+              "_uid": "8c92b7c2-8812-417f-8adb-ec0a19619179",
+              "value": "instagram",
+              "name": "instagram"
+            },
+            {
+              "_uid": "4a1625f1-2e45-459e-805a-210b40c882e0",
+              "value": "reddit",
+              "name": "reddit"
+            },
+            {
+              "_uid": "33f59758-3915-455c-82ca-fa92bdceb734",
+              "value": "steam",
+              "name": "steam"
+            },
+            {
+              "_uid": "991c3506-c5e9-45bd-acaf-e9f0a9e57e4e",
+              "value": "x",
+              "name": "x"
+            },
+            {
+              "_uid": "771541ed-8317-4dc8-867b-de82ff65679f",
+              "value": "youtube",
+              "name": "youtube"
+            }
+          ],
+          "use_uuid": true
+        },
+        "size": {
+          "type": "number",
+          "pos": 3,
+          "required": true,
+          "description": "Size in px",
+          "default_value": "28",
+          "min_value": 16
+        },
+        "color": {
+          "type": "text",
+          "pos": 4,
+          "required": true,
+          "description": "Write color in hex number or plain text eg. white or #fff",
+          "default_value": "#fff"
         }
       },
       "image": null,
@@ -783,7 +813,7 @@
       "is_nestable": false,
       "all_presets": [],
       "preset_id": null,
-      "real_name": "social_media",
+      "real_name": "social_link",
       "component_group_uuid": "7dc4cf36-aed6-47df-9fe3-88833400ba72",
       "color": null,
       "icon": null,
@@ -793,56 +823,38 @@
       "component_group_name": "Links"
     },
     {
-      "name": "trailer",
+      "name": "social_links",
       "display_name": null,
-      "created_at": "2024-06-23T09:09:59.721Z",
-      "updated_at": "2024-06-23T10:56:15.652Z",
-      "id": 5964520,
+      "created_at": "2024-07-03T14:27:34.864Z",
+      "updated_at": "2024-07-03T14:35:14.014Z",
+      "id": 6008930,
       "schema": {
-        "title": {
-          "type": "text",
+        "socials": {
+          "type": "options",
           "pos": 0,
-          "required": true
-        },
-        "description": {
-          "type": "text",
-          "pos": 1,
-          "required": true
-        },
-        "url": {
-          "type": "text",
-          "pos": 2
-        },
-        "image": {
-          "type": "asset",
-          "pos": 3,
           "required": true,
-          "filetypes": [
-            "images"
-          ]
-        },
-        "video": {
-          "type": "asset",
-          "pos": 4,
-          "filetypes": [
-            "videos"
+          "source": "internal_stories",
+          "folder_slug": "",
+          "filter_content_type": [
+            "social_link"
           ]
         }
       },
       "image": null,
       "preview_field": null,
-      "is_root": false,
+      "is_root": true,
       "preview_tmpl": null,
       "is_nestable": true,
       "all_presets": [],
       "preset_id": null,
-      "real_name": "trailer",
-      "component_group_uuid": null,
+      "real_name": "social_links",
+      "component_group_uuid": "7dc4cf36-aed6-47df-9fe3-88833400ba72",
       "color": null,
       "icon": null,
       "internal_tags_list": [],
       "internal_tag_ids": [],
-      "content_type_asset_preview": null
+      "content_type_asset_preview": null,
+      "component_group_name": "Links"
     },
     {
       "name": "video_section",

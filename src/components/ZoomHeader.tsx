@@ -13,25 +13,23 @@ export const ZoomHeader: FC<{ blok: ZoomHeroStoryblok }> = ({ blok }) => {
     offset: ["start start", "end end"],
   });
 
-  const bushScale = useTransform(scrollYProgress, [0, 1], [1.6, 3.6]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const bushScale = useTransform(scrollYProgress, [0, 1], [1.6, 3.4]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.06]);
   const opacity = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
   return (
-    <div
-      ref={container}
-      className="h-[300vh] relative"
-      {...storyblokEditable(blok)}
-    >
+    <div ref={container} className="h-[300vh]" {...storyblokEditable(blok)}>
       <motion.div
-        style={{
-          opacity,
-        }}
-        className=" overflow-hidden top-0 h-screen sticky"
+        style={
+          {
+            // opacity,
+          }
+        }
+        className="overflow-hidden top-0 h-screen sticky"
       >
         {blok.background_image.filename && (
           <motion.div
-            className="aspect-video h-full w-full absolute"
+            className="aspect-video h-full w-full absolute "
             style={{ scale }}
           >
             <Image
@@ -41,7 +39,7 @@ export const ZoomHeader: FC<{ blok: ZoomHeroStoryblok }> = ({ blok }) => {
               placeholder="blur"
               loading="eager"
               blurDataURL={blok.background_image.filename}
-              className="aspect-video bg-cover object-center object-cover "
+              className="aspect-video bg-cover object-center object-cover top-img-fade"
             />
           </motion.div>
         )}
@@ -84,7 +82,7 @@ export const ZoomHeader: FC<{ blok: ZoomHeroStoryblok }> = ({ blok }) => {
               placeholder="blur"
               loading="eager"
               blurDataURL={blok.text_image.filename}
-              className="object-fit"
+              className="object-fit bg-center"
             />
           )}
         </div>

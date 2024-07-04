@@ -11,7 +11,7 @@ export const CustomizationSection: FC<{
   return (
     <SplatterContainer {...storyblokEditable(blok)}>
       <Constraints>
-        <div className="grid grid-cols-12 gap-8">
+        <div className="grid grid-cols-12 gap-6 2xl:gap-32 ">
           <div className="col-span-12 lg:col-span-8 space-y-4">
             {blok.overline && (
               <h5 className="font-josefin_sans normal-case">{blok.overline}</h5>

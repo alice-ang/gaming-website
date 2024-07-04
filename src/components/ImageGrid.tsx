@@ -10,8 +10,16 @@ import {
   CarouselApi,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "./ui/carousel";
-import { DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog";
+import {
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog";
 
 export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
   const ref = useRef(null);
@@ -22,7 +30,7 @@ export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
     offset: ["center end", "end end"],
   });
 
-  const saluteY = useTransform(scrollYProgress, [0, 1], ["-50%", "-10%"]);
+  const peekY = useTransform(scrollYProgress, [0, 1], ["-50%", "-10%"]);
 
   useEffect(() => {
     if (!api) {
@@ -30,7 +38,7 @@ export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
     }
 
     api.on("select", () => {
-      setImageIdx(api.selectedScrollSnap());
+      setImageIdx(imageIdx + 1);
     });
   }, [api, blok.images.length, imageIdx]);
 
@@ -44,7 +52,7 @@ export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
         {blok.character?.filename && (
           <motion.img
             style={{
-              y: saluteY,
+              y: peekY,
               backgroundPosition: "bottom",
               backgroundSize: "cover",
             }}
@@ -52,7 +60,7 @@ export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
             width={340}
             height={290}
             alt={blok.character.alt ?? "character"}
-            className="hidden lg:block object-contain bg-center object-center top-0 absolute right-0 rotate-6 "
+            className=" object-contain bg-center object-center top-0 absolute right-0 rotate-6 hidden lg:block"
           />
         )}
         <div className="space-y-2 py-4">
@@ -68,7 +76,11 @@ export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
               className="relative h-full w-full aspect-video col-span-1 bg-black overflow-hidden"
               key={index}
             >
-              <DialogTrigger onClick={() => setImageIdx(index)}>
+              <DialogTrigger
+                onClick={() => {
+                  setImageIdx(index);
+                }}
+              >
                 <Image
                   src={image.filename}
                   fill
@@ -85,13 +97,17 @@ export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
         </div>
       </div>
       <DialogContent className="overflow-hidden">
-        <DialogTitle>{blok.images[imageIdx]?.alt}</DialogTitle>
+        <DialogHeader>
+          <DialogTitle>{blok.images[imageIdx]?.alt}</DialogTitle>
+          <DialogDescription>{blok.images[imageIdx]?.alt}</DialogDescription>
+        </DialogHeader>
+
         <Carousel
           className=" h-full w-full rounded-lg relative "
           setApi={setApi}
         >
           <CarouselContent>
-            {blok.images.map((image, index) => (
+            {blok.images.map((image) => (
               <CarouselItem
                 className="relative h-full w-full aspect-video"
                 key={image.id}
@@ -105,8 +121,8 @@ export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          {/* <CarouselPrevious className="absolute" />
-          <CarouselNext className="absolute" /> */}
+          <CarouselPrevious />
+          <CarouselNext />
         </Carousel>
       </DialogContent>
     </>

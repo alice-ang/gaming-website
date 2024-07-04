@@ -3,7 +3,6 @@ import { storyblokEditable } from "@storyblok/react/rsc";
 import Image from "next/image";
 import { FC } from "react";
 import type { BlogPostStoryblok } from "../../component-types-sb";
-import Link from "next/link";
 
 export const PostItem: FC<{ blok: BlogPostStoryblok; idx: number }> = ({
   blok,
