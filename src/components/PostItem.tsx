@@ -11,15 +11,15 @@ export const PostItem: FC<{ blok: BlogPostStoryblok; idx: number }> = ({
   return (
     <div
       className={cn(
-        // idx % 2 ? " md:hover:rotate-2" : "md:hover:-rotate-2",
-        "rotate-0 col-span-3 md:col-span-1 bg-white w-full p-2 xl:p-4 relative shadow-md border border-white animation-transition group hover:no-underline"
+        // idx % 2 ? " lg:hover:rotate-1" : "lg:hover:-rotate-1",
+        " rotate-0 col-span-3 md:col-span-1 w-full relative shadow-md animation-transition group hover:no-underline"
       )}
       {...storyblokEditable(blok)}
     >
       <div
         className={cn(
           idx % 2 ? "rotate-12" : "-rotate-6",
-          "absolute bg-palette-background brush-mask right-0 z-10 animation-transition"
+          "absolute bg-palette-background brush-mask right-2 z-10 animation-transition top-2"
         )}
       >
         {blok.content?.label && (
@@ -28,20 +28,22 @@ export const PostItem: FC<{ blok: BlogPostStoryblok; idx: number }> = ({
       </div>
 
       {blok?.content?.cover_image && (
-        <div className="aspect-video relative overflow-hidden">
-          <Image
-            src={blok.content.cover_image.filename}
-            alt={blok.content.cover_image?.alt ?? "blog image"}
-            className="aspect-video group-hover:scale-110 animation-transition"
-            fill
-            placeholder="blur"
-            blurDataURL={blok.content.cover_image.filename}
-            loading="lazy"
-          />
+        <div className="aspect-video relative overflow-hidden ">
+          <div className="post-card-image">
+            <Image
+              src={blok.content.cover_image.filename}
+              alt={blok.content.cover_image?.alt ?? "blog image"}
+              className="aspect-video group-hover:scale-110 animation-transition "
+              fill
+              placeholder="blur"
+              blurDataURL={blok.content.cover_image.filename}
+              loading="lazy"
+            />
+          </div>
         </div>
       )}
 
-      <div className="space-y-2 p-4">
+      <div className="space-y-2 p-4 bg-white">
         <h5 className="text-palette-red">
           {getLocaleDateString(blok.created_at).full}
         </h5>

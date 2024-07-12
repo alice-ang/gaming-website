@@ -139,7 +139,7 @@
       "name": "footer",
       "display_name": null,
       "created_at": "2024-06-21T09:33:09.080Z",
-      "updated_at": "2024-07-03T21:13:18.111Z",
+      "updated_at": "2024-07-07T21:53:24.852Z",
       "id": 5959424,
       "schema": {
         "overline": {
@@ -209,6 +209,17 @@
           "pos": 10,
           "use_uuid": true,
           "required": true,
+          "source": "internal_stories",
+          "filter_content_type": [
+            "social_links"
+          ],
+          "is_reference_type": true,
+          "entry_appearance": "card",
+          "allow_advanced_search": true
+        },
+        "socials": {
+          "type": "options",
+          "pos": 11,
           "source": "internal_stories",
           "filter_content_type": [
             "social_link"
@@ -494,7 +505,7 @@
       "name": "navigation",
       "display_name": null,
       "created_at": "2024-06-27T11:51:35.884Z",
-      "updated_at": "2024-06-29T18:59:33.693Z",
+      "updated_at": "2024-07-07T21:57:12.321Z",
       "id": 5985233,
       "schema": {
         "logo": {
@@ -530,17 +541,6 @@
             "page"
           ],
           "force_link_scope": false
-        },
-        "nav_button": {
-          "type": "option",
-          "pos": 4,
-          "use_uuid": true,
-          "required": false,
-          "source": "internal_stories",
-          "filter_content_type": [
-            "button"
-          ],
-          "folder_slug": "buttons/"
         }
       },
       "image": null,
