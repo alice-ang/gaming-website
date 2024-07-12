@@ -140,10 +140,10 @@ export const Navigation: FC = () => {
             initial="closed"
             animate="open"
             exit="closed"
-            className="overflow-hidden fixed h-screen w-screen bg-palette-background z-20 flex flex-col justify-center items-center "
+            className="overflow-hidden fixed h-screen w-screen bg-palette-background z-20 flex-col justify-center items-center flex 2xl:hidden "
           >
             <ul className="space-y-4 lg:space-y-8">
-              {Array.from({ length: 4 }).map((_, index) => (
+              {["Home", "Press", "News"].map((item, index) => (
                 <motion.li
                   variants={mobileNav}
                   initial="offscreen"
@@ -154,7 +154,7 @@ export const Navigation: FC = () => {
                   key={index}
                   className="text-4xl lg:text-5xl font-josefin_sans uppercase font-semibold"
                 >
-                  Mobile nav
+                  {item}
                 </motion.li>
               ))}
             </ul>

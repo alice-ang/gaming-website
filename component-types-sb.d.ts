@@ -144,7 +144,8 @@ export interface FooterStoryblok {
   button?: ISbStoryData<ButtonStoryblok> | string;
   footer_items?: any[];
   developer?: RichtextStoryblok;
-  footer_socials: (ISbStoryData<SocialLinkStoryblok> | string)[];
+  footer_socials: (ISbStoryData<SocialLinksStoryblok> | string)[];
+  socials?: (ISbStoryData<SocialLinkStoryblok> | string)[];
   component: "footer";
   _uid: string;
   [k: string]: any;
@@ -254,7 +255,6 @@ export interface NavigationStoryblok {
   news_link?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
   nav_links?: any;
   press_link?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
-  nav_button?: ISbStoryData<ButtonStoryblok> | string;
   component: "navigation";
   _uid: string;
   [k: string]: any;

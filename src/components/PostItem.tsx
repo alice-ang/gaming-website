@@ -11,7 +11,7 @@ export const PostItem: FC<{ blok: BlogPostStoryblok; idx: number }> = ({
   return (
     <div
       className={cn(
-        idx % 2 ? " lg:hover:rotate-2" : "lg:hover:-rotate-2",
+        // idx % 2 ? " lg:hover:rotate-1" : "lg:hover:-rotate-1",
         " rotate-0 col-span-3 md:col-span-1 w-full relative shadow-md animation-transition group hover:no-underline"
       )}
       {...storyblokEditable(blok)}
@@ -19,7 +19,7 @@ export const PostItem: FC<{ blok: BlogPostStoryblok; idx: number }> = ({
       <div
         className={cn(
           idx % 2 ? "rotate-12" : "-rotate-6",
-          "absolute bg-palette-background brush-mask right-4 z-10 animation-transition top-4"
+          "absolute bg-palette-background brush-mask right-2 z-10 animation-transition top-2"
         )}
       >
         {blok.content?.label && (
@@ -33,7 +33,7 @@ export const PostItem: FC<{ blok: BlogPostStoryblok; idx: number }> = ({
             <Image
               src={blok.content.cover_image.filename}
               alt={blok.content.cover_image?.alt ?? "blog image"}
-              className="aspect-video group-hover:scale-110 animation-transition bg-palette-background "
+              className="aspect-video group-hover:scale-110 animation-transition "
               fill
               placeholder="blur"
               blurDataURL={blok.content.cover_image.filename}

@@ -3,14 +3,14 @@ import { FC, Suspense } from "react";
 import type {
   ButtonStoryblok,
   PageStoryblok,
-  SocialLinkStoryblok,
   SocialLinksStoryblok,
+  SocialLinkStoryblok,
 } from "../../component-types-sb";
 
 export const Page: FC<{
   blok: PageStoryblok;
   nav_button: ButtonStoryblok;
-  footer_socials: SocialLinkStoryblok[];
+  footer_socials: SocialLinksStoryblok;
 }> = ({ blok, footer_socials, nav_button }) => (
   <main {...storyblokEditable(blok)} className="">
     {blok.body &&

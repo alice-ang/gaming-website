@@ -221,8 +221,8 @@ span {
   mask-position: center;
 }
 
-.shadow-mask {
-  mask-image: url("../../public/shadow.png");
+.wood-mask {
+  mask-image: url("../../public/wood-mask.svg");
   mask-repeat: no-repeat;
   mask-size: 95%;
   mask-position: center;
@@ -270,7 +270,7 @@ span {
   background-image: url("../../public/top-rip.png");
   background-repeat: no-repeat;
   background-size: cover;
-  z-index: 70;
+  z-index: 50;
   position: absolute;
   bottom: -4px;
   content: "";
