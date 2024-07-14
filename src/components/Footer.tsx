@@ -10,6 +10,7 @@ import type { FooterStoryblok } from "../../component-types-sb";
 import { render } from "storyblok-rich-text-react-renderer";
 import { cn } from "@/lib/utils";
 import { SocialLink } from "./SocialLink";
+import { NewsletterForm } from "./NewsletterForm";
 
 export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
   const ref = useRef(null);
@@ -34,7 +35,7 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
           />
           <div className="col-span-12 lg:col-span-6 ">
             {blok.overline && (
-              <button className="w-fit text-2xl text-palette-yellow border border-palette-yellow px-6 py-2 -rotate-12 mb-4">
+              <button className="w-fit text-base lg:text-2xl text-palette-yellow border border-palette-yellow px-6 py-2 -rotate-12 mb-4">
                 {blok.overline}
               </button>
             )}
@@ -105,24 +106,7 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
                 </div>
                 <div className="space-y-4 w-full md:w-1/3">
                   <h6 className="overline-title"> Newsletter</h6>
-                  <form>
-                    <div className="">
-                      <div className="w-full relative flex flex-nowrap ">
-                        <input
-                          className="bg-neutral-200 py-3 px-4 flex-1"
-                          placeholder="eg. yourname@example.com"
-                        />
-                        <div className="absolute right-0 ">
-                          <button
-                            type="submit"
-                            className="bg-palette-yellow py-3 px-6 text-palette-footer rounded-r-sm"
-                          >
-                            Sign up
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
+                  <NewsletterForm />
                 </div>
               </div>
               <Separator />

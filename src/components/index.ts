@@ -14,3 +14,4 @@ export * from "./Navigation";
 export * from "./StoryblokProvider";
 export * from "./GolfPath";
 export * from "./LatestPostBanner";
+export * from "./NewsletterForm";

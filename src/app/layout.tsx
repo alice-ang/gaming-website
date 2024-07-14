@@ -10,6 +10,7 @@ import { ThemeProvider } from "next-themes";
 import type { FooterStoryblok } from "../../component-types-sb";
 import { baskerville, josefin_sans, oswald } from "./fonts";
 import "./globals.css";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Clubhouse on Haunted Hill",
@@ -58,6 +59,7 @@ export default async function RootLayout({
 
               <Footer blok={blok} />
             </Dialog>
+            <Toaster />
           </ThemeProvider>
         </body>
       </html>
