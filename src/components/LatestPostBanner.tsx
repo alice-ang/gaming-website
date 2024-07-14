@@ -4,6 +4,8 @@ import { BlogPostStoryblok } from "../../component-types-sb";
 import { cn, getLocaleDateString } from "@/lib/utils";
 import Link from "next/link";
 import { PostItem } from "./PostItem";
+import { CTA } from "./CTA";
+import { Button } from "./ui/button";
 
 export const LatestPostBanner: FC<{ post: BlogPostStoryblok }> = ({ post }) => {
   return (
@@ -19,7 +21,7 @@ export const LatestPostBanner: FC<{ post: BlogPostStoryblok }> = ({ post }) => {
             />
           </div>
         </div>
-        <div className="col-span-4 bg-white py-6 flex flex-col justify-between">
+        <div className="col-span-4 bg-white py-6 px-4 flex flex-col justify-between">
           <div
             className={cn(
               "ml-4 w-fit bg-palette-background brush-mask animation-transition"
@@ -31,14 +33,14 @@ export const LatestPostBanner: FC<{ post: BlogPostStoryblok }> = ({ post }) => {
               </h2>
             )}
           </div>
-          <div className="space-y-2 p-4 ">
+          <div className="space-y-2">
             <h5 className="text-palette-red">
               {getLocaleDateString(post.created_at).full}
             </h5>
             <h2 className="text-palette-footer ">{post.content?.title}</h2>
             <p className=" text-black line-clamp-6">{post.content?.excerpt}</p>
           </div>
-          <div>Read more</div>
+          <div />
         </div>
       </div>
       <div className="block lg:hidden">

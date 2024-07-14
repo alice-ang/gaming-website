@@ -140,7 +140,7 @@ export const Navigation: FC = () => {
             initial="closed"
             animate="open"
             exit="closed"
-            className="overflow-hidden fixed h-screen w-screen bg-palette-background z-20 flex-col justify-center items-center flex 2xl:hidden "
+            className="overflow-hidden fixed h-screen w-screen bg-palette-footer z-20 flex-col justify-center items-center flex 2xl:hidden "
           >
             <ul className="space-y-4 lg:space-y-8">
               {["Home", "Press", "News"].map((item, index) => (

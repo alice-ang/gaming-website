@@ -1,51 +1,48 @@
 "use client";
-import React, { useEffect } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { FC, useEffect, useState } from "react";
+import Image from "next/image";
 
-const ballStyle = {
-  display: "block",
-  width: "1rem",
-  height: "1rem",
-  backgroundColor: "black",
-  borderRadius: "0.5rem",
+type PreLoaderProps = {
+  isLoading?: boolean;
 };
 
-const bounceTransition = {
-  y: {
-    duration: 0.4,
-    yoyo: Infinity,
-    ease: "easeOut",
-  },
-  backgroundColor: {
-    duration: 0,
-    yoyo: Infinity,
-    ease: "easeOut",
-    repeatDelay: 0.8,
-  },
-};
+export const PreLoader: FC<PreLoaderProps> = ({ isLoading = true }) => {
+  const [loading, setLoading] = useState<boolean>(isLoading);
 
-export const PreLoader = () => {
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-red-500">
-      <div
-        style={{
-          width: "2rem",
-          height: "2rem",
-          display: "flex",
-          justifyContent: "space-around",
-        }}
-      >
-        <motion.span
-          style={ballStyle}
-          transition={bounceTransition}
-          animate={{
-            y: ["100%", "-100%"],
-            backgroundColor: ["#ff6699", "#6666ff"],
+    <AnimatePresence mode="sync">
+      {loading && (
+        <motion.div
+          className="min-h-screen bg-palette-footer fixed h-screen w-screen z-50 items-center justify-center flex flex-col"
+          initial={{
+            opacity: 1,
           }}
-        />
-      </div>
-    </div>
+          animate={{
+            opacity: 1,
+          }}
+          exit={{
+            opacity: 0,
+          }}
+        >
+          <div className="bg-white h-14 w-14 rounded-full animate-bounce" />
+          {/* <Image
+            src={"/border.png"}
+            alt={"golf ball logo"}
+            height={60}
+            width={60}
+            className="animate-bounce"
+          /> */}
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
