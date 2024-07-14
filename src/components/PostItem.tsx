@@ -12,7 +12,7 @@ export const PostItem: FC<{ blok: BlogPostStoryblok; idx: number }> = ({
     <div
       className={cn(
         // idx % 2 ? " lg:hover:rotate-1" : "lg:hover:-rotate-1",
-        " rotate-0 col-span-3 md:col-span-1 w-full relative shadow-md animation-transition group hover:no-underline"
+        " rotate-0 col-span-3 md:col-span-1 w-full relative shadow-lg animation-transition group hover:no-underline"
       )}
       {...storyblokEditable(blok)}
     >
