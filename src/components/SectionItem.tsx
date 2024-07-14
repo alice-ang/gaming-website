@@ -85,7 +85,7 @@ export const SectionItem: FC<SectionItemProps> = ({ idx, blok }) => {
                 alt={blok.top_left_image.alt ?? "top left image"}
                 width={170}
                 height={70}
-                className="-left-8 -top-32 absolute object-cover bg-cover"
+                className="-left-8 -top-32 absolute object-cover bg-cover  hidden md:block"
               />
             )}
 
@@ -95,7 +95,7 @@ export const SectionItem: FC<SectionItemProps> = ({ idx, blok }) => {
                 alt={blok.top_right_image.alt ?? "top right image"}
                 width={170}
                 height={70}
-                className="-right-0 -top-32 absolute object-cover bg-cover "
+                className="-right-0 -top-32 absolute object-cover bg-cover hidden md:block"
               />
             )}
             <Image

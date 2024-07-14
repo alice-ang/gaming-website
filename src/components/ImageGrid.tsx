@@ -57,10 +57,10 @@ export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
               backgroundSize: "cover",
             }}
             src={blok.character.filename}
-            width={340}
-            height={290}
+            width={300}
+            height={260}
             alt={blok.character.alt ?? "character"}
-            className=" object-contain bg-center object-center top-0 absolute right-0 rotate-6 hidden lg:block"
+            className=" object-contain bg-center object-center top-0 absolute right-0 rotate-6 "
           />
         )}
         <div className="space-y-2 py-4">

@@ -1,4 +1,4 @@
-import { Navigation, StoryblokProvider, Footer } from "@/components";
+import { Footer, Navigation, PreLoader, StoryblokProvider } from "@/components";
 import { Dialog } from "@/components/ui/dialog";
 import {
   apiPlugin,
@@ -7,9 +7,9 @@ import {
 } from "@storyblok/react/rsc";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
+import type { FooterStoryblok } from "../../component-types-sb";
 import { baskerville, josefin_sans, oswald } from "./fonts";
 import "./globals.css";
-import type { FooterStoryblok } from "../../component-types-sb";
 
 export const metadata: Metadata = {
   title: "Clubhouse on Haunted Hill",
@@ -44,6 +44,7 @@ export default async function RootLayout({
         <body
           className={`${oswald.variable} ${baskerville.variable} ${josefin_sans.variable} bg-[url('/texture.jpg')]`}
         >
+          {/* <PreLoader /> */}
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
