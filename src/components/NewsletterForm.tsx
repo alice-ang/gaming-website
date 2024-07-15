@@ -1,5 +1,5 @@
 "use client";
-import React, { FC } from "react";
+import React, { FC, useRef } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useToast } from "./ui/use-toast";
 
@@ -12,8 +12,10 @@ export const NewsletterForm: FC = () => {
     register,
     handleSubmit,
     setError,
+    reset,
     formState: { errors },
   } = useForm<Inputs>();
+
   const { toast } = useToast();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
@@ -45,6 +47,7 @@ export const NewsletterForm: FC = () => {
           title: "Dancing! ⛳️",
           description: "You are now subscibed to our newsletter",
         });
+        reset();
       }
     } catch (error) {
       console.error(error);
