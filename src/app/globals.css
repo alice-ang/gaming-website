@@ -268,7 +268,7 @@ span {
   background-image: url("../../public/top-rip.png");
   background-repeat: no-repeat;
   background-size: cover;
-  z-index: 50;
+  z-index: 45;
   position: absolute;
   bottom: -4px;
   content: "";
