@@ -252,9 +252,6 @@ export interface MovingCardStoryblok {
 
 export interface NavigationStoryblok {
   logo: AssetStoryblok;
-  news_link?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
-  nav_links?: any;
-  press_link?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
   component: "navigation";
   _uid: string;
   [k: string]: any;
