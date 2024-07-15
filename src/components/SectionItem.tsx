@@ -98,12 +98,14 @@ export const SectionItem: FC<SectionItemProps> = ({ idx, blok }) => {
                 className="-right-0 -top-32 absolute object-cover bg-cover hidden md:block"
               />
             )}
+
             <Image
               src={blok.image.filename}
               alt={blok.image.alt ?? ""}
               className="aspect-video object-cover h-full w-full bg-center mask"
               fill
             />
+
             {blok?.bottom_left_image?.filename && (
               <Image
                 src={blok.bottom_left_image.filename}

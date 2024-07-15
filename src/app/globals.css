@@ -71,7 +71,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-palette-background text-white overscroll-none;
+    @apply bg-[url('/texture.jpg')] bg-repeat-y text-white overscroll-none;
   }
 
   html {
@@ -199,10 +199,15 @@ span {
 }
 
 .mask {
+  -webkit-mask-image: url("../../public/img-mask.svg");
   mask-image: url("../../public/img-mask.svg");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  mask-position: center;
+  height: 100%;
+  width: 100%;
+  -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-  mask-size: 100%;
-  mask-position: top;
 }
 
 .container-mask {
@@ -218,13 +223,6 @@ span {
   mask-image: url("../../public/button.svg");
   mask-repeat: no-repeat;
   mask-size: 100%;
-  mask-position: center;
-}
-
-.wood-mask {
-  mask-image: url("../../public/wood-mask.svg");
-  mask-repeat: no-repeat;
-  mask-size: 95%;
   mask-position: center;
 }
 

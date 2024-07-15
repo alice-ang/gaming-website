@@ -72,7 +72,7 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
         </div>
       </Constraints>
 
-      <footer className="relative ">
+      <footer className="relative bg-transparent">
         <div className="h-10 xl:h-44 footer-mask w-full bg-palette-footer bg-top object-top bg-cover" />
 
         <div className="bg-palette-footer p-4">
@@ -98,9 +98,9 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
                   <div className="space-y-4 ">
                     <h6 className="overline-title"> Office location</h6>
                     <p>
-                      Kaplansgatan 16B,
+                      Kanikegränd 3B,
                       <br />
-                      541 34 Skövde, Sweden
+                      549 34 Skövde, Sweden
                     </p>
                   </div>
                 </div>
