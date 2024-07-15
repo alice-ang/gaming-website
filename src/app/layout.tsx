@@ -1,5 +1,6 @@
-import { Footer, Navigation, PreLoader, StoryblokProvider } from "@/components";
+import { Footer, Navigation, StoryblokProvider } from "@/components";
 import { Dialog } from "@/components/ui/dialog";
+import { Toaster } from "@/components/ui/toaster";
 import {
   apiPlugin,
   getStoryblokApi,
@@ -10,7 +11,6 @@ import { ThemeProvider } from "next-themes";
 import type { FooterStoryblok } from "../../component-types-sb";
 import { baskerville, josefin_sans, oswald } from "./fonts";
 import "./globals.css";
-import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Clubhouse on Haunted Hill",
@@ -21,16 +21,17 @@ export const metadata: Metadata = {
 const cachedFetch = (input: any, init?: any): Promise<Response> => {
   return fetch(input, {
     ...init,
-    cache: process.env.NODE_ENV === "development" ? "no-store" : "force-cache",
+    cache: "no-store",
+    // cache: process.env.NODE_ENV === "development" ? "no-store" : "force-cache",
   });
 };
 
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_PREVIEW,
   use: [apiPlugin],
-  // apiOptions: {
-  //   fetch: cachedFetch,
-  // },
+  apiOptions: {
+    fetch: cachedFetch,
+  },
 });
 
 export default async function RootLayout({
