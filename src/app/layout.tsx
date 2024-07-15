@@ -28,9 +28,9 @@ const cachedFetch = (input: any, init?: any): Promise<Response> => {
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_PREVIEW,
   use: [apiPlugin],
-  apiOptions: {
-    fetch: cachedFetch,
-  },
+  // apiOptions: {
+  //   fetch: cachedFetch,
+  // },
 });
 
 export default async function RootLayout({
