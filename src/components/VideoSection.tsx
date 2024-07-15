@@ -28,8 +28,8 @@ export const VideoSection: FC<{ blok: VideoSectionStoryblok }> = ({ blok }) => {
             </p>
           </div>
           <div className="col-span-12 lg:col-span-7 ">
-            <div className="bg-[url('/trailer-frame.png')] p-2 md:p-4 aspect-video shadow-xl bg-center bg-cover object-cover object-center">
-              <div className="aspect-video relative border-2 md:border-4 border-black">
+            <div className="bg-[url('/stone.png')] p-2 md:p-4 aspect-video shadow-xl bg-center bg-cover object-cover object-center">
+              <div className="aspect-video relative border-2 border-black rounded">
                 <iframe
                   src={blok.video_url?.url}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

@@ -21,7 +21,7 @@ export async function POST(req: Request, res: NextApiResponse) {
     },
     body: JSON.stringify({
       email_address: email,
-      status: 200,
+      status: "subscribed",
     }),
   });
   const received = await response.json();

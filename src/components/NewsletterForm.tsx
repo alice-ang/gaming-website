@@ -30,15 +30,17 @@ export const NewsletterForm: FC = () => {
 
       const datas = await response.json();
 
-      console.log("Status; ", datas.status);
-
-      if (datas.status !== 200) {
+      if (datas.status !== "subscribed") {
         setError("email", {
           type: "manual",
           message: datas.detail,
         });
-      }
-      if (datas.status === 200) {
+        toast({
+          variant: "destructive",
+          title: "Something went wrong 😬",
+          description: datas.detail,
+        });
+      } else {
         toast({
           title: "Dancing! ⛳️",
           description: "You are now subscibed to our newsletter",
@@ -46,7 +48,6 @@ export const NewsletterForm: FC = () => {
       }
     } catch (error) {
       console.error(error);
-      console.log(errors);
     }
   };
 
@@ -71,7 +72,6 @@ export const NewsletterForm: FC = () => {
           </div>
         </div>
       </div>
-      {errors.email && <p className="text-red-500">{errors.email.message}</p>}
     </form>
   );
 };

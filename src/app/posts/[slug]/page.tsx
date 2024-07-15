@@ -23,7 +23,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           fill
         />
       </div>
-      <div className="max-w-5xl h-full mx-auto shadow space-y-4 bg-palette-footer md:rounded-lg relative overflow-hidden">
+      <div className="max-w-5xl h-full mx-auto shadow space-y-4 bg-background md:rounded-lg relative overflow-hidden">
         {data.story.content.cover_image && (
           <div className="aspect-video relative ">
             <Image
@@ -36,7 +36,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             />
           </div>
         )}
-        <div className="py-6 px-4 md:px-12 bg-palette-footer ">
+        <div className="py-6 px-4 md:px-12 bg-background ">
           <h5 className="text-palette-red">
             {getLocaleDateString(data.story.created_at).full}
           </h5>
