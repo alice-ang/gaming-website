@@ -97,8 +97,9 @@ export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
         </div>
       </div>
       <DialogContent className="overflow-hidden">
-        <DialogHeader>
+        <DialogHeader className="hidden">
           <DialogTitle>{blok.images[imageIdx]?.alt}</DialogTitle>
+
           <DialogDescription>{blok.images[imageIdx]?.alt}</DialogDescription>
         </DialogHeader>
 

@@ -55,6 +55,7 @@ export const Navigation: FC = () => {
   const [nav, setNav] = useState<NavigationStoryblok>();
   const ref = useRef(null);
   const [isOpen, setOpen] = useState(false);
+  const [links, setLinks] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -68,7 +69,31 @@ export const Navigation: FC = () => {
       setNav(data.story.content);
     };
 
+    const fetchLinks = async () => {
+      const storyblokApi = getStoryblokApi();
+
+      const { data } = await storyblokApi.get("cdn/links", {
+        version: "draft",
+      });
+
+      let navSlugs: string[] = [];
+
+      Object.keys(data.links).forEach((linkKey) => {
+        if (data.links[linkKey].is_folder) {
+          return;
+        }
+        const slug = data.links[linkKey].slug;
+
+        if (!slug.includes("/")) {
+          navSlugs.push(slug);
+        }
+      });
+
+      setLinks(["home", ...navSlugs.sort()]);
+    };
+
     fetchData();
+    fetchLinks();
   }, []);
 
   if (!nav) {
@@ -101,27 +126,14 @@ export const Navigation: FC = () => {
             )}
 
             <ul className=" gap-8 items-center hidden 2xl:flex">
-              {nav.press_link && (
-                <li className="text-lg uppercase cursor-pointer">
-                  <Link
-                    href={`/${nav.press_link.story.url}`}
-                    className="font-josefin_sans"
-                  >
-                    {nav.press_link.story.name}
+              {links.map((link) => (
+                <li className="text-lg uppercase cursor-pointer" key={link}>
+                  <Link href={`/${link}`} className="font-josefin_sans">
+                    {link}
                   </Link>
                 </li>
-              )}
-              {nav.news_link && (
-                <li className="text-lg uppercase cursor-pointer">
-                  <Link
-                    href={`/${nav.news_link.story.url}`}
-                    className="font-josefin_sans"
-                    passHref
-                  >
-                    {nav.news_link.story.name}
-                  </Link>
-                </li>
-              )}
+              ))}
+
               <Button>Play Demo</Button>
             </ul>
             <button
@@ -143,7 +155,7 @@ export const Navigation: FC = () => {
             className="overflow-hidden fixed h-screen w-screen bg-palette-footer z-20 flex-col justify-center items-center flex 2xl:hidden "
           >
             <ul className="space-y-4 lg:space-y-8">
-              {["Home", "Press", "News"].map((item, index) => (
+              {links.map((item, index) => (
                 <motion.li
                   variants={mobileNav}
                   initial="offscreen"
@@ -164,16 +176,3 @@ export const Navigation: FC = () => {
     </div>
   );
 };
-
-export async function fetchData() {
-  const storyblokApi = getStoryblokApi();
-
-  const { data } = await storyblokApi.get("cdn/stories/layout/navigation", {
-    version: "draft",
-    resolve_links: "url",
-  });
-
-  return {
-    nav: data.story.content,
-  };
-}
