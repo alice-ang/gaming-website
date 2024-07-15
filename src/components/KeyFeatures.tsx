@@ -20,7 +20,7 @@ export const KeyFeatures: FC<{ blok: KeyFeaturesStoryblok }> = ({ blok }) => {
         </div>
       )} */}
 
-      <Constraints>
+      <Constraints hasPadding={false}>
         {blok?.features.map((feature, index) => (
           <SectionItem
             blok={feature as SectionItemStoryblok}
