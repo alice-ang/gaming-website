@@ -89,7 +89,7 @@ export const Navigation: FC = () => {
         }
       });
 
-      setLinks(["home", ...navSlugs.sort()]);
+      setLinks(navSlugs.sort());
     };
 
     fetchData();
