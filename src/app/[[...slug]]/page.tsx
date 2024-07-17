@@ -1,5 +1,24 @@
 import { getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokStory from "@storyblok/react/story";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Clubhouse on Haunted Hill",
+  description:
+    "Dare to accept the invitation from enigmatic millionaire Nicolas Craven and embark on a spine-chilling golf adventure at the Club House on Haunted Hill.",
+
+  openGraph: {
+    description:
+      "Dare to accept the invitation from enigmatic millionaire Nicolas Craven and embark on a spine-chilling golf adventure at the Club House on Haunted Hill.",
+    url: process.env.NEXT_PUBLIC_URL,
+    siteName: "Clubhouse on Haunted Hill",
+    locale: "en_US",
+    type: "website",
+    images: {
+      url: `${process.env.NEXT_PUBLIC_URL}/og.jpg`,
+    },
+  },
+};
 
 export default async function Page({ params }: any) {
   let slug = params?.slug ? params.slug.join("/") : "home";
