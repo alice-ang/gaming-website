@@ -218,14 +218,6 @@ span {
   mask-position: bottom;
 }
 
-.button-mask {
-  -webkit-mask-image: var("../../public/button.svg");
-  mask-image: url("../../public/button.svg");
-  mask-repeat: no-repeat;
-  mask-size: 100%;
-  mask-position: center;
-}
-
 .brush-mask {
   -webkit-mask-image: var("../../public/brush-stroke.svg");
   mask-image: url("../../public/brush-stroke.svg");
