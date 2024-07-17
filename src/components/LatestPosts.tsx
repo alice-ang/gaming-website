@@ -127,7 +127,10 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
                         className="col-span-3 md:col-span-1"
                       >
                         <Link
-                          href={`/${story.full_slug}`}
+                          href={{
+                            pathname: `/${story.full_slug}`,
+                            query: { id: story.id },
+                          }}
                           passHref
                           className="hover:no-underline"
                         >

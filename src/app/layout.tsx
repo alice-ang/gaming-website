@@ -6,23 +6,35 @@ import {
   getStoryblokApi,
   storyblokInit,
 } from "@storyblok/react/rsc";
-import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import type { FooterStoryblok } from "../../component-types-sb";
 import { baskerville, josefin_sans, oswald } from "./fonts";
 import "./globals.css";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Clubhouse on Haunted Hill",
   description:
     "Dare to accept the invitation from enigmatic millionaire Nicolas Craven and embark on a spine-chilling golf adventure at the Club House on Haunted Hill.",
+
+  openGraph: {
+    description:
+      "Dare to accept the invitation from enigmatic millionaire Nicolas Craven and embark on a spine-chilling golf adventure at the Club House on Haunted Hill.",
+    url: process.env.NEXT_PUBLIC_URL,
+    siteName: "Clubhouse on Haunted Hill",
+    locale: "en_US",
+    type: "website",
+    images: {
+      url: `${process.env.NEXT_PUBLIC_URL}/og.jpg`,
+    },
+  },
 };
 
 const cachedFetch = (input: any, init?: any): Promise<Response> => {
   return fetch(input, {
     ...init,
-    cache: "default",
-    // cache: process.env.NODE_ENV === "development" ? "no-store" : "force-cache",
+
+    cache: process.env.NODE_ENV === "development" ? "no-store" : "force-cache",
   });
 };
 

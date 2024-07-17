@@ -1,9 +1,39 @@
 import { getLocaleDateString } from "@/lib/utils";
 import { getStoryblokApi } from "@storyblok/react/rsc";
+import { Metadata } from "next";
 import Image from "next/image";
 import { render } from "storyblok-rich-text-react-renderer";
 
-export default async function Page({ params }: { params: { slug: string } }) {
+type Props = {
+  params: { slug: string };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const storyblokApi = getStoryblokApi();
+  let { data } = await storyblokApi.get(
+    `cdn/stories/posts/${params.slug}`,
+    {
+      version: "draft",
+    },
+    { cache: "no-store" }
+  );
+
+  return {
+    title: data.story.content.title,
+    description: data.story.content.excerpt,
+    openGraph: {
+      title: data.story.content.title,
+      description: data.story.content.excerpt,
+      locale: "en_US",
+      type: "website",
+      images: {
+        url: data.story.content.cover_image.filename,
+      },
+    },
+  };
+}
+
+export default async function Page({ params }: Props) {
   const storyblokApi = getStoryblokApi();
   let { data } = await storyblokApi.get(
     `cdn/stories/posts/${params.slug}`,
@@ -36,7 +66,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             />
           </div>
         )}
-        <div className="py-6 px-4 md:px-12 bg-background ">
+        <div className="py-6 px-4 md:px-12 bg-background space-y-2">
           <h5 className="text-palette-red">
             {getLocaleDateString(data.story.created_at).full}
           </h5>
