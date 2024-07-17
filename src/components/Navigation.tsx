@@ -55,7 +55,7 @@ export const Navigation: FC = () => {
   const [nav, setNav] = useState<NavigationStoryblok>();
   const ref = useRef(null);
   const [isOpen, setOpen] = useState(false);
-  const [links, setLinks] = useState<string[]>([]);
+  const [links, setLinks] = useState<string[]>(["Home", "News"]);
 
   useEffect(() => {
     const fetchData = async () => {
