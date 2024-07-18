@@ -55,7 +55,7 @@ export const Navigation: FC = () => {
   const [nav, setNav] = useState<NavigationStoryblok>();
   const ref = useRef(null);
   const [isOpen, setOpen] = useState(false);
-  const [links, setLinks] = useState<string[]>(["Home", "News"]);
+  const [links, setLinks] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -120,7 +120,7 @@ export const Navigation: FC = () => {
                   alt={nav.logo?.alt ?? "golf ball logo"}
                   height={60}
                   width={60}
-                  className="animation-transition hover:scale-110"
+                  className="animation-transition hover:scale-110 hover:rotate-12"
                 />
               </Link>
             )}
@@ -164,9 +164,15 @@ export const Navigation: FC = () => {
                   viewport={{ amount: 0.8, once: true }}
                   custom={index}
                   key={index}
-                  className="text-4xl lg:text-5xl font-josefin_sans uppercase font-semibold"
+                  onClick={() => setOpen(false)}
                 >
-                  {item}
+                  <Link
+                    href={`/${item}`}
+                    passHref
+                    className="text-4xl lg:text-5xl font-josefin_sans uppercase font-semibold"
+                  >
+                    {item}
+                  </Link>
                 </motion.li>
               ))}
             </ul>
