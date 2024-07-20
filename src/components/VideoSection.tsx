@@ -18,7 +18,7 @@ export const VideoSection: FC<{ blok: VideoSectionStoryblok }> = ({ blok }) => {
         </div>
       )}
       <Constraints>
-        <div className="grid grid-cols-12 gap-6 xl:gap-32 items-center relative">
+        <div className="grid grid-cols-12 gap-6 xl:gap-24 items-center relative">
           <div className="col-span-12 lg:col-span-5 space-y-2 md:space-y-4">
             <h1>accept the invitation</h1>
             <p>
