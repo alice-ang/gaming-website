@@ -44,7 +44,7 @@ export default async function Page({ params }: Props) {
   );
 
   return (
-    <section className="min-h-screen pt-32">
+    <section className="min-h-screen md:pt-32">
       <div className="top-img-fade ">
         <Image
           src={data.story.content.cover_image.filename}

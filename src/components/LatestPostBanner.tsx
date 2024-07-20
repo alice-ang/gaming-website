@@ -7,11 +7,7 @@ import { PostItem } from "./PostItem";
 
 export const LatestPostBanner: FC<{ post: BlogPostStoryblok }> = ({ post }) => {
   return (
-    <Link
-      href={`/${post.full_slug}`}
-      passHref
-      className="hover:no-underline shadow-lg"
-    >
+    <>
       <div className="hidden grid-cols-12 w-full lg:grid">
         <div className="col-span-8 relative aspect-video">
           <div className="post-banner-image">
@@ -48,6 +44,6 @@ export const LatestPostBanner: FC<{ post: BlogPostStoryblok }> = ({ post }) => {
       <div className="block lg:hidden">
         <PostItem blok={post} idx={0} />
       </div>
-    </Link>
+    </>
   );
 };

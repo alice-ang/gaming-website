@@ -105,7 +105,13 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
       <Constraints>
         <div className="flex flex-col justify-center items-center space-y-8 relative">
           {blok.show_banner === true && postData?.latestPost && (
-            <LatestPostBanner post={postData.latestPost} />
+            <Link
+              href={`/${postData.latestPost.full_slug}`}
+              passHref
+              className="hover:no-underline shadow-lg"
+            >
+              <LatestPostBanner post={postData.latestPost} />
+            </Link>
           )}
           <div className="text-center space-y-2">
             <h5 className="font-josefin_sans normal-case">{blok.overline}</h5>
