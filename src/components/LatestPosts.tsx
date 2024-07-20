@@ -92,7 +92,7 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
   return (
     <section className="section-padding" {...storyblokEditable(blok)}>
       {blok.show_banner === true &&
-        postData?.latestPost.content.cover_image.filename && (
+        postData?.latestPost?.content.cover_image?.filename && (
           <div className="top-img-fade">
             <Image
               src={postData.latestPost.content.cover_image.filename}
@@ -176,7 +176,7 @@ export const LatestPosts: FC<{ blok: LatestPostsStoryblok }> = ({ blok }) => {
           )}
 
           {blok.show_pagination &&
-            postData?.totalPosts &&
+            postData?.totalPosts !== 0 &&
             postData?.perPage &&
             postData.totalPosts > postData.perPage && (
               <Pagination className="py-12">
