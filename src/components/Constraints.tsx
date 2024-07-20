@@ -12,7 +12,7 @@ export const Constraints = ({
     <div
       className={cn(
         hasPadding ? "px-4" : "",
-        "mx-auto max-w-screen-2xl h-full w-full "
+        "mx-auto max-w-screen-xl h-full w-full "
       )}
     >
       {children}

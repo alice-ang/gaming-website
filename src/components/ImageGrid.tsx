@@ -70,7 +70,7 @@ export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
           {blok?.title && <h1>{blok.title}</h1>}
         </div>
 
-        <div className="grid grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5  ">
+        <div className="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-5  ">
           {blok.images.map((image, index) => (
             <div
               className="relative h-full w-full aspect-video col-span-1 bg-black overflow-hidden"

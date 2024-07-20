@@ -10,7 +10,6 @@ import { ThemeProvider } from "next-themes";
 import type { FooterStoryblok } from "../../component-types-sb";
 import { baskerville, josefin_sans, oswald } from "./fonts";
 import "./globals.css";
-import { Metadata } from "next";
 
 const cachedFetch = (input: any, init?: any): Promise<Response> => {
   return fetch(input, {

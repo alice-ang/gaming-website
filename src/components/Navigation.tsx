@@ -125,7 +125,7 @@ export const Navigation: FC = () => {
               </Link>
             )}
 
-            <ul className=" gap-8 items-center hidden 2xl:flex">
+            <ul className=" gap-8 items-center hidden xl:flex">
               {links.map((link) => (
                 <li className="text-lg uppercase cursor-pointer" key={link}>
                   <Link href={`/${link}`} className="font-josefin_sans">
@@ -137,7 +137,7 @@ export const Navigation: FC = () => {
               <Button>Play Demo</Button>
             </ul>
             <button
-              className="block 2xl:hidden"
+              className="block xl:hidden"
               onClick={() => setOpen(!isOpen)}
             >
               <Hamburger isClicked={isOpen} />
