@@ -19,10 +19,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   );
 
   return {
-    title: data.story.content.title,
+    title: `News | ${data.story.content.title}`,
     description: data.story.content.excerpt,
     openGraph: {
-      title: data.story.content.title,
+      title: `News | ${data.story.content.title}`,
       description: data.story.content.excerpt,
       locale: "en_US",
       type: "website",

@@ -6,7 +6,6 @@ export const metadata: Metadata = {
   title: "Clubhouse on Haunted Hill",
   description:
     "Dare to accept the invitation from enigmatic millionaire Nicolas Craven and embark on a spine-chilling golf adventure at the Club House on Haunted Hill.",
-
   openGraph: {
     description:
       "Dare to accept the invitation from enigmatic millionaire Nicolas Craven and embark on a spine-chilling golf adventure at the Club House on Haunted Hill.",

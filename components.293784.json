@@ -505,7 +505,7 @@
       "name": "navigation",
       "display_name": null,
       "created_at": "2024-06-27T11:51:35.884Z",
-      "updated_at": "2024-07-15T16:32:42.435Z",
+      "updated_at": "2024-08-14T13:24:00.063Z",
       "id": 5985233,
       "schema": {
         "logo": {
@@ -515,6 +515,10 @@
           "filetypes": [
             "images"
           ]
+        },
+        "demo_link": {
+          "type": "multilink",
+          "pos": 1
         }
       },
       "image": null,
