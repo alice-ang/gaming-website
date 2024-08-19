@@ -2,7 +2,7 @@
 import React, { FC, useEffect, useState } from "react";
 import { SocialLinksStoryblok } from "../../component-types-sb";
 import { SocialLink } from "./SocialLink";
-import { getStoryblokApi, storyblokEditable } from "@storyblok/react/rsc";
+import { getStoryblokApi, storyblokEditable } from "@storyblok/react";
 
 export const SocialMedia: FC = () => {
   const [blok, setBlok] = useState<SocialLinksStoryblok>();

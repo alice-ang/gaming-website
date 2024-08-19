@@ -3,7 +3,7 @@ import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
 import { FC } from "react";
 import type { MovingCardStoryblok } from "../../component-types-sb";
 import { cn } from "@/lib/utils";
-import { storyblokEditable } from "@storyblok/react/rsc";
+import { storyblokEditable } from "@storyblok/react";
 
 export const StatsCard: FC<{ blok: MovingCardStoryblok }> = ({ blok }) => {
   return (

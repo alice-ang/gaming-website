@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import Image from "next/image";
-import { storyblokEditable } from "@storyblok/react/rsc";
+import { storyblokEditable } from "@storyblok/react";
 import { VideoSectionStoryblok } from "../../component-types-sb";
 import { Constraints } from "./Constraints";
 

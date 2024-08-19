@@ -1,5 +1,5 @@
 "use client";
-import { storyblokEditable } from "@storyblok/react/rsc";
+import { storyblokEditable } from "@storyblok/react";
 
 import { cn } from "@/lib/utils";
 import { Variants, motion } from "framer-motion";

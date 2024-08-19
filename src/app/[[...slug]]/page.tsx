@@ -1,5 +1,6 @@
-import { getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokStory from "@storyblok/react/story";
+import { getStoryblokApi } from "@storyblok/react";
+
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

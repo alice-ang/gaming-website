@@ -4,7 +4,7 @@ import type {
   KeyFeaturesStoryblok,
   SectionItemStoryblok,
 } from "../../component-types-sb";
-import { storyblokEditable } from "@storyblok/react/rsc";
+import { storyblokEditable } from "@storyblok/react";
 import { SectionItem } from "./SectionItem";
 import { GolfPath } from "./GolfPath";
 

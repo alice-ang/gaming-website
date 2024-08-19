@@ -1,11 +1,7 @@
 import { Footer, Navigation, StoryblokProvider } from "@/components";
 import { Dialog } from "@/components/ui/dialog";
 import { Toaster } from "@/components/ui/toaster";
-import {
-  apiPlugin,
-  getStoryblokApi,
-  storyblokInit,
-} from "@storyblok/react/rsc";
+import { apiPlugin, storyblokInit, getStoryblokApi } from "@storyblok/react";
 import { ThemeProvider } from "next-themes";
 import type { FooterStoryblok } from "../../component-types-sb";
 import { baskerville, josefin_sans, oswald } from "./fonts";

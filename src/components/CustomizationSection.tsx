@@ -1,4 +1,4 @@
-import { StoryblokComponent, storyblokEditable } from "@storyblok/react/rsc";
+import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
 import { FC } from "react";
 import { render } from "storyblok-rich-text-react-renderer";
 import type { CharacterCustomizationStoryblok } from "../../component-types-sb";

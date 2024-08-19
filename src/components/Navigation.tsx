@@ -1,5 +1,5 @@
 "use client";
-import { getStoryblokApi, storyblokEditable } from "@storyblok/react/rsc";
+import { storyblokEditable, getStoryblokApi } from "@storyblok/react";
 import Image from "next/image";
 import Link from "next/link";
 import { FC, useEffect, useRef, useState } from "react";

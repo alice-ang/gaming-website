@@ -1,8 +1,8 @@
 import { getLocaleDateString } from "@/lib/utils";
-import { getStoryblokApi } from "@storyblok/react/rsc";
 import { Metadata } from "next";
 import Image from "next/image";
 import { render } from "storyblok-rich-text-react-renderer";
+import { getStoryblokApi } from "@storyblok/react";
 
 type Props = {
   params: { slug: string };

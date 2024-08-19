@@ -1,10 +1,9 @@
-import { StoryblokComponent, storyblokEditable } from "@storyblok/react/rsc";
+import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
 import { FC, Suspense } from "react";
 import type {
   ButtonStoryblok,
   PageStoryblok,
   SocialLinksStoryblok,
-  SocialLinkStoryblok,
 } from "../../component-types-sb";
 
 export const Page: FC<{

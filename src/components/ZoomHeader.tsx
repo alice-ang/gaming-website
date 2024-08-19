@@ -1,6 +1,6 @@
 "use client";
 
-import { storyblokEditable } from "@storyblok/react/rsc";
+import { storyblokEditable } from "@storyblok/react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { FC, useRef } from "react";

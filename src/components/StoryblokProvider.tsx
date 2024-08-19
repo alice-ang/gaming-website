@@ -1,6 +1,7 @@
 "use client";
 
-import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
+import { storyblokInit, apiPlugin } from "@storyblok/react";
+
 import { PropsWithChildren } from "react";
 import { SectionItem } from "./SectionItem";
 import { KeyFeatures } from "./KeyFeatures";

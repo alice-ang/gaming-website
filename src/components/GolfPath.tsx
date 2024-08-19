@@ -1,7 +1,6 @@
 "use client";
 import React, { FC, useEffect, useRef } from "react";
 import { motion, useMotionValue, useScroll, useTransform } from "framer-motion";
-import { storyblokEditable } from "@storyblok/react/rsc";
 
 export const GolfPath: FC = () => {
   const ref = useRef(null);

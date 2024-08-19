@@ -5,7 +5,7 @@ import { FC, useRef } from "react";
 import { Constraints } from "./Constraints";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
-import { storyblokEditable } from "@storyblok/react/rsc";
+import { storyblokEditable } from "@storyblok/react";
 import type { FooterStoryblok } from "../../component-types-sb";
 import { render } from "storyblok-rich-text-react-renderer";
 import { cn } from "@/lib/utils";
@@ -24,7 +24,7 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
     <section className="relative overflow-hidden" {...storyblokEditable(blok)}>
       <Constraints>
         <div
-          className="grid grid-cols-12 items-center gap-16 xl:gap-24 relative section-padding"
+          className="grid grid-cols-12 items-center gap-6 xl:gap-24 relative section-padding"
           ref={ref}
         >
           <Image

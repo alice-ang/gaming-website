@@ -1,5 +1,4 @@
 // Import required modules and constants
-import { getStoryblokApi } from "@storyblok/react/rsc";
 import { ImageResponse } from "next/og";
 import { NextRequest } from "next/server";
 
