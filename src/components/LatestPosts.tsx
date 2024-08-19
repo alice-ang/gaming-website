@@ -1,6 +1,6 @@
 "use client";
-import { cn, getLocaleDateString } from "@/lib/utils";
-import { getStoryblokApi, storyblokEditable } from "@storyblok/react/rsc";
+import { cn } from "@/lib/utils";
+import { storyblokEditable, getStoryblokApi } from "@storyblok/react";
 import { Variants, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";

@@ -1,5 +1,5 @@
 "use client";
-import { getStoryblokApi, storyblokEditable } from "@storyblok/react/rsc";
+import { storyblokEditable, getStoryblokApi } from "@storyblok/react";
 import Image from "next/image";
 import Link from "next/link";
 import { FC, useEffect, useRef, useState } from "react";
@@ -134,7 +134,15 @@ export const Navigation: FC = () => {
                 </li>
               ))}
 
-              <Button>Play Demo</Button>
+              {nav.demo_link?.url && (
+                <Link
+                  passHref
+                  href={nav.demo_link.url}
+                  target={nav.demo_link.target}
+                >
+                  <Button>Play Demo</Button>
+                </Link>
+              )}
             </ul>
             <button
               className="block xl:hidden"
@@ -168,13 +176,32 @@ export const Navigation: FC = () => {
                 >
                   <Link
                     href={`/${item}`}
-                    passHref
                     className="text-4xl lg:text-5xl font-josefin_sans uppercase font-semibold"
                   >
                     {item}
                   </Link>
                 </motion.li>
               ))}
+
+              {nav.demo_link?.url && (
+                <motion.li
+                  variants={mobileNav}
+                  initial="offscreen"
+                  animate="onscreen"
+                  exit={"offscreen"}
+                  viewport={{ amount: 0.8, once: true }}
+                  custom={links.length + 1}
+                  onClick={() => setOpen(false)}
+                >
+                  <Link
+                    href={nav.demo_link.url}
+                    passHref
+                    className="text-4xl lg:text-5xl font-josefin_sans uppercase font-semibold"
+                  >
+                    Demo
+                  </Link>
+                </motion.li>
+              )}
             </ul>
           </motion.div>
         )}

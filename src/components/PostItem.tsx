@@ -1,5 +1,5 @@
 import { cn, getLocaleDateString } from "@/lib/utils";
-import { storyblokEditable } from "@storyblok/react/rsc";
+import { storyblokEditable } from "@storyblok/react";
 import Image from "next/image";
 import { FC } from "react";
 import type { BlogPostStoryblok } from "../../component-types-sb";

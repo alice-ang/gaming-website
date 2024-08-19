@@ -5,7 +5,7 @@ import { FC, useRef } from "react";
 import { Constraints } from "./Constraints";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
-import { storyblokEditable } from "@storyblok/react/rsc";
+import { storyblokEditable } from "@storyblok/react";
 import type { FooterStoryblok } from "../../component-types-sb";
 import { render } from "storyblok-rich-text-react-renderer";
 import { cn } from "@/lib/utils";
@@ -24,7 +24,7 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
     <section className="relative overflow-hidden" {...storyblokEditable(blok)}>
       <Constraints>
         <div
-          className="grid grid-cols-12 items-center gap-16 xl:gap-[130px] relative section-padding"
+          className="grid grid-cols-12 items-center gap-6 xl:gap-24 relative section-padding"
           ref={ref}
         >
           <Image
@@ -71,10 +71,8 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
           />
         </div>
       </Constraints>
-
       <footer className="relative bg-transparent">
         <div className="h-10 xl:h-44 footer-mask w-full bg-palette-footer bg-top object-top bg-cover" />
-
         <div className="bg-palette-footer p-4">
           <Constraints>
             <div className="space-y-16">
@@ -86,7 +84,7 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
               />
 
               <div className="flex flex-row items-start flex-wrap gap-4 justify-between">
-                <div className="flex-1 space-x-12 md:space-x-16 flex flex-row ">
+                <div className="flex-1 space-x-12 lg:space-x-16 flex flex-row ">
                   <div className="space-y-4 ">
                     <h6 className="overline-title">Follow us</h6>
                     <div>
@@ -95,7 +93,7 @@ export const Footer: FC<{ blok: FooterStoryblok }> = ({ blok }) => {
                       ))}
                     </div>
                   </div>
-                  <div className="space-y-4 ">
+                  <div className="space-y-4">
                     <h6 className="overline-title"> Office location</h6>
                     <p>
                       Kanikegränd 3B,

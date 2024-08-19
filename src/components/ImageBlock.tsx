@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import { ImageBlockStoryblok } from "../../component-types-sb";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { storyblokEditable } from "@storyblok/react/rsc";
+import { storyblokEditable } from "@storyblok/react";
 import { Constraints } from "./Constraints";
 
 const rotateBottomLeft = {

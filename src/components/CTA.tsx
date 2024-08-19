@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { ButtonStoryblok } from "../../component-types-sb";
 import { Button } from "./ui/button";
-import { storyblokEditable } from "@storyblok/react/rsc";
+import { storyblokEditable } from "@storyblok/react";
 import Link from "next/link";
 
 export const CTA: FC<{ blok: ButtonStoryblok }> = ({ blok }) => {

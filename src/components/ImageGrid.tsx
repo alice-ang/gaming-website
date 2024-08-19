@@ -1,17 +1,15 @@
 "use client";
 
-import { storyblokEditable } from "@storyblok/react/rsc";
+import { storyblokEditable } from "@storyblok/react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useCallback, useEffect, useRef, useState } from "react";
 import { ImageGridStoryblok } from "../../component-types-sb";
 import {
   Carousel,
   CarouselApi,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "./ui/carousel";
 import {
   DialogContent,
@@ -24,6 +22,7 @@ import {
 export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
   const ref = useRef(null);
   const [api, setApi] = useState<CarouselApi>();
+
   const [imageIdx, setImageIdx] = useState(0);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -31,16 +30,6 @@ export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
   });
 
   const peekY = useTransform(scrollYProgress, [0, 1], ["-50%", "-10%"]);
-
-  useEffect(() => {
-    if (!api) {
-      return;
-    }
-
-    api.on("select", () => {
-      setImageIdx(imageIdx + 1);
-    });
-  }, [api, blok.images.length, imageIdx]);
 
   return (
     <>
@@ -76,11 +65,7 @@ export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
               className="relative h-full w-full aspect-video col-span-1 bg-black overflow-hidden"
               key={index}
             >
-              <DialogTrigger
-                onClick={() => {
-                  setImageIdx(index);
-                }}
-              >
+              <DialogTrigger onClick={() => api?.scrollTo(index + 1)}>
                 <Image
                   src={image.filename}
                   fill
@@ -114,16 +99,14 @@ export const ImageGrid: FC<{ blok: ImageGridStoryblok }> = ({ blok }) => {
                 key={image.id}
               >
                 <Image
-                  src={blok.images[imageIdx].filename}
-                  alt={blok.images[imageIdx].alt ?? ""}
+                  src={image.filename}
+                  alt={image.alt ?? ""}
                   fill
                   className="absolute bottom-0 object-cover rounded-lg"
                 />
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
         </Carousel>
       </DialogContent>
     </>
