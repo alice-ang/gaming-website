@@ -16,7 +16,6 @@ export const SocialMedia: FC = () => {
         resolve_links: "url",
       });
 
-      console.log(data);
       // setBlok(data.story.content);
     };
 
@@ -26,7 +25,6 @@ export const SocialMedia: FC = () => {
   if (!blok) {
     return;
   }
-  console.log("blok");
   return (
     <div className="space-x-4" {...storyblokEditable(blok)}>
       {/* {blok?.socials &&

@@ -6,6 +6,9 @@ import { ThemeProvider } from "next-themes";
 import type { FooterStoryblok } from "../../component-types-sb";
 import { baskerville, josefin_sans, oswald } from "./fonts";
 import "./globals.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 const cachedFetch = (input: any, init?: any): Promise<Response> => {
   return fetch(input, {
@@ -31,30 +34,32 @@ export default async function RootLayout({
   const { blok }: { blok: FooterStoryblok } = await fetchData();
 
   return (
-    <StoryblokProvider>
-      <html lang="en" suppressHydrationWarning>
-        <body
-          className={`${oswald.variable} ${baskerville.variable} ${josefin_sans.variable}  `}
-        >
-          {/* <PreLoader /> */}
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
+    <QueryClientProvider client={queryClient}>
+      <StoryblokProvider>
+        <html lang="en" suppressHydrationWarning>
+          <body
+            className={`${oswald.variable} ${baskerville.variable} ${josefin_sans.variable}  `}
           >
-            <Dialog>
-              <Navigation />
+            {/* <PreLoader /> */}
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="dark"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <Dialog>
+                <Navigation />
 
-              {children}
+                {children}
 
-              <Footer blok={blok} />
-            </Dialog>
-            <Toaster />
-          </ThemeProvider>
-        </body>
-      </html>
-    </StoryblokProvider>
+                <Footer blok={blok} />
+              </Dialog>
+              <Toaster />
+            </ThemeProvider>
+          </body>
+        </html>
+      </StoryblokProvider>
+    </QueryClientProvider>
   );
 }
 
